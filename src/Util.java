@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.TreeSet;
 
@@ -37,7 +38,9 @@ public class Util {
         long i = 3;
         while (primeNums.size() < count) {
             boolean isPrime = true;
+            double loop = Math.sqrt((double)i);
             for (long primeNum : primeNums) {
+                if(primeNum > loop) break;
                 if (i % primeNum == 0) {
                     isPrime = false;
                     break;
@@ -61,7 +64,9 @@ public class Util {
         long i = 3;
         while (i < limit) {
             boolean isPrime = true;
+            double loop = Math.sqrt((double)i);
             for (long primeNum : primeNums) {
+                if(primeNum > loop) break;
                 if (i % primeNum == 0) {
                     isPrime = false;
                     break;
@@ -79,11 +84,54 @@ public class Util {
         return primeNums;
     }
 
+    public static TreeSet<Long> GetPrimeNumsByLimit(long start, long limit,
+                                                    TreeSet<Long> primeNums) {
+        long i = start;
+        while (i < limit) {
+            boolean isPrime = true;
+            double loop = Math.sqrt((double)i);
+            for (long primeNum : primeNums) {
+                if(primeNum > loop) break;
+                if (i % primeNum == 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+            if (isPrime) {
+                //System.out.print(" " + i);
+                primeNums.add(i);
+                /*if (primeNums.size() % 20 == 0) {
+                    System.out.println();
+                }*/
+            }
+            i = i + 2;
+        }
+        return primeNums;
+    }
     public static long sum(HashSet<Long> numbers) {
         long sum = 0;
         for(Long number : numbers){
             sum = sum + number;
         }
         return sum;
+    }
+
+    public static ArrayList<Integer> GetDigits(long num)
+    {
+        ArrayList<Integer> digits = new ArrayList<Integer>();
+        while(num > 0){
+            digits.add((int)(num%10));
+            num = num/10;
+        }
+        return digits;
+    }
+
+    public static boolean isPalindrome(long num) {
+        return isPalindrome(String.valueOf(num));
+    }
+
+    public static boolean isPalindrome(String num) {
+        StringBuilder s1 = new StringBuilder().append(num);
+        return s1.toString().equals(s1.reverse().toString());
     }
 }

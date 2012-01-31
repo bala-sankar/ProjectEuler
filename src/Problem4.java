@@ -15,16 +15,11 @@ public class Problem4 {
             for (int num2 = 999; num2 >= num1; num2--) {
                 long product = num1 * num2;
                 if (product <= max) break;
-                if (isPalindrome(product)) {
+                if (Util.isPalindrome(product)) {
                     max = product;
                 }
             }
         }
         return max;
-    }
-
-    private static boolean isPalindrome(long num) {
-        StringBuilder s1 = new StringBuilder().append(num);
-        return s1.toString().equals(s1.reverse().toString());
     }
 }
