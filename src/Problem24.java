@@ -8,13 +8,15 @@ import java.util.TreeSet;
  * Date: 12/16/11
  */
 public class Problem24 {
-    private static ArrayList<String> lexicographicPermutations  = new ArrayList<String>();
 
     public static void main(String[] args) {
+        long startTime = System.currentTimeMillis();
         System.out.println("Result is : " + Solution1());
+        System.out.println("Time = " + (System.currentTimeMillis() - startTime) / 1000.0);
     }
 
     private static String Solution1() {
+        ArrayList<String> lexicographicPermutations;
         ArrayList<Integer> numbers = new ArrayList<Integer>();
         numbers.add(0);
         numbers.add(1);
@@ -26,19 +28,7 @@ public class Problem24 {
         numbers.add(7);
         numbers.add(8);
         numbers.add(9);
-        permutation(numbers, "");
+        lexicographicPermutations = Util.GetPermutations(numbers, "");
         return lexicographicPermutations.get(999999);
-    }
-
-    private static void permutation(ArrayList<Integer> numbers, String num){
-        if(numbers.isEmpty()){
-            lexicographicPermutations.add(num);
-        }
-        for(int number : numbers){
-            ArrayList<Integer> temp = new ArrayList<Integer>();
-            temp.addAll(numbers);
-            temp.remove(new Integer(number));
-            permutation(temp, num + number);
-        }
     }
 }

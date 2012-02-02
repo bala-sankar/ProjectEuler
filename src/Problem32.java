@@ -6,7 +6,7 @@ import java.util.HashSet;
  * Date: 1/26/12
  */
 public class Problem32 {
-    private static final Integer ZERO = 0;
+
     private static HashSet<Integer> panDigitalProducts = new HashSet<Integer>();
     public static void main(String[] args) {
         long startTime = System.currentTimeMillis();
@@ -25,7 +25,7 @@ public class Problem32 {
                 {
                     int product = a * b;
                     String prod = multiplier + String.valueOf(product);
-                    if(prod.length() == 9 && GetUniqueDigitCount(prod) == 9)
+                    if(prod.length() == 9 && Util.GetUniqueDigitCount(prod) == 9)
                     {
                        //System.out.println(a + " * " + b + " = " + product);
                        panDigitalProducts.add(product);
@@ -40,20 +40,7 @@ public class Problem32 {
         return sum;
     }
 
-    private static int GetUniqueDigitCount(String num)
-    {
-        long number = Long.parseLong(num);
-        HashSet<Integer> uniqueDigits = new HashSet<Integer>();
-        while(number > 0){
-            uniqueDigits.add((int)(number%10));
-            number = number/10;
-        }
-        if(uniqueDigits.contains(ZERO))
-        {
-            uniqueDigits.remove(ZERO);
-        }
-        return uniqueDigits.size();
-    }
+
 
 
 }
