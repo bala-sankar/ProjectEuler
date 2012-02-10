@@ -72,15 +72,7 @@ public class Util {
                                                     TreeSet<Long> primeNums) {
         long i = start;
         while (i < limit) {
-            boolean isPrime = true;
-            double loop = Math.sqrt((double)i);
-            for (long primeNum : primeNums) {
-                if(primeNum > loop) break;
-                if (i % primeNum == 0) {
-                    isPrime = false;
-                    break;
-                }
-            }
+            boolean isPrime = isPrimeNumber(i, primeNums);
             if (isPrime) {
                 //System.out.print(" " + i);
                 primeNums.add(i);
@@ -92,6 +84,20 @@ public class Util {
         }
         return primeNums;
     }
+
+    public static boolean isPrimeNumber(long i, TreeSet<Long> primeNums) {
+        boolean isPrime = true;
+        double loop = Math.sqrt((double)i);
+        for (long primeNum : primeNums) {
+            if(primeNum > loop) break;
+            if (i % primeNum == 0) {
+                isPrime = false;
+                break;
+            }
+        }
+        return isPrime;
+    }
+
     public static long sum(HashSet<Long> numbers) {
         long sum = 0;
         for(Long number : numbers){
@@ -125,6 +131,12 @@ public class Util {
         return uniqueDigits.size();
     }
 
+    public static boolean isPanDigital(String num)
+    {
+        String pattern = "[1-"+num.length()+"]{"+ num.length() + "," + num.length()+"}";
+        return num.length() == GetUniqueDigitCount(num) && num.matches(pattern);
+    }
+
     public static boolean isPalindrome(long num) {
         return isPalindrome(String.valueOf(num));
     }
@@ -149,5 +161,13 @@ public class Util {
             temp.remove(new Integer(number));
             permutation(temp, num + number);
         }
+    }
+
+    public static TreeSet<Long> GetTrianglenumbersByCount(long count){
+        TreeSet<Long> triangleNums = new TreeSet<Long>();
+        for(long i = 1 ; i <= count ; i++){
+            triangleNums.add((i*(i+1))/2);
+        }
+        return triangleNums;
     }
 }
