@@ -146,8 +146,8 @@ public class Util {
         return s1.toString().equals(s1.reverse().toString());
     }
 
-    public static ArrayList<String> GetPermutations(ArrayList<Integer> numbers, String num){
-        permutation(numbers, num);
+    public static ArrayList<String> GetPermutations(ArrayList<Integer> numbers){
+        permutation(numbers, "");
         return permutations;
     }
 
@@ -163,11 +163,66 @@ public class Util {
         }
     }
 
-    public static TreeSet<Long> GetTrianglenumbersByCount(long count){
+    public static TreeSet<Long> GetTriangleNumbersByCount(long count){
         TreeSet<Long> triangleNums = new TreeSet<Long>();
         for(long i = 1 ; i <= count ; i++){
             triangleNums.add((i*(i+1))/2);
         }
         return triangleNums;
+    }
+
+    public static TreeSet<Long> GetPentagonalNumbersByCount(long count){
+        TreeSet<Long> nums = new TreeSet<Long>();
+        for(long i = 1 ; i <= count ; i++){
+            nums.add((i*(3*i-1))/2);
+        }
+        return nums;
+    }
+
+    public static TreeSet<Long> GetHexagonalNumbersByCount(long count){
+        TreeSet<Long> nums = new TreeSet<Long>();
+        for(long i = 1 ; i <= count ; i++){
+            nums.add(i*(2*i-1));
+        }
+        return nums;
+    }
+
+    public static boolean isPentagonalNumber(long num){
+        /*
+         * Formula derived from Pentagon number equation,
+         * 3n^2 - n -2*num = 0, it's a quadratic equation
+         * Hence by solving the quadratic formula we get,
+         * n = (1 (+/-) sqrt(1+ 24*num))/6
+         * Also, n should be a positive integer to be an pentagonal number
+         * Therefore, we consider only, n = (1 + sqrt(1+ 24*num))/6
+         */
+        double root = Math.sqrt(1+(24*(double)num));
+        return root == (double) (long) root && (1 + root) % 6 == 0;
+    }
+
+    public static boolean isTriangleNumber(long num){
+        /*
+         * Formula derived from Triangle number equation,
+         * n^2 + n - 2*num = 0, it's a quadratic equation
+         * Hence by solving the quadratic formula we get,
+         * n = (-1 (+/-) sqrt(1+ 8*num))/2
+         * Also, n should be a positive integer to be an pentagonal number
+         * Therefore, we consider only, n = (-1 + sqrt(1+ 8*num))/2
+         */
+        double root = Math.sqrt(1+(8*(double)num));
+        return root == (double) (long) root && (root - 1) % 2 == 0;
+    }
+
+    public static boolean isHexagonalNumber(long num){
+        /*
+         * Formula derived from Hexagonal number equation,
+         * 2n^2 - n - num = 0, it's a quadratic equation
+         * Hence by solving the quadratic formula we get,
+         * n = (1 (+/-) sqrt(1+ 8*num))/4
+         * Also, n should be a positive integer to be an pentagonal number
+         * Therefore, we consider only, n = (1 + sqrt(1+ 8*num))/4
+         */
+        double root = Math.sqrt(1+(8*(double)num));
+        return root == (double) (long) root && (1 + root) % 4 == 0;
     }
 }

@@ -1,9 +1,5 @@
-import sun.reflect.generics.tree.Tree;
-
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.TreeMap;
 
 /**
  * Created by IntelliJ IDEA.
@@ -21,7 +17,6 @@ public class Problem21 {
         for (int i=1; i<10000; i++){
             long sum;
             HashSet<Long> factors = Util.GetFactors(i);
-            boolean temp = factors.contains(new Long(i));
             factors.remove(new Long(i));
             sum = Util.sum(factors);
             factorSum.put(i, sum);

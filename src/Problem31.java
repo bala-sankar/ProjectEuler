@@ -33,7 +33,6 @@ public class Problem31 {
             int tempLimit = limit - currency;
             if(tempLimit == 0)
             {
-                String temp = combination + " " + currency;
                 //System.out.println(temp);
                 totalCombinations++;
             }

@@ -28,7 +28,7 @@ public class Problem24 {
         numbers.add(7);
         numbers.add(8);
         numbers.add(9);
-        lexicographicPermutations = Util.GetPermutations(numbers, "");
+        lexicographicPermutations = Util.GetPermutations(numbers);
         return lexicographicPermutations.get(999999);
     }
 }

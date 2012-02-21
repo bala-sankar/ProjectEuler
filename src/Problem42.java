@@ -1,7 +1,5 @@
 import java.io.*;
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.TreeMap;
 import java.util.TreeSet;
 
 /**
@@ -17,7 +15,7 @@ public class Problem42 {
     }
 
     public static long Solution1() {
-        TreeSet<Long> triangleNums = Util.GetTrianglenumbersByCount(1000);
+        TreeSet<Long> triangleNums = Util.GetTriangleNumbersByCount(1000);
         HashSet<String> triangleWords =  new HashSet<String>();
         FileInputStream fileStream;
         try {

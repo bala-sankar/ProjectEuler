@@ -28,7 +28,7 @@ public class Problem41 {
         numbers.add(8);
         numbers.add(9);
         while (numbers.size() > 0) {
-            lexicographicPermutations = Util.GetPermutations(numbers, "");
+            lexicographicPermutations = Util.GetPermutations(numbers);
             for (int i = (lexicographicPermutations.size() - 1); i >= 0; i--) {
                 long num = Long.parseLong(lexicographicPermutations.get(i));
                 if (Util.isPrimeNumber(num, primeNums)) {
