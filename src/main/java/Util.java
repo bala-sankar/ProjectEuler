@@ -33,20 +33,32 @@ public class Util {
         return factors;
     }
 
+    public static HashSet<Long> GetPrimeFactors(long number) {
+        int incr;
+        long limit;
+        HashSet<Long> factors = new HashSet<Long>();
+        if (number % 2 == 0) {
+            factors.add(2L);
+            incr = 1;
+            limit = number / 2;
+        } else {
+            incr = 2;
+            limit = number / 3;
+        }
+        for (long j = 3; j <= limit; j = j + incr) {
+            if (number % j == 0) {
+                factors.add(j);
+            }
+        }
+        return factors;
+    }
+
     public static TreeSet<Long> GetPrimeNumsByCount(long count) {
         TreeSet<Long> primeNums = new TreeSet<Long>();
         primeNums.add(2L);
         long i = 3;
         while (primeNums.size() < count) {
-            boolean isPrime = true;
-            double loop = Math.sqrt((double)i);
-            for (long primeNum : primeNums) {
-                if(primeNum > loop) break;
-                if (i % primeNum == 0) {
-                    isPrime = false;
-                    break;
-                }
-            }
+            boolean isPrime = isPrimeNumber(i, primeNums);
             if (isPrime) {
                 //System.out.print(" " + i);
                 primeNums.add(i);
@@ -96,6 +108,15 @@ public class Util {
             }
         }
         return isPrime;
+    }
+
+    public static boolean isPrimeNumber(long num){
+        double loop = Math.sqrt((double)num);
+        if(num!=2 && num%2==0) return false;
+        for (int i=3; i<=loop ; i++) {
+            if(num%i==0) return false;
+        }
+        return true;
     }
 
     public static long sum(HashSet<Long> numbers) {
