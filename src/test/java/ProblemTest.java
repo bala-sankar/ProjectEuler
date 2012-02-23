@@ -268,4 +268,40 @@ public class ProblemTest {
         long expected = 210;
         Assert.assertEquals(expected, Problem40.Solution1());
     }
+
+    @Test(timeout = 60000)
+    public void Problem41Test() {
+        long expected = 7652413;
+        Assert.assertEquals(expected, Problem41.Solution1());
+    }
+
+    @Test(timeout = 60000)
+    public void Problem42Test() {
+        long expected = 162;
+        Assert.assertEquals(expected, Problem42.Solution1());
+    }
+
+    @Test(timeout = 60000)
+    public void Problem43Test() {
+        long expected = 16695334890L;
+        Assert.assertEquals(expected, Problem43.Solution1());
+    }
+
+    @Test(timeout = 60000)
+    public void Problem44Test() {
+        long expected = 5482660;
+        Assert.assertEquals(expected, Problem44.Solution1());
+    }
+
+    @Test(timeout = 60000)
+    public void Problem45Test() {
+        long expected = 1533776805;
+        Assert.assertEquals(expected, Problem45.Solution1());
+    }
+
+    @Test(timeout = 60000)
+    public void Problem67Test() {
+        long expected = 7273;
+        Assert.assertEquals(expected, Problem67.Solution1());
+    }
 }

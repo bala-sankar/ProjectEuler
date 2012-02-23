@@ -25,8 +25,8 @@ public class Problem44 {
                 long sum = a + b;
                 long diff = a - b;
                 if(Util.isPentagonalNumber(sum) && Util.isPentagonalNumber(diff)){
-                    System.out.println(a+"\t"+b+"\t"+ sum+"\t"+ pentagonalNums.contains(sum));
-                    System.out.println(a+"\t"+b+"\t"+ diff+"\t"+pentagonalNums.contains(diff));
+                    //System.out.println(a+"\t"+b+"\t"+ sum+"\t"+ pentagonalNums.contains(sum));
+                    //System.out.println(a+"\t"+b+"\t"+ diff+"\t"+pentagonalNums.contains(diff));
                     return diff;
                 }
             }
