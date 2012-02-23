@@ -9,7 +9,7 @@ public class Problem6 {
         //System.out.println("Result is : " + Solution2());
     }
 
-    private static long Solution1() {
+    public static long Solution1() {
         int num = 100;
         return SquareOfSum(num) - SumOfSquares(num);
     }
@@ -19,14 +19,14 @@ public class Problem6 {
         for (int i = 1; i <= num; i++) {
             sum = sum + (i * i);
         }
-        System.out.println("SumOfSquares is : " + sum);
+        //System.out.println("SumOfSquares is : " + sum);
         return sum;
     }
 
     private static long SquareOfSum(int num) {
         long sum = ((num * (num + 1)) / 2);
         sum = sum * sum;
-        System.out.println("SquareOfSum is : " + sum);
+        //System.out.println("SquareOfSum is : " + sum);
         return sum;
     }
 }

@@ -11,7 +11,7 @@ public class Problem3 {
         System.out.println("Result is : " + Solution2());
     }
 
-    private static long Solution1() {
+    public static long Solution1() {
         long num = 600851475143L;
         //long num = 8;
         long limit = num / 2;
@@ -38,15 +38,15 @@ public class Problem3 {
                     num = num / i;
                     if (isResult(num, primeNums, primeFactors, i)) return i;
                 }
-                if (primeNums.size() % 20 == 0) {
+                /*if (primeNums.size() % 20 == 0) {
                     System.out.println();
-                }
+                }*/
             }
         }
         return 1;
     }
 
-    private static long Solution2() {
+    public static long Solution2() {
         long num = 600851475143L;
         //long num = 8;
         long lastFactor = 0;
@@ -80,7 +80,7 @@ public class Problem3 {
     }
 
     private static void processPrimeNumber(long num, TreeSet<Long> primeNums, TreeSet<Long> primeFactors, long i) {
-        System.out.print(" " + i);
+        //System.out.print(" " + i);
         primeNums.add(i);
         if (num % i == 0) {
             primeFactors.add(i);
@@ -88,16 +88,6 @@ public class Problem3 {
     }
 
     private static boolean isResult(long num, TreeSet<Long> primeNums, TreeSet<Long> primeFactors, long i) {
-        if (num < i) {
-            System.out.println();
-            System.out.println("Prime numbers count : " + primeNums.size());
-            for (Long primeFactor : primeFactors) {
-                System.out.print(" " + primeFactor);
-            }
-            System.out.println();
-            System.out.println("Prime factors count : " + primeFactors.size());
-            return true;
-        }
-        return false;
+        return num < i;
     }
 }

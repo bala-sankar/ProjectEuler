@@ -9,7 +9,7 @@ public class Problem1 {
         System.out.println("Result is : " + Solution2());
     }
 
-    private static long Solution2() {
+    public static long Solution2() {
         int n = 999;
         int nBy3 = (n / 3);
         int nBy5 = (n / 5);
@@ -18,7 +18,7 @@ public class Problem1 {
         return (3 * (nBy3 * (nBy3 + 1)) + 5 * (nBy5 * (nBy5 + 1)) - 15 * (nBy15 * (nBy15 + 1))) / 2;
     }
 
-    private static long Solution1() {
+    public static long Solution1() {
         long sum = 0;
         for (int i = 1; i < 1000; i++) {
             if ((i % 3 == 0) || (i % 5 == 0)) {

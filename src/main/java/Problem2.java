@@ -9,7 +9,7 @@ public class Problem2 {
         System.out.println("Result is : " + Solution2());
     }
 
-    private static long Solution1() {
+    public static long Solution1() {
         long i = 1, j = 1, k = 1, sum = 0;
         while (k <= 4000000) {
             if (k % 2 == 0) {
@@ -22,7 +22,7 @@ public class Problem2 {
         return sum;
     }
 
-    private static long Solution2() {
+    public static long Solution2() {
         long i = 1, j = 1, k, sum = 0;
         k = i + j;
         while (k <= 4000000) {

@@ -9,7 +9,7 @@ public class Problem8 {
         //System.out.println("Result is : " + Solution2());
     }
 
-    private static long Solution1() {
+    public static long Solution1() {
         StringBuilder s1 = new StringBuilder();
         s1.append("73167176531330624919225119674426574742355349194934" +
                 "96983520312774506326239578318016984801869478851843" +

@@ -11,7 +11,7 @@ public class Problem7 {
         //System.out.println("Result is : " + Solution2());
     }
 
-    private static long Solution1() {
+    public static long Solution1() {
         TreeSet<Long> primeNums = Util.GetPrimeNumsByCount(10001L);
         return primeNums.last();
     }

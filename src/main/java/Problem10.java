@@ -11,7 +11,7 @@ public class Problem10 {
         //System.out.println("Result is : " + Solution2());
     }
 
-    private static long Solution1() {
+    public static long Solution1() {
         TreeSet<Long> primeNums = new TreeSet<Long>();
         primeNums.add(2L);
         long i = 3;
@@ -29,12 +29,12 @@ public class Problem10 {
                 }
             }
             if (isPrime) {
-                System.out.print(" " + i);
+                //System.out.print(" " + i);
                 primeNums.add(i);
                 sum = sum + i;
-                if (primeNums.size() % 20 == 0) {
-                    System.out.println();
-                }
+                /*if (primeNums.size() % 20 == 0) {
+                    //System.out.println();
+                }*/
             }
 
             i = i + 2;
