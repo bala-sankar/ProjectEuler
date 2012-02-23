@@ -11,7 +11,7 @@ public class Problem31 {
         System.out.println("Result is : " + Solution1());
     }
 
-    private static long Solution1() {
+    public static long Solution1() {
         TreeSet<Integer> currencies = new TreeSet<Integer>();
         currencies.add(1);
         currencies.add(2);

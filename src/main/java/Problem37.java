@@ -19,7 +19,7 @@ public class Problem37 {
         long count = 0, sum = 0;
         for (long num : primeNums) {
             if (isTruncatablePrime(primeNums, num)) {
-                System.out.println(num);
+                //System.out.println(num);
                 sum = sum + num;
                 count++;
             }

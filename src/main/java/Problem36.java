@@ -1,7 +1,3 @@
-import sun.security.util.BitArray;
-
-import java.util.BitSet;
-
 /**
  * Created by IntelliJ IDEA.
  * User: bsankar
@@ -18,7 +14,7 @@ public class Problem36 {
         long sum = 0;
         for(long num = 1 ; num < 1000000; num++){
             if(Util.isPalindrome(num) && Util.isPalindrome(Long.toBinaryString(num))){
-                System.out.println(num +"\t"+ Long.toBinaryString(num));
+                //System.out.println(num +"\t"+ Long.toBinaryString(num));
                 sum = sum + num;
             }
         }

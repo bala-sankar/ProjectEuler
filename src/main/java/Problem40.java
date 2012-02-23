@@ -35,9 +35,8 @@ public class Problem40 {
                     int offsetNum = offsetPos/digits;
                     int digitToConsider = offsetPos%digits;
                     int num = curStartNum + offsetNum;
-                    int digit =  Integer.valueOf(String.valueOf(String.valueOf(num).charAt(digitToConsider)));
-                    System.out.println(n+"\t"+ digit + "\t" + num);
-                    return digit;
+                    //System.out.println(n+"\t"+ digit + "\t" + num);
+                    return Integer.valueOf(String.valueOf(String.valueOf(num).charAt(digitToConsider)));
                 }
             }
             digits++;

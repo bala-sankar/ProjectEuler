@@ -12,7 +12,7 @@ public class Problem33 {
         System.out.println("Time = " + (System.currentTimeMillis() - startTime) / 1000.0);
     }
 
-    private static long Solution1() {
+    public static long Solution1() {
         HashMap<Integer, Integer> unorthodoxFractions = new HashMap<Integer, Integer>();
         for (int a = 11; a < 50; a++) {
             int aOnesDigit = getOnesDigit(a);
@@ -27,22 +27,22 @@ public class Problem33 {
                 {
                     if(fraction == ((double)aTensDigit/(double)bTensDigit)){
                         unorthodoxFractions.put(a,b);
-                        System.out.println(a +"\t" + b);
+                        //System.out.println(a +"\t" + b);
                     }
                 } else if(bOnesDigit == aTensDigit){
                     if(fraction == ((double)aOnesDigit/(double)bTensDigit)){
                         unorthodoxFractions.put(a,b);
-                        System.out.println(a +"\t" + b);
+                        //System.out.println(a +"\t" + b);
                     }
                 } else if(bTensDigit == aOnesDigit){
                     if(fraction == ((double)aTensDigit/(double)bOnesDigit)){
                         unorthodoxFractions.put(a,b);
-                        System.out.println(a +"\t" + b);
+                        //System.out.println(a +"\t" + b);
                     }
                 } else if(bTensDigit == aTensDigit){
                     if(fraction == ((double)aOnesDigit/(double)bOnesDigit)){
                         unorthodoxFractions.put(a,b);
-                        System.out.println(a +"\t" + b);
+                        //System.out.println(a +"\t" + b);
                     }
                 }
             }

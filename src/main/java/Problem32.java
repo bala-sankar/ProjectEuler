@@ -14,7 +14,7 @@ public class Problem32 {
         System.out.println("Time = "+(System.currentTimeMillis()-startTime)/1000.0);
     }
 
-    private static long Solution1() {
+    public static long Solution1() {
         int sum = 0;
 
         for(int a = 100; a < 10000 ; a++){

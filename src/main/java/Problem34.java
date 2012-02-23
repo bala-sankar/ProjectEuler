@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
 
 /**
  * Created by IntelliJ IDEA.
@@ -17,7 +16,7 @@ public class Problem34 {
         System.out.println("Time = " + (System.currentTimeMillis() - startTime) / 1000.0);
     }
 
-    private static long Solution1() {
+    public static long Solution1() {
         HashMap<Integer,Integer> factorials = new HashMap<Integer, Integer>();
         HashSet<Integer> allowedDigits = new HashSet<Integer>();
         long total = 0;
@@ -27,7 +26,7 @@ public class Problem34 {
             product = product*i;
             //sum = sum + product;
             factorials.put(i, product);
-            System.out.println(i +"\t"+ product);
+            //System.out.println(i +"\t"+ product);
         }
 
         long start = 11, limit;
@@ -55,7 +54,7 @@ public class Problem34 {
                 if(sum == j)
                 {
                     total = total + sum;
-                    System.out.println(j);
+                    //System.out.println(j);
                 }
             }
             if(i < 10)
