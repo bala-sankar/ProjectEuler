@@ -246,4 +246,35 @@ public class Util {
         double root = Math.sqrt(1+(8*(double)num));
         return root == (double) (long) root && (1 + root) % 4 == 0;
     }
+
+     public static long maxSumPath(int[] triangle) {
+        long max = 0;
+        int level = 0;
+        int start, end, nodes;
+        int nodesProcessed = 0;
+
+        while (nodesProcessed < triangle.length) {
+            start = (level * (level + 1)) / 2;
+            end = start + level;
+            nodes = end - start + 1;
+            for (int i = start; i <= end; i++) {
+                int temp1, temp2;
+                temp1 = temp2 = triangle[i];
+                if (i != start) {
+                    temp1 = triangle[i] + triangle[i - nodes];
+                }
+                if (i != end) {
+                    temp2 = triangle[i] + triangle[i - nodes + 1];
+                }
+                triangle[i] = temp1 > temp2 ? temp1 : temp2;
+                if (max < triangle[i]) {
+                    max = triangle[i];
+                }
+            }
+            level++;
+            nodesProcessed = (level * (level + 1)) / 2;
+        }
+
+        return max;
+    }
 }

@@ -10,7 +10,7 @@ public class Problem17 {
         System.out.println("Result is : " + Solution1());
     }
 
-    private static long Solution1() {
+    public static long Solution1() {
         HashMap<Integer, Integer> number = new HashMap<Integer, Integer>();
         //seed
         number.put(1, "one".length());

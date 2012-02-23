@@ -10,7 +10,7 @@ public class Problem16 {
         System.out.println("Result is : " + Solution1());
     }
 
-    private static long Solution1() {
+    public static long Solution1() {
         String number = BigInteger.ONE.shiftLeft(1000).toString();
         long sum = 0;
         for (int i = 0; i < number.length(); i++) {

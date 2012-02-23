@@ -10,7 +10,7 @@ public class Problem15 {
         System.out.println("Result is : " + Solution1());
     }
 
-    private static long Solution1() {
+    public static long Solution1() {
         //start from 0,0
         route(0, 0);
         return routes;

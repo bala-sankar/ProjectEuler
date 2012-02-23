@@ -10,10 +10,10 @@ public class Problem14 {
         System.out.println("Result is : " + Solution1());
     }
 
-    private static long Solution1() {
+    public static long Solution1() {
         HashMap<Long, Long> func = new HashMap<Long, Long>();
         long maxChain = 0;
-
+        long numWithMaxChain = 0;
         for (long i = 1; i < 1000000; i++) {
             long curVal = i, chain = 1;
             while (curVal != 1) {
@@ -24,11 +24,12 @@ public class Problem14 {
                 chain++;
             }
             if (chain > maxChain) {
-                System.out.println("New max chain; " + i + "\t" + chain);
+                //System.out.println("New max chain; " + i + "\t" + chain);
                 maxChain = chain;
+                numWithMaxChain = i;
             }
         }
-        return maxChain;
+        return numWithMaxChain;
     }
 
     private static void putVal(HashMap<Long, Long> func, long i) {

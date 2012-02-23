@@ -10,7 +10,7 @@ public class Problem20 {
         System.out.println("Result is : " + Solution1());
     }
 
-    private static long Solution1() {
+    public static long Solution1() {
         BigInteger factorial = new BigInteger("1");
         for(int i=100; i> 0; i--){
             factorial = factorial.multiply(new BigInteger(Integer.toString(i)));

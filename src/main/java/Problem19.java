@@ -8,7 +8,7 @@ public class Problem19 {
         System.out.println("Result is : " + Solution1());
     }
 
-    private static long Solution1() {
+    public static long Solution1() {
         /*
          * Assumption
          * 0 => "Sunday",

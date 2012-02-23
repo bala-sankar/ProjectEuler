@@ -1,4 +1,5 @@
 import java.util.HashSet;
+import java.util.TreeSet;
 
 /**
  * Created by IntelliJ IDEA.
@@ -10,21 +11,16 @@ public class Problem12 {
         System.out.println("Result is : " + Solution1());
     }
 
-    private static long Solution1() {
-        long i = 1000;
-        long triangleNum = (i * (i + 1)) / 2;
-        while (true) {
-            i++;
-            triangleNum = triangleNum + i;
+    public static long Solution1() {
+        TreeSet<Long> triangleNums = Util.GetTriangleNumbersByCount(100000);
+        //long triangleNum = (i * (i + 1)) / 2;
+        for(long triangleNum : triangleNums){
             HashSet<Long> factors = Util.GetFactors(triangleNum);
-            System.out.println(i + "\t" + triangleNum + "\t" + factors.size());
+            //System.out.println(i + "\t" + triangleNum + "\t" + factors.size());
             if (factors.size() > 500) {
-                break;
+                return triangleNum;
             }
         }
-        return triangleNum;
+        return 0;
     }
-
-    //Optimize
-
 }

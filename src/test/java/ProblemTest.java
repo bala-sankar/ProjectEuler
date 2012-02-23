@@ -1,8 +1,5 @@
 import junit.framework.Assert;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
+import org.junit.*;
 import org.junit.rules.TestName;
 
 /**
@@ -88,5 +85,67 @@ public class ProblemTest {
     public void Problem10Test() {
         long expected = 142913828922L;
         Assert.assertEquals(expected, Problem10.Solution1());
+    }
+
+    @Test(timeout = 60000)
+    public void Problem11Test() {
+        long expected = 70600674;
+        Assert.assertEquals(expected, Problem11.Solution1());
+    }
+
+    @Ignore
+    @Test(timeout = 60000)
+    public void Problem12Test() {
+        long expected = 76576500;
+        Assert.assertEquals(expected, Problem12.Solution1());
+    }
+
+    @Test(timeout = 60000)
+    public void Problem13Test() {
+        String expected = "5537376230";
+        Assert.assertEquals(expected, Problem13.Solution1());
+    }
+
+    @Test(timeout = 60000)
+    public void Problem14Test() {
+        long expected = 837799;
+        Assert.assertEquals(expected, Problem14.Solution1());
+    }
+
+    @Ignore
+    @Test(timeout = 60000)
+    public void Problem15Test() {
+        long expected = 137846528820L;
+        Assert.assertEquals(expected, Problem15.Solution1());
+    }
+
+    @Test(timeout = 60000)
+    public void Problem16Test() {
+        long expected = 1366;
+        Assert.assertEquals(expected, Problem16.Solution1());
+    }
+
+    @Test(timeout = 60000)
+    public void Problem17Test() {
+        long expected = 21124;
+        Assert.assertEquals(expected, Problem17.Solution1());
+    }
+
+    @Test(timeout = 60000)
+    public void Problem18Test() {
+        long expected = 1074;
+        Assert.assertEquals(expected, Problem18.Solution1());
+    }
+
+    @Test(timeout = 60000)
+    public void Problem19Test() {
+        long expected = 171;
+        Assert.assertEquals(expected, Problem19.Solution1());
+    }
+
+    @Test(timeout = 60000)
+    public void Problem20Test() {
+        long expected = 648;
+        Assert.assertEquals(expected, Problem20.Solution1());
     }
 }
