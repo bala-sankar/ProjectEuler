@@ -1,4 +1,3 @@
-import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.HashSet;
 
@@ -12,7 +11,7 @@ public class Problem29 {
         System.out.println("Result is : " + Solution1());
     }
 
-    private static long Solution1() {
+    public static long Solution1() {
         HashSet<String> distinctNums = new HashSet<String>();
         for(int a = 2; a <= 100; a++)
         {

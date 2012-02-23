@@ -1,5 +1,4 @@
 import java.util.HashSet;
-import java.util.TreeMap;
 import java.util.TreeSet;
 
 /**
@@ -12,7 +11,7 @@ public class Problem23 {
         System.out.println("Result is : " + Solution1());
     }
 
-    private static long Solution1() {
+    public static long Solution1() {
         //find all the abundant numbers till 100
         TreeSet<Integer> abundantNumbers  = new TreeSet<Integer>();
         for(int i=1; i<=28123; i++){

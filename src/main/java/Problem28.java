@@ -8,7 +8,7 @@ public class Problem28 {
         System.out.println("Result is : " + Solution1());
     }
 
-    private static long Solution1() {
+    public static long Solution1() {
         long sum = 0;
         for (long i = 1001; i > 1 ; i=i-2)
         {

@@ -1,5 +1,3 @@
-import sun.security.krb5.internal.ccache.FileCCacheConstants;
-
 import java.math.BigInteger;
 
 /**
@@ -12,7 +10,7 @@ public class Problem25 {
         System.out.println("Result is : " + Solution1());
     }
 
-    private static long Solution1() {
+    public static long Solution1() {
         return fibonacci();
     }
 

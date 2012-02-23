@@ -1,6 +1,4 @@
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.TreeSet;
 
 /**
  * Created by IntelliJ IDEA.
@@ -15,7 +13,7 @@ public class Problem24 {
         System.out.println("Time = " + (System.currentTimeMillis() - startTime) / 1000.0);
     }
 
-    private static String Solution1() {
+    public static String Solution1() {
         ArrayList<String> lexicographicPermutations;
         ArrayList<Integer> numbers = new ArrayList<Integer>();
         numbers.add(0);

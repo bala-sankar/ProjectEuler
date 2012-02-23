@@ -148,4 +148,64 @@ public class ProblemTest {
         long expected = 648;
         Assert.assertEquals(expected, Problem20.Solution1());
     }
+
+    @Test(timeout = 60000)
+    public void Problem21Test() {
+        long expected = 31626;
+        Assert.assertEquals(expected, Problem21.Solution1());
+    }
+
+    @Test(timeout = 60000)
+    public void Problem22Test() {
+        long expected = 871198282;
+        Assert.assertEquals(expected, Problem22.Solution1());
+    }
+
+    @Test(timeout = 60000)
+    public void Problem23Test() {
+        long expected = 4179871;
+        Assert.assertEquals(expected, Problem23.Solution1());
+    }
+
+    @Test(timeout = 60000)
+    public void Problem24Test() {
+        String expected = "2783915460";
+        Assert.assertEquals(expected, Problem24.Solution1());
+    }
+
+    @Test(timeout = 60000)
+    public void Problem25Test() {
+        long expected = 4782;
+        Assert.assertEquals(expected, Problem25.Solution1());
+    }
+
+    @Test(timeout = 60000)
+    public void Problem26Test() {
+        long expected = 983;
+        Assert.assertEquals(expected, Problem26.Solution1());
+    }
+
+    @Test(timeout = 60000)
+    public void Problem27Test() {
+        long expected = -59231;
+        Assert.assertEquals(expected, Problem27.Solution1());
+    }
+
+    @Test(timeout = 60000)
+    public void Problem28Test() {
+        long expected = 669171001;
+        Assert.assertEquals(expected, Problem28.Solution1());
+    }
+
+    @Test(timeout = 60000)
+    public void Problem29Test() {
+        long expected = 9183;
+        Assert.assertEquals(expected, Problem29.Solution1());
+    }
+
+    @Test(timeout = 60000)
+    public void Problem30Test() {
+        long expected = 443839;
+        Assert.assertEquals(expected, Problem30.Solution1());
+    }
 }

@@ -11,7 +11,7 @@ public class Problem21 {
         System.out.println("Result is : " + Solution1());
     }
 
-    private static long Solution1() {
+    public static long Solution1() {
         HashMap<Integer,Long> factorSum = new HashMap<Integer, Long>();
         long pairSum = 0;
         for (int i=1; i<10000; i++){

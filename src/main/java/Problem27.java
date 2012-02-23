@@ -1,4 +1,3 @@
-import java.util.HashSet;
 import java.util.TreeSet;
 
 /**
@@ -11,7 +10,7 @@ public class Problem27 {
         System.out.println("Result is : " + Solution1());
     }
 
-    private static long Solution1() {
+    public static long Solution1() {
         //Load list of prime numbers under 1000
         TreeSet<Long> bList =  Util.GetPrimeNumsByLimit(1000L);
         //Performance - Assumption : prime number generated falls under first 10,000 prime numbers
@@ -44,7 +43,7 @@ public class Problem27 {
                 }
             }
         }
-        System.out.println("a="+coeff_1+";b="+coeff_2+";count="+maxcount);
+        //System.out.println("a="+coeff_1+";b="+coeff_2+";count="+maxcount);
         return (coeff_1*coeff_2);
     }
 }

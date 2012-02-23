@@ -1,5 +1,3 @@
-import org.omg.CORBA.CharHolder;
-
 import java.io.*;
 import java.util.TreeMap;
 
@@ -13,7 +11,7 @@ public class Problem22 {
         System.out.println("Result is : " + Solution1());
     }
 
-    private static long Solution1() {
+    public static long Solution1() {
         long OverallScore = 0;
         try{
 

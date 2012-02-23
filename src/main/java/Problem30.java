@@ -10,7 +10,7 @@ public class Problem30 {
         System.out.println("Result is : " + Solution1());
     }
 
-    private static long Solution1() {
+    public static long Solution1() {
         HashMap<Long,Long> digitPow = new HashMap<Long, Long>();
         long result = 0;
         for(long i = 0; i < 10 ; i++)
@@ -36,7 +36,7 @@ public class Problem30 {
             if(sum == j)
             {
                 result = result + sum;
-                System.out.println(j);
+                //System.out.println(j);
             }
         }
         return result;

@@ -11,24 +11,22 @@ public class Problem26 {
         System.out.println("Result is : " + Solution1());
     }
 
-    private static int Solution1() {
+    public static int Solution1() {
        String maxLenRecurringCycle = "";
        int d = 0;
-       String dnum = "";
        for(int i = 2; i<1000; i++)
        {
            BigDecimal fraction = BigDecimal.ONE.divide(new BigDecimal(i), 3000, BigDecimal.ROUND_DOWN);
            String num = fraction.stripTrailingZeros().toString().substring(2);
            String recurringCycle =  RecurringCycle(num);
-           System.out.println(i + "\t" + num + "\t" + recurringCycle);
+           //System.out.println(i + "\t" + num + "\t" + recurringCycle);
            if(maxLenRecurringCycle.length() < recurringCycle.length()){
                maxLenRecurringCycle= recurringCycle;
                d = i;
-               dnum = num;
            }
        }
 
-      System.out.println("Max recurring cycle - "+ d + "\t" + dnum + "\t" + maxLenRecurringCycle);
+      //System.out.println("Max recurring cycle - "+ d + "\t" + dnum + "\t" + maxLenRecurringCycle);
       return d;
     }
 
