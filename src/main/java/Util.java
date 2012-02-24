@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.TreeSet;
 
@@ -33,21 +34,22 @@ public class Util {
         return factors;
     }
 
-    public static HashSet<Long> GetPrimeFactors(long number) {
-        int incr;
+    public static HashMap<Long, Long> GetPrimeFactorsWithExponent(long number, TreeSet<Long> primeNums) {
         long limit;
-        HashSet<Long> factors = new HashSet<Long>();
+        HashMap<Long, Long> factors = new HashMap<Long, Long>();
         if (number % 2 == 0) {
-            factors.add(2L);
-            incr = 1;
             limit = number / 2;
         } else {
-            incr = 2;
             limit = number / 3;
         }
-        for (long j = 3; j <= limit; j = j + incr) {
-            if (number % j == 0) {
-                factors.add(j);
+        for(long primeNum : primeNums){
+            while(primeNum < limit && number % primeNum == 0){
+                if(factors.containsKey(primeNum)){
+                    factors.put(primeNum, factors.get(new Long(primeNum)) + 1);
+                } else {
+                    factors.put(primeNum, 1L);
+                }
+                number = number/primeNum;
             }
         }
         return factors;

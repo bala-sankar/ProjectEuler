@@ -93,11 +93,10 @@ public class ProblemTest {
         Assert.assertEquals(expected, Problem11.Solution1());
     }
 
-    @Ignore
     @Test(timeout = 60000)
     public void Problem12Test() {
         long expected = 76576500;
-        Assert.assertEquals(expected, Problem12.Solution1());
+        Assert.assertEquals(expected, Problem12.Solution2());
     }
 
     @Test(timeout = 60000)
