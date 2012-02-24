@@ -43,7 +43,7 @@ public class Util {
             limit = number / 3;
         }
         for(long primeNum : primeNums){
-            while(primeNum < limit && number % primeNum == 0){
+            while(primeNum <= limit && number % primeNum == 0){
                 if(factors.containsKey(primeNum)){
                     factors.put(primeNum, factors.get(new Long(primeNum)) + 1);
                 } else {
@@ -170,6 +170,7 @@ public class Util {
     }
 
     public static ArrayList<String> GetPermutations(ArrayList<Integer> numbers){
+        permutations = new ArrayList<String>();
         permutation(numbers, "");
         return permutations;
     }
