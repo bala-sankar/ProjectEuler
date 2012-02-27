@@ -20,7 +20,7 @@ public class Problem49 {
         for(long primeNum :  primeNums){
             if(primeNum > 999){
                 HashSet<String> permutations = new HashSet<String>();
-                ArrayList<Integer> digits = Util.GetDigits(primeNum);
+                ArrayList<String> digits = Util.GetDigitsString(primeNum);
                 ArrayList<String> permutationList = Util.GetPermutations(digits);
                 permutations.addAll(permutationList);
                 long count = 0;

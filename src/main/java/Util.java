@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.TreeSet;
+import java.util.*;
 
 /**
  * Created by IntelliJ IDEA.
@@ -139,6 +136,16 @@ public class Util {
         return digits;
     }
 
+    public static ArrayList<String> GetDigitsString(long num)
+    {
+        ArrayList<String> digits = new ArrayList<String>();
+        while(num > 0){
+            digits.add(String.valueOf((int)(num%10)));
+            num = num/10;
+        }
+        return digits;
+    }
+
     public static int GetUniqueDigitCount(String num)
     {
         long number = Long.parseLong(num);
@@ -169,20 +176,19 @@ public class Util {
         return s1.toString().equals(s1.reverse().toString());
     }
 
-    public static ArrayList<String> GetPermutations(ArrayList<Integer> numbers){
+    public static ArrayList<String> GetPermutations(ArrayList<String> numbers){
         permutations = new ArrayList<String>();
         permutation(numbers, "");
         return permutations;
     }
-
-    private static void permutation(ArrayList<Integer> numbers, String num){
+    private static void permutation(ArrayList<String> numbers, String num){
         if(numbers.isEmpty()){
             permutations.add(num);
         }
-        for(int number : numbers){
-            ArrayList<Integer> temp = new ArrayList<Integer>();
+        for(String number : numbers){
+            ArrayList<String> temp = new ArrayList<String>();
             temp.addAll(numbers);
-            temp.remove(new Integer(number));
+            temp.remove(number);
             permutation(temp, num + number);
         }
     }
