@@ -7,7 +7,7 @@ import java.util.*;
  */
 public class Util {
     private static final Integer ZERO = 0;
-    private static ArrayList<String> permutations = new ArrayList<String>();
+
     //Optimize the GetFactors algorithm
     public static HashSet<Long> GetFactors(long number) {
         int incr;
@@ -140,7 +140,7 @@ public class Util {
     {
         ArrayList<String> digits = new ArrayList<String>();
         while(num > 0){
-            digits.add(String.valueOf((int)(num%10)));
+            digits.add(String.valueOf((int) (num % 10)));
             num = num/10;
         }
         return digits;
@@ -177,22 +177,61 @@ public class Util {
     }
 
     public static ArrayList<String> GetPermutations(ArrayList<String> numbers){
-        permutations = new ArrayList<String>();
-        permutation(numbers, "");
+        return GetPermutations(numbers, numbers.size());
+    }
+
+    public static ArrayList<String> GetPermutations(ArrayList<String> numbers, int length){
+        ArrayList<String> permutations = new ArrayList<String>();
+        permutation(numbers, "", permutations, length);
         return permutations;
     }
-    private static void permutation(ArrayList<String> numbers, String num){
-        if(numbers.isEmpty()){
+
+    public static ArrayList<String> GetPermutationsWithRepetition(ArrayList<String> numbers, int length){
+        ArrayList<String> permutations = new ArrayList<String>();
+        permutationWithRepetition(numbers, "", permutations, length);
+        return permutations;
+    }
+
+    protected static void permutation(ArrayList<String> numbers, String num,
+                                    ArrayList<String> permutations, int length){
+        if(num.length() == length){
             permutations.add(num);
+            return;
         }
         for(String number : numbers){
             ArrayList<String> temp = new ArrayList<String>();
             temp.addAll(numbers);
             temp.remove(number);
-            permutation(temp, num + number);
+            permutation(temp, num + number, permutations, length);
         }
     }
 
+    protected static void permutationWithRepetition(ArrayList<String> numbers, String num,
+                                                  ArrayList<String> permutations, int length){
+        if(num.length() == length){
+            permutations.add(num);
+            return;
+        }
+        for(String number : numbers){
+            permutationWithRepetition(numbers, num + number, permutations, length);
+        }
+    }
+
+    /*public static ArrayList<String> GetCombination(ArrayList<String> numbers, int length){
+        ArrayList<String> combinations = new ArrayList<String>();
+        ArrayList<String> temp = new ArrayList<String>();
+        temp.addAll(numbers);
+        StringBuilder combination = new StringBuilder();
+        for(String number : numbers){
+            temp.remove(number);
+            for(String num : temp){
+                combination.append(num);
+                if(combination.length()==length){
+                    combinations.add(combination.toString());
+                }
+            }
+        }
+    }*/
     public static TreeSet<Long> GetTriangleNumbersByCount(long count){
         TreeSet<Long> triangleNums = new TreeSet<Long>();
         for(long i = 1 ; i <= count ; i++){
