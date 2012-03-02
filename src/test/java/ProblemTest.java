@@ -1,3 +1,4 @@
+import Problems.*;
 import junit.framework.Assert;
 import org.junit.*;
 import org.junit.rules.TestName;
@@ -111,7 +112,6 @@ public class ProblemTest {
         Assert.assertEquals(expected, Problem14.Solution1());
     }
 
-    @Ignore
     @Test(timeout = 60000)
     public void Problem15Test() {
         long expected = 137846528820L;
@@ -340,6 +340,11 @@ public class ProblemTest {
         Assert.assertEquals(expected, Problem52.Solution1());
     }
 
+    @Test(timeout = 60000)
+    public void Problem53Test() {
+        long expected = 4075;
+        Assert.assertEquals(expected, Problem53.Solution1());
+    }
 
     @Test(timeout = 60000)
     public void Problem67Test() {
