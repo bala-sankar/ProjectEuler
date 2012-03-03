@@ -35,11 +35,11 @@ public class CardPack {
             this.suit = suit;
         }
 
-        public CardValue GetCardValue(){
+        public CardValue GetCardValue() {
             return this.value;
         }
 
-        public CardSuit GetCardSuit(){
+        public CardSuit GetCardSuit() {
             return this.suit;
         }
     }

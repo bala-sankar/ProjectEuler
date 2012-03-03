@@ -36,8 +36,7 @@ public enum CardValue {
         return this.value;
     }
 
-    /*
-    * public static CardValue GetCardByValue(int value) {
+    public static CardValue GetCardValueByValue(int value) {
         switch (value) {
             case 2:
                 return TWO;
@@ -67,5 +66,10 @@ public enum CardValue {
                 return ACE;
         }
         return null;
-    }*/
+    }
+
+    /*public static boolean isSequentialCardValues(HashSet<CardValue> values){
+        if(values.size() < 5) return false;
+    }
+*/
 }
