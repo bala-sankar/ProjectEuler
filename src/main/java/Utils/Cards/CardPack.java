@@ -10,10 +10,7 @@ import java.util.TreeMap;
 public class CardPack {
     private TreeMap<String, Card> pack;
 
-    private CardPack() {
-    }
-
-    public TreeMap<String, Card> GetPack() {
+    public CardPack() {
         if (pack == null) {
             pack = new TreeMap<String, Card>();
             for (CardSuit suit : CardSuit.values()) {
@@ -23,6 +20,9 @@ public class CardPack {
                 }
             }
         }
+    }
+
+    public TreeMap<String, Card> GetMap(){
         return pack;
     }
 

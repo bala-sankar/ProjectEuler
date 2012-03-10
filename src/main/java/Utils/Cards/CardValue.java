@@ -1,5 +1,8 @@
 package Utils.Cards;
 
+import java.util.HashSet;
+import java.util.TreeSet;
+
 /**
  * Created by IntelliJ IDEA.
  * User: bsankar
@@ -68,8 +71,14 @@ public enum CardValue {
         return null;
     }
 
-    /*public static boolean isSequentialCardValues(HashSet<CardValue> values){
+    public static boolean isSequentialCardValues(HashSet<CardValue> values){
         if(values.size() < 5) return false;
+        TreeSet<Integer> cardValues  =  new TreeSet<Integer>();
+        for(CardValue value : values){
+            cardValues.add(value.GetValue());
+        }
+        int first = cardValues.first();
+        int last = first + 4;
+        return (cardValues.last() == last && cardValues.size()==5);
     }
-*/
 }

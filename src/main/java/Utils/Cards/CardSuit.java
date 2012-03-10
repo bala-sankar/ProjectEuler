@@ -8,7 +8,7 @@ package Utils.Cards;
 public enum CardSuit {
     SPADE('S'),
     CLUB('C'),
-    DIAMOND('J'),
+    DIAMOND('D'),
     HEART('H');
 
     private final char symbol;
