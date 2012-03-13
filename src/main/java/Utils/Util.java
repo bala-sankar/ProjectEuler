@@ -84,6 +84,10 @@ public class Util {
     public static TreeSet<Long> GetPrimeNumsByLimit(long start, long limit,
                                                     TreeSet<Long> primeNums) {
         long i = start;
+        if(i==2 && i < limit){
+            primeNums.add(2L);
+        }
+        if(i%2 ==0) i++;
         while (i < limit) {
             boolean isPrime = isPrimeNumber(i, primeNums);
             if (isPrime) {
@@ -163,11 +167,11 @@ public class Util {
         return uniqueDigits.size();
     }
 
-    public static boolean isPanDigital(String num)
+    /*public static boolean isPanDigital(String num)
     {
         String pattern = "[1-"+num.length()+"]{"+ num.length() + "," + num.length()+"}";
         return num.length() == GetUniqueDigitCount(num) && num.matches(pattern);
-    }
+    }*/
 
     public static boolean isPalindrome(long num) {
         return isPalindrome(String.valueOf(num));

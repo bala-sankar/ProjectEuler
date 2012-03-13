@@ -360,6 +360,18 @@ public class ProblemTest {
     }
 
     @Test(timeout = 60000)
+    public void Problem56Test() {
+        long expected = 972;
+        Assert.assertEquals(expected, Problem56.Solution1());
+    }
+
+    @Test(timeout = 60000)
+    public void Problem57Test() {
+        long expected = 153;
+        Assert.assertEquals(expected, Problem57.Solution1());
+    }
+
+    @Test(timeout = 60000)
     public void Problem67Test() {
         long expected = 7273;
         Assert.assertEquals(expected, Problem67.Solution1());
