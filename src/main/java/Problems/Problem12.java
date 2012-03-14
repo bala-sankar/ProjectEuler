@@ -15,8 +15,8 @@ public class Problem12 {
     public static void main(String[] args) {
         long startTime = System.currentTimeMillis();
         //System.out.println("Result is : " + Solution1());
-        System.out.println("Time = " + (System.currentTimeMillis() - startTime) / 1000.0);
-        startTime = System.currentTimeMillis();
+        //System.out.println("Time = " + (System.currentTimeMillis() - startTime) / 1000.0);
+        //startTime = System.currentTimeMillis();
         System.out.println("Result is : " + Solution2());
         System.out.println("Time = " + (System.currentTimeMillis() - startTime) / 1000.0);
     }

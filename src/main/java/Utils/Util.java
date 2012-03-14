@@ -188,19 +188,19 @@ public class Util {
 
     public static ArrayList<String> GetPermutations(ArrayList<String> numbers, int length){
         ArrayList<String> permutations = new ArrayList<String>();
-        permutation(numbers, "", permutations, length);
+        permutation(numbers, "", permutations, length,0);
         return permutations;
     }
 
     public static ArrayList<String> GetPermutationsWithRepetition(ArrayList<String> numbers, int length){
         ArrayList<String> permutations = new ArrayList<String>();
-        permutationWithRepetition(numbers, "", permutations, length);
+        permutationWithRepetition(numbers, "", permutations, length, 0);
         return permutations;
     }
 
     protected static void permutation(ArrayList<String> numbers, String num,
-                                    ArrayList<String> permutations, int length){
-        if(num.length() == length){
+                                    ArrayList<String> permutations, int length, int loop){
+        if(loop == length){
             permutations.add(num);
             return;
         }
@@ -208,35 +208,60 @@ public class Util {
             ArrayList<String> temp = new ArrayList<String>();
             temp.addAll(numbers);
             temp.remove(number);
-            permutation(temp, num + number, permutations, length);
+            permutation(temp, num + number, permutations, length, loop+1);
         }
     }
 
     protected static void permutationWithRepetition(ArrayList<String> numbers, String num,
-                                                  ArrayList<String> permutations, int length){
-        if(num.length() == length){
+                                                  ArrayList<String> permutations, int length, int loop){
+        if(loop == length){
             permutations.add(num);
             return;
         }
         for(String number : numbers){
-            permutationWithRepetition(numbers, num + number, permutations, length);
+            permutationWithRepetition(numbers, num + number, permutations, length, loop+1);
         }
     }
 
     /*public static ArrayList<String> GetCombination(ArrayList<String> numbers, int length){
-        ArrayList<String> combinations = new ArrayList<String>();
+        StringBuilder combination;
+        ArrayList<String> combinations;
         ArrayList<String> temp = new ArrayList<String>();
         temp.addAll(numbers);
-        StringBuilder combination = new StringBuilder();
+        if(length == numbers.size()){
+            combinations = new ArrayList<String>();
+            combination = new StringBuilder();
+            for(String number: numbers){
+                combination.append(number);
+            }
+            combinations.add(combination.toString());
+            return combinations;
+        } else if (length == 1){
+            return numbers;
+        } else if (length == 0){
+            combinations = new ArrayList<String>();
+            combinations.add("");
+            return combinations;
+        }
+        combinations = new ArrayList<String>();
         for(String number : numbers){
+            if(temp.size() < length) break;
+
             temp.remove(number);
+            int loop = 1;
+            combination = new StringBuilder();
+            combination.append(number);
             for(String num : temp){
                 combination.append(num);
-                if(combination.length()==length){
+                loop++;
+                if(loop == length){
                     combinations.add(combination.toString());
+                    combination = new StringBuilder();
+                    combination.append(number);
                 }
             }
         }
+        return combinations;
     }*/
     public static TreeSet<Long> GetTriangleNumbersByCount(long count){
         TreeSet<Long> triangleNums = new TreeSet<Long>();
