@@ -17,7 +17,7 @@ public class Problem22 {
         long OverallScore = 0;
         try{
 
-            FileInputStream fileStream = new FileInputStream("resources/names.txt");
+            FileInputStream fileStream = new FileInputStream("src/main/resources/names.txt");
             DataInputStream dataStream = new DataInputStream(fileStream);
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(dataStream));
             String[] names = bufferedReader.readLine().split(",");

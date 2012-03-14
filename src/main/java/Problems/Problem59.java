@@ -18,7 +18,7 @@ public class Problem59 {
     public static long Solution1() {
         FileInputStream fileStream;
         try {
-            fileStream = new FileInputStream("resources/cipher1.txt");
+            fileStream = new FileInputStream("src/main/resources/cipher1.txt");
             DataInputStream dataStream = new DataInputStream(fileStream);
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(dataStream));
             String line;

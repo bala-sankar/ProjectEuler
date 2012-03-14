@@ -23,7 +23,7 @@ public class Problem42 {
         HashSet<String> triangleWords =  new HashSet<String>();
         FileInputStream fileStream;
         try {
-            fileStream = new FileInputStream("resources/words.txt");
+            fileStream = new FileInputStream("src/main/resources/words.txt");
             DataInputStream dataStream = new DataInputStream(fileStream);
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(dataStream));
             String[] words = bufferedReader.readLine().split(",");

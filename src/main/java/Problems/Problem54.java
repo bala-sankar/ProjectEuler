@@ -24,7 +24,7 @@ public class Problem54 {
         FileInputStream fileStream;
         try {
             TreeMap<String, CardPack.Card> map = new CardPack().GetMap();
-            fileStream = new FileInputStream("resources/poker.txt");
+            fileStream = new FileInputStream("src/main/resources/poker.txt");
             DataInputStream dataStream = new DataInputStream(fileStream);
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(dataStream));
             String line;
