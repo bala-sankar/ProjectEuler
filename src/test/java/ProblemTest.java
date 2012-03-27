@@ -392,6 +392,13 @@ public class ProblemTest {
         Assert.assertEquals(expected, Problem60.Solution1());
     }
 
+
+    @Test(timeout = TIMEOUT)
+    public void Problem61Test() {
+        long expected = 28684;
+        Assert.assertEquals(expected, new Problem61().Solution1());
+    }
+
     @Test(timeout = TIMEOUT)
     public void Problem67Test() {
         long expected = 7273;

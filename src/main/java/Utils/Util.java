@@ -271,6 +271,44 @@ public class Util {
         return triangleNums;
     }
 
+    public static TreeSet<Long> GetTriangleNumbersByLimit(long limit){
+        TreeSet<Long> triangleNums = new TreeSet<Long>();
+        long num, i= 0;
+        while(true){
+            num = (i*(i+1))/2;
+            if(num < limit){
+                triangleNums.add(num);
+                i++;
+            } else {
+                break;
+            }
+        }
+        return triangleNums;
+    }
+
+    /*public static TreeSet<Long> GetSquareNumbersByCount(long count){
+        TreeSet<Long> nums = new TreeSet<Long>();
+        for(long i = 1 ; i <= count ; i++){
+            nums.add(i*i);
+        }
+        return nums;
+    }*/
+
+    public static TreeSet<Long> GetSquareNumbersByLimit(long limit){
+        TreeSet<Long> nums = new TreeSet<Long>();
+        long num, i= 0;
+        while(true){
+            num = i*i;
+            if(num < limit){
+                nums.add(num);
+                i++;
+            } else {
+                break;
+            }
+        }
+        return nums;
+    }
+
     public static TreeSet<Long> GetPentagonalNumbersByCount(long count){
         TreeSet<Long> nums = new TreeSet<Long>();
         for(long i = 1 ; i <= count ; i++){
@@ -279,10 +317,86 @@ public class Util {
         return nums;
     }
 
+    public static TreeSet<Long> GetPentagonalNumbersByLimit(long limit){
+        TreeSet<Long> nums = new TreeSet<Long>();
+        long num, i= 0;
+        while(true){
+            num = (i*(3*i-1))/2;
+            if(num < limit){
+                nums.add(num);
+                i++;
+            } else {
+                break;
+            }
+        }
+        return nums;
+    }
+
     public static TreeSet<Long> GetHexagonalNumbersByCount(long count){
         TreeSet<Long> nums = new TreeSet<Long>();
         for(long i = 1 ; i <= count ; i++){
             nums.add(i*(2*i-1));
+        }
+        return nums;
+    }
+
+    public static TreeSet<Long> GetHexagonalNumbersByLimit(long limit){
+        TreeSet<Long> nums = new TreeSet<Long>();
+        long num, i= 0;
+        while(true){
+            num = i*(2*i-1);
+            if(num < limit){
+                nums.add(num);
+                i++;
+            } else {
+                break;
+            }
+        }
+        return nums;
+    }
+
+    /*public static TreeSet<Long> GetHeptagonalNumbersByCount(long count){
+        TreeSet<Long> nums = new TreeSet<Long>();
+        for(long i = 1 ; i <= count ; i++){
+            nums.add((i*(5*i-3))/2);
+        }
+        return nums;
+    }*/
+
+    public static TreeSet<Long> GetHeptagonalNumbersByLimit(long limit){
+        TreeSet<Long> nums = new TreeSet<Long>();
+        long num, i= 0;
+        while(true){
+            num = (i*(5*i-3))/2;
+            if(num < limit){
+                nums.add(num);
+                i++;
+            } else {
+                break;
+            }
+        }
+        return nums;
+    }
+
+    /*public static TreeSet<Long> GetOctagonalNumbersByCount(long count){
+        TreeSet<Long> nums = new TreeSet<Long>();
+        for(long i = 1 ; i <= count ; i++){
+            nums.add(i*(3*i-2));
+        }
+        return nums;
+    }*/
+
+    public static TreeSet<Long> GetOctagonalNumbersByLimit(long limit){
+        TreeSet<Long> nums = new TreeSet<Long>();
+        long num, i= 0;
+        while(true){
+            num = i*(3*i-2);
+            if(num < limit){
+                nums.add(num);
+                i++;
+            } else {
+                break;
+            }
         }
         return nums;
     }
