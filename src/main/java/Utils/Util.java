@@ -142,6 +142,15 @@ public class Util {
         return digits;
     }
 
+    public static ArrayList<Integer> GetDigits(String num)
+    {
+        ArrayList<Integer> digits = new ArrayList<Integer>();
+        for(int i = 0 ; i< num.length(); i++){
+            digits.add(Integer.valueOf(String.valueOf(num.charAt(i))));
+        }
+        return digits;
+    }
+
     public static ArrayList<String> GetDigitsString(long num)
     {
         ArrayList<String> digits = new ArrayList<String>();
