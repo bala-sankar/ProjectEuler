@@ -1,6 +1,9 @@
 package Utils;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.TreeSet;
 
 /**
  * Created by IntelliJ IDEA.
@@ -478,5 +481,86 @@ public class Util {
         }
 
         return max;
+    }
+    
+    public static String sqrtForBigNum (String num){
+        //Validation
+        if(null == num || num.length()==0 || num.split(".").length > 2){
+            throw new IllegalArgumentException("Invalid number");
+        }
+
+        StringBuilder number = new StringBuilder();
+        String[] parts = num.split(".");
+        
+        if(parts[0].length() %2 != 0){
+            number.append(0);
+        }
+        number.append(parts[0]);
+        number.append(".");
+        if(parts.length > 1)
+        {            
+            number.append(parts[1]);
+            if(parts[1].length() %2 !=0){
+                number.append(0);
+            }
+        } else {
+            number.append("00000000");
+        }
+        StringBuilder p = new StringBuilder();
+        long y;
+        long c = 0;
+        long x;
+        int decimalPosition = -1;
+        for(int i=0; i< number.length(); i=i+2){
+            String digit = number.substring(i, i+2);
+            if(digit.startsWith(".")){
+                i=i+1;
+                decimalPosition = p.length();
+                digit = number.substring(i, i+2);
+            }
+            
+            if(p.length()==0){
+                int temp = Integer.parseInt(digit);
+                x = (long)Math.sqrt(temp);
+                p.append(x);
+            } else {
+                long temp =  Integer.parseInt(digit);
+                long pTemp = Long.parseLong(p.toString());
+                StringBuilder cTemp = new StringBuilder();
+                cTemp.append(c);
+                cTemp.append(temp);
+                c = Long.parseLong(cTemp.toString());
+                x = findX(c, pTemp);
+                y = x*(20*pTemp + x);
+                p.append(x);
+                if(y-c > 0){
+                    c = y-c;
+                } 
+            }
+/*            if(c == 0){
+                if(decimalPosition >= 0){
+                    p.insert(decimalPosition, ".");
+                }
+            }
+            return p.toString();*/
+        }
+        return p.toString();
+    }
+
+    private static long findX(long c, long p){
+        long xTemp = c/(20*p);
+        long yTemp = xTemp*(20*p + xTemp);
+        long x = xTemp;
+        while(yTemp > c){
+            xTemp--;
+            yTemp = xTemp*(20*p + xTemp);
+            x = xTemp;
+        }
+        while(yTemp <= c){
+            x = xTemp;
+            xTemp++;
+            yTemp = xTemp*(20*p + xTemp);
+        }
+        return x;
     }
 }
