@@ -16,13 +16,14 @@ public class ProblemTest {
     private static final int TIMEOUT = 60000;
     @Rule
     public TestName name = new TestName();
+
     @Before
-    public void BeforeTest(){
+    public void BeforeTest() {
         startTime = System.currentTimeMillis();
     }
 
     @After
-    public void AfterTest(){
+    public void AfterTest() {
         long stopTime = System.currentTimeMillis();
         double elapsedTime = (stopTime - startTime) / 1000.0;
         System.out.println("Time took to run " + name.getMethodName() + ":\t" + elapsedTime);
@@ -420,6 +421,12 @@ public class ProblemTest {
     public void Problem65Test() {
         long expected = 272;
         Assert.assertEquals(expected, Problem65.Solution1());
+    }
+
+    @Test(timeout = TIMEOUT)
+    public void Problem66Test() {
+        long expected = 661;
+        Assert.assertEquals(expected, Problem66.Solution3());
     }
 
     @Test(timeout = TIMEOUT)

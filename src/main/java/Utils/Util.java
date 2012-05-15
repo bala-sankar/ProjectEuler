@@ -1,5 +1,8 @@
 package Utils;
 
+import org.apache.commons.math3.fraction.BigFraction;
+import org.apache.commons.math3.fraction.Fraction;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -44,14 +47,14 @@ public class Util {
         } else {
             limit = number / 3;
         }
-        for(long primeNum : primeNums){
-            while(primeNum <= limit && number % primeNum == 0){
-                if(factors.containsKey(primeNum)){
+        for (long primeNum : primeNums) {
+            while (primeNum <= limit && number % primeNum == 0) {
+                if (factors.containsKey(primeNum)) {
                     factors.put(primeNum, factors.get(new Long(primeNum)) + 1);
                 } else {
                     factors.put(primeNum, 1L);
                 }
-                number = number/primeNum;
+                number = number / primeNum;
             }
         }
         return factors;
@@ -75,7 +78,7 @@ public class Util {
         return primeNums;
     }
 
-     public static TreeSet<Long> GetPrimeNumsByLimit(long limit) {
+    public static TreeSet<Long> GetPrimeNumsByLimit(long limit) {
         TreeSet<Long> primeNums = new TreeSet<Long>();
         primeNums.add(2L);
         long i = 3;
@@ -87,10 +90,10 @@ public class Util {
     public static TreeSet<Long> GetPrimeNumsByLimit(long start, long limit,
                                                     TreeSet<Long> primeNums) {
         long i = start;
-        if(i==2 && i < limit){
+        if (i == 2 && i < limit) {
             primeNums.add(2L);
         }
-        if(i%2 ==0) i++;
+        if (i % 2 == 0) i++;
         while (i < limit) {
             boolean isPrime = isPrimeNumber(i, primeNums);
             if (isPrime) {
@@ -107,9 +110,9 @@ public class Util {
 
     public static boolean isPrimeNumber(long i, TreeSet<Long> primeNums) {
         boolean isPrime = true;
-        double loop = Math.sqrt((double)i);
+        double loop = Math.sqrt((double) i);
         for (long primeNum : primeNums) {
-            if(primeNum > loop) break;
+            if (primeNum > loop) break;
             if (i % primeNum == 0) {
                 isPrime = false;
                 break;
@@ -118,62 +121,57 @@ public class Util {
         return isPrime;
     }
 
-    public static boolean isPrimeNumber(long num){
-        double loop = Math.sqrt((double)num);
-        if(num!=2 && num%2==0) return false;
-        for (int i=3; i<=loop ; i++) {
-            if(num%i==0) return false;
+    public static boolean isPrimeNumber(long num) {
+        double loop = Math.sqrt((double) num);
+        if (num != 2 && num % 2 == 0) return false;
+        for (int i = 3; i <= loop; i++) {
+            if (num % i == 0) return false;
         }
         return true;
     }
 
     public static long sum(HashSet<Long> numbers) {
         long sum = 0;
-        for(Long number : numbers){
+        for (Long number : numbers) {
             sum = sum + number;
         }
         return sum;
     }
 
-    public static ArrayList<Integer> GetDigits(long num)
-    {
+    public static ArrayList<Integer> GetDigits(long num) {
         ArrayList<Integer> digits = new ArrayList<Integer>();
-        while(num > 0){
-            digits.add((int)(num%10));
-            num = num/10;
+        while (num > 0) {
+            digits.add((int) (num % 10));
+            num = num / 10;
         }
         return digits;
     }
 
-    public static ArrayList<Integer> GetDigits(String num)
-    {
+    public static ArrayList<Integer> GetDigits(String num) {
         ArrayList<Integer> digits = new ArrayList<Integer>();
-        for(int i = 0 ; i< num.length(); i++){
+        for (int i = 0; i < num.length(); i++) {
             digits.add(Integer.valueOf(String.valueOf(num.charAt(i))));
         }
         return digits;
     }
 
-    public static ArrayList<String> GetDigitsString(long num)
-    {
+    public static ArrayList<String> GetDigitsString(long num) {
         ArrayList<String> digits = new ArrayList<String>();
-        while(num > 0){
+        while (num > 0) {
             digits.add(String.valueOf((int) (num % 10)));
-            num = num/10;
+            num = num / 10;
         }
         return digits;
     }
 
-    public static int GetUniqueDigitCount(String num)
-    {
+    public static int GetUniqueDigitCount(String num) {
         long number = Long.parseLong(num);
         HashSet<Integer> uniqueDigits = new HashSet<Integer>();
-        while(number > 0){
-            uniqueDigits.add((int)(number%10));
-            number = number/10;
+        while (number > 0) {
+            uniqueDigits.add((int) (number % 10));
+            number = number / 10;
         }
-        if(uniqueDigits.contains(ZERO))
-        {
+        if (uniqueDigits.contains(ZERO)) {
             uniqueDigits.remove(ZERO);
         }
         return uniqueDigits.size();
@@ -194,44 +192,44 @@ public class Util {
         return s1.toString().equals(s1.reverse().toString());
     }
 
-    public static ArrayList<String> GetPermutations(ArrayList<String> numbers){
+    public static ArrayList<String> GetPermutations(ArrayList<String> numbers) {
         return GetPermutations(numbers, numbers.size());
     }
 
-    public static ArrayList<String> GetPermutations(ArrayList<String> numbers, int length){
+    public static ArrayList<String> GetPermutations(ArrayList<String> numbers, int length) {
         ArrayList<String> permutations = new ArrayList<String>();
-        permutation(numbers, "", permutations, length,0);
+        permutation(numbers, "", permutations, length, 0);
         return permutations;
     }
 
-    public static ArrayList<String> GetPermutationsWithRepetition(ArrayList<String> numbers, int length){
+    public static ArrayList<String> GetPermutationsWithRepetition(ArrayList<String> numbers, int length) {
         ArrayList<String> permutations = new ArrayList<String>();
         permutationWithRepetition(numbers, "", permutations, length, 0);
         return permutations;
     }
 
     protected static void permutation(ArrayList<String> numbers, String num,
-                                    ArrayList<String> permutations, int length, int loop){
-        if(loop == length){
+                                      ArrayList<String> permutations, int length, int loop) {
+        if (loop == length) {
             permutations.add(num);
             return;
         }
-        for(String number : numbers){
+        for (String number : numbers) {
             ArrayList<String> temp = new ArrayList<String>();
             temp.addAll(numbers);
             temp.remove(number);
-            permutation(temp, num + number, permutations, length, loop+1);
+            permutation(temp, num + number, permutations, length, loop + 1);
         }
     }
 
     protected static void permutationWithRepetition(ArrayList<String> numbers, String num,
-                                                  ArrayList<String> permutations, int length, int loop){
-        if(loop == length){
+                                                    ArrayList<String> permutations, int length, int loop) {
+        if (loop == length) {
             permutations.add(num);
             return;
         }
-        for(String number : numbers){
-            permutationWithRepetition(numbers, num + number, permutations, length, loop+1);
+        for (String number : numbers) {
+            permutationWithRepetition(numbers, num + number, permutations, length, loop + 1);
         }
     }
 
@@ -275,20 +273,20 @@ public class Util {
         }
         return combinations;
     }*/
-    public static TreeSet<Long> GetTriangleNumbersByCount(long count){
+    public static TreeSet<Long> GetTriangleNumbersByCount(long count) {
         TreeSet<Long> triangleNums = new TreeSet<Long>();
-        for(long i = 1 ; i <= count ; i++){
-            triangleNums.add((i*(i+1))/2);
+        for (long i = 1; i <= count; i++) {
+            triangleNums.add((i * (i + 1)) / 2);
         }
         return triangleNums;
     }
 
-    public static TreeSet<Long> GetTriangleNumbersByLimit(long limit){
+    public static TreeSet<Long> GetTriangleNumbersByLimit(long limit) {
         TreeSet<Long> triangleNums = new TreeSet<Long>();
-        long num, i= 0;
-        while(true){
-            num = (i*(i+1))/2;
-            if(num < limit){
+        long num, i = 0;
+        while (true) {
+            num = (i * (i + 1)) / 2;
+            if (num < limit) {
                 triangleNums.add(num);
                 i++;
             } else {
@@ -306,12 +304,12 @@ public class Util {
         return nums;
     }*/
 
-    public static TreeSet<Long> GetSquareNumbersByLimit(long limit){
+    public static TreeSet<Long> GetSquareNumbersByLimit(long limit) {
         TreeSet<Long> nums = new TreeSet<Long>();
-        long num, i= 0;
-        while(true){
-            num = i*i;
-            if(num < limit){
+        long num, i = 0;
+        while (true) {
+            num = i * i;
+            if (num < limit) {
                 nums.add(num);
                 i++;
             } else {
@@ -321,20 +319,20 @@ public class Util {
         return nums;
     }
 
-    public static TreeSet<Long> GetPentagonalNumbersByCount(long count){
+    public static TreeSet<Long> GetPentagonalNumbersByCount(long count) {
         TreeSet<Long> nums = new TreeSet<Long>();
-        for(long i = 1 ; i <= count ; i++){
-            nums.add((i*(3*i-1))/2);
+        for (long i = 1; i <= count; i++) {
+            nums.add((i * (3 * i - 1)) / 2);
         }
         return nums;
     }
 
-    public static TreeSet<Long> GetPentagonalNumbersByLimit(long limit){
+    public static TreeSet<Long> GetPentagonalNumbersByLimit(long limit) {
         TreeSet<Long> nums = new TreeSet<Long>();
-        long num, i= 0;
-        while(true){
-            num = (i*(3*i-1))/2;
-            if(num < limit){
+        long num, i = 0;
+        while (true) {
+            num = (i * (3 * i - 1)) / 2;
+            if (num < limit) {
                 nums.add(num);
                 i++;
             } else {
@@ -344,20 +342,20 @@ public class Util {
         return nums;
     }
 
-    public static TreeSet<Long> GetHexagonalNumbersByCount(long count){
+    public static TreeSet<Long> GetHexagonalNumbersByCount(long count) {
         TreeSet<Long> nums = new TreeSet<Long>();
-        for(long i = 1 ; i <= count ; i++){
-            nums.add(i*(2*i-1));
+        for (long i = 1; i <= count; i++) {
+            nums.add(i * (2 * i - 1));
         }
         return nums;
     }
 
-    public static TreeSet<Long> GetHexagonalNumbersByLimit(long limit){
+    public static TreeSet<Long> GetHexagonalNumbersByLimit(long limit) {
         TreeSet<Long> nums = new TreeSet<Long>();
-        long num, i= 0;
-        while(true){
-            num = i*(2*i-1);
-            if(num < limit){
+        long num, i = 0;
+        while (true) {
+            num = i * (2 * i - 1);
+            if (num < limit) {
                 nums.add(num);
                 i++;
             } else {
@@ -375,12 +373,12 @@ public class Util {
         return nums;
     }*/
 
-    public static TreeSet<Long> GetHeptagonalNumbersByLimit(long limit){
+    public static TreeSet<Long> GetHeptagonalNumbersByLimit(long limit) {
         TreeSet<Long> nums = new TreeSet<Long>();
-        long num, i= 0;
-        while(true){
-            num = (i*(5*i-3))/2;
-            if(num < limit){
+        long num, i = 0;
+        while (true) {
+            num = (i * (5 * i - 3)) / 2;
+            if (num < limit) {
                 nums.add(num);
                 i++;
             } else {
@@ -398,12 +396,12 @@ public class Util {
         return nums;
     }*/
 
-    public static TreeSet<Long> GetOctagonalNumbersByLimit(long limit){
+    public static TreeSet<Long> GetOctagonalNumbersByLimit(long limit) {
         TreeSet<Long> nums = new TreeSet<Long>();
-        long num, i= 0;
-        while(true){
-            num = i*(3*i-2);
-            if(num < limit){
+        long num, i = 0;
+        while (true) {
+            num = i * (3 * i - 2);
+            if (num < limit) {
                 nums.add(num);
                 i++;
             } else {
@@ -413,7 +411,7 @@ public class Util {
         return nums;
     }
 
-    public static boolean isPentagonalNumber(long num){
+    public static boolean isPentagonalNumber(long num) {
         /*
          * Formula derived from Pentagon number equation,
          * 3n^2 - n -2*num = 0, it's a quadratic equation
@@ -422,11 +420,11 @@ public class Util {
          * Also, n should be a positive integer to be an pentagonal number
          * Therefore, we consider only, n = (1 + sqrt(1+ 24*num))/6
          */
-        double root = Math.sqrt(1+(24*(double)num));
+        double root = Math.sqrt(1 + (24 * (double) num));
         return root == (double) (long) root && (1 + root) % 6 == 0;
     }
 
-    public static boolean isTriangleNumber(long num){
+    public static boolean isTriangleNumber(long num) {
         /*
          * Formula derived from Triangle number equation,
          * n^2 + n - 2*num = 0, it's a quadratic equation
@@ -435,11 +433,11 @@ public class Util {
          * Also, n should be a positive integer to be an pentagonal number
          * Therefore, we consider only, n = (-1 + sqrt(1+ 8*num))/2
          */
-        double root = Math.sqrt(1+(8*(double)num));
+        double root = Math.sqrt(1 + (8 * (double) num));
         return root == (double) (long) root && (root - 1) % 2 == 0;
     }
 
-    public static boolean isHexagonalNumber(long num){
+    public static boolean isHexagonalNumber(long num) {
         /*
          * Formula derived from Hexagonal number equation,
          * 2n^2 - n - num = 0, it's a quadratic equation
@@ -448,11 +446,11 @@ public class Util {
          * Also, n should be a positive integer to be an pentagonal number
          * Therefore, we consider only, n = (1 + sqrt(1+ 8*num))/4
          */
-        double root = Math.sqrt(1+(8*(double)num));
+        double root = Math.sqrt(1 + (8 * (double) num));
         return root == (double) (long) root && (1 + root) % 4 == 0;
     }
 
-     public static long maxSumPath(int[] triangle) {
+    public static long maxSumPath(int[] triangle) {
         long max = 0;
         int level = 0;
         int start, end, nodes;
@@ -482,85 +480,139 @@ public class Util {
 
         return max;
     }
-    
-    public static String sqrtForBigNum (String num){
+
+    public static String sqrtForBigNum(String num) {
         //Validation
-        if(null == num || num.length()==0 || num.split(".").length > 2){
+        if (null == num || num.length() == 0 || num.split(".").length > 2) {
             throw new IllegalArgumentException("Invalid number");
         }
 
         StringBuilder number = new StringBuilder();
-        String[] parts = num.split(".");
-        
-        if(parts[0].length() %2 != 0){
+        String[] parts = num.split("\\.");
+
+        if (parts[0].length() % 2 != 0) {
             number.append(0);
         }
         number.append(parts[0]);
         number.append(".");
-        if(parts.length > 1)
-        {            
+        if (parts.length > 1) {
             number.append(parts[1]);
-            if(parts[1].length() %2 !=0){
+            if (parts[1].length() % 2 != 0) {
                 number.append(0);
             }
-        } else {
             number.append("00000000");
+        } else {
+            number.append("00000000000000");
         }
         StringBuilder p = new StringBuilder();
         long y;
         long c = 0;
         long x;
         int decimalPosition = -1;
-        for(int i=0; i< number.length(); i=i+2){
-            String digit = number.substring(i, i+2);
-            if(digit.startsWith(".")){
-                i=i+1;
+        for (int i = 0; i < number.length(); i = i + 2) {
+            String digit = number.substring(i, i + 2);
+            if (digit.startsWith(".")) {
+                i = i + 1;
                 decimalPosition = p.length();
-                digit = number.substring(i, i+2);
+                digit = number.substring(i, i + 2);
             }
-            
-            if(p.length()==0){
-                int temp = Integer.parseInt(digit);
-                x = (long)Math.sqrt(temp);
+
+            if (p.length() == 0) {
+                c = Integer.parseInt(digit);
+                x = (long) Math.sqrt(c);
+                y = x * x;
+                c = c - y;
                 p.append(x);
             } else {
-                long temp =  Integer.parseInt(digit);
                 long pTemp = Long.parseLong(p.toString());
                 StringBuilder cTemp = new StringBuilder();
                 cTemp.append(c);
-                cTemp.append(temp);
+                cTemp.append(digit);
                 c = Long.parseLong(cTemp.toString());
                 x = findX(c, pTemp);
-                y = x*(20*pTemp + x);
+                y = x * (20 * pTemp + x);
                 p.append(x);
-                if(y-c > 0){
-                    c = y-c;
-                } 
+                c = c - y;
+            }
+            if (c < 0 || y < 0 || x < 0) {
+                System.out.println("We have an issue");
             }
 /*            if(c == 0){
-                if(decimalPosition >= 0){
-                    p.insert(decimalPosition, ".");
-                }
+                
             }
             return p.toString();*/
+        }
+        if (decimalPosition >= 0) {
+            p.insert(decimalPosition, ".");
         }
         return p.toString();
     }
 
-    private static long findX(long c, long p){
-        long xTemp = c/(20*p);
-        long yTemp = xTemp*(20*p + xTemp);
+    protected static long findX(long c, long p) {
+        long xTemp = c / (20 * p);
+        long yTemp = xTemp * (20 * p + xTemp);
         long x = xTemp;
-        while(yTemp > c){
+        while (yTemp > c) {
             xTemp--;
-            yTemp = xTemp*(20*p + xTemp);
+            yTemp = xTemp * (20 * p + xTemp);
             x = xTemp;
         }
-        while(yTemp <= c){
+        while (yTemp <= c) {
             x = xTemp;
             xTemp++;
-            yTemp = xTemp*(20*p + xTemp);
+            yTemp = xTemp * (20 * p + xTemp);
         }
         return x;
+    }
+
+    public static String GetContinuedFractions(long i) {
+        double sqrt = Math.sqrt(i);
+        if (sqrt == (double) (long) sqrt) return "";
+        int a = (int) sqrt;
+        int limitNum = 0;
+        int limitDenom = 0;
+        int x = 0;
+        int y = 1;
+        int v = 1;
+        Fraction z;
+        StringBuilder sb = new StringBuilder();
+        int period = 0;
+        while (true) {
+            sb.append(a);
+            //(c-a) = v((sqrt + x) - ay)/y. Make v/y as a Fraction z. (vx-ay) as t
+            z = new Fraction(v, y);
+            int t = (z.getNumerator() * x - a * z.getDenominator());
+
+            a = (int) ((z.getDenominator()) / (z.getNumerator() * sqrt + t));
+            x = -t;
+            y = ((int) (i) - (t * t)) * z.getNumerator();
+            v = z.getDenominator();
+            if (period == 0) {  //Set the limits
+                sb.append(";");
+                limitNum = v * x;
+                limitDenom = y;
+            } else if ((v * x) == limitNum && y == limitDenom) {
+                // if you find the same numerator and the denominator,
+                // then it means the pattern is repeating. Hence, break the loop.
+                break;
+            } else {
+                sb.append(",");
+            }
+            period++;
+        }
+        return sb.toString();
+    }
+
+    public static BigFraction GetConvergent(int term, String[] periods, int a0) {
+        BigFraction sum = BigFraction.ZERO;
+        int length = periods.length;
+        for (int k = term; k >= 1; k--) {
+            int curPos = (k - 1) % length;
+            int temp = Integer.parseInt(periods[curPos]);
+            sum = sum.add(temp);
+            sum = sum.reciprocal();
+        }
+        sum = sum.add(a0);
+        return sum;
     }
 }
