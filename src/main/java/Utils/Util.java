@@ -233,46 +233,47 @@ public class Util {
         }
     }
 
-    /*public static ArrayList<String> GetCombination(ArrayList<String> numbers, int length){
-        StringBuilder combination;
-        ArrayList<String> combinations;
-        ArrayList<String> temp = new ArrayList<String>();
-        temp.addAll(numbers);
-        if(length == numbers.size()){
-            combinations = new ArrayList<String>();
-            combination = new StringBuilder();
-            for(String number: numbers){
-                combination.append(number);
-            }
-            combinations.add(combination.toString());
-            return combinations;
-        } else if (length == 1){
-            return numbers;
-        } else if (length == 0){
-            combinations = new ArrayList<String>();
-            combinations.add("");
-            return combinations;
-        }
-        combinations = new ArrayList<String>();
-        for(String number : numbers){
-            if(temp.size() < length) break;
-
-            temp.remove(number);
-            int loop = 1;
-            combination = new StringBuilder();
-            combination.append(number);
-            for(String num : temp){
-                combination.append(num);
-                loop++;
-                if(loop == length){
-                    combinations.add(combination.toString());
-                    combination = new StringBuilder();
+    /* public static ArrayList<String> GetCombination(ArrayList<String> numbers, int length){
+            StringBuilder combination;
+            ArrayList<String> combinations;
+            ArrayList<String> temp = new ArrayList<String>();
+            temp.addAll(numbers);
+            if(length == numbers.size()){
+                combinations = new ArrayList<String>();
+                combination = new StringBuilder();
+                for(String number: numbers){
                     combination.append(number);
                 }
+                combinations.add(combination.toString());
+                return combinations;
+            } else if (length == 1){
+                return numbers;
+            } else if (length == 0){
+                combinations = new ArrayList<String>();
+                combinations.add("");
+                return combinations;
             }
+            combinations = new ArrayList<String>();
+            for(String number : numbers){
+                if(temp.size() < length) break;
+
+                temp.remove(number);
+                int loop = 1;
+                combination = new StringBuilder();
+                combination.append(number);
+                for(String num : temp){
+                    combination.append(num);
+                    loop++;
+                    if(loop == length){
+                        combinations.add(combination.toString());
+                        combination = new StringBuilder();
+                        combination.append(number);
+                    }
+                }
+            }
+            return combinations;
         }
-        return combinations;
-    }*/
+    */
     public static TreeSet<Long> GetTriangleNumbersByCount(long count) {
         TreeSet<Long> triangleNums = new TreeSet<Long>();
         for (long i = 1; i <= count; i++) {
