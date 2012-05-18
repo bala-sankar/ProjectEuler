@@ -14,11 +14,11 @@ public class Problem60 {
 
     public static void main(String[] args) {
         long startTime = System.currentTimeMillis();
-        System.out.println("Result is : " + Solution1());
+        System.out.println("Result is : " + solution1());
         System.out.println("Time = " + (System.currentTimeMillis() - startTime) / 1000.0);
     }
 
-    public static long Solution1() {
+    public static long solution1() {
         int limit = 10000;
         ArrayList<String> num = new ArrayList<String>();
         TreeSet<Long> primeNums = Utils.Util.GetPrimeNumsByLimit(limit);
@@ -42,7 +42,7 @@ public class Problem60 {
             for (long primeNum : primeNums) {
                 tempNum.add(String.valueOf(primeNum));
                 temp.remove(primeNum);
-                if(tempNum.size() > 1 && !isRemarkablePrime(tempNum)){
+                if (tempNum.size() > 1 && !isRemarkablePrime(tempNum)) {
                     tempNum.remove(String.valueOf(primeNum));
                     continue;
                 }

@@ -7,11 +7,11 @@ package Problems;
  */
 public class Problem5 {
     public static void main(String[] args) {
-        System.out.println("Result is : " + Solution1());
+        System.out.println("Result is : " + solution1());
         //System.out.println("Result is : " + Solution2());
     }
 
-    public static long Solution1() {
+    public static long solution1() {
         int[] primeNumbers = new int[]{19, 17, 13, 11, 7, 5, 3, 2};
         int[] num = new int[20];
         for (int i = 0; i < 20; i++) {

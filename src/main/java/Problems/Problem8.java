@@ -7,11 +7,11 @@ package Problems;
  */
 public class Problem8 {
     public static void main(String[] args) {
-        System.out.println("Result is : " + Solution1());
+        System.out.println("Result is : " + solution1());
         //System.out.println("Result is : " + Solution2());
     }
 
-    public static long Solution1() {
+    public static long solution1() {
         StringBuilder s1 = new StringBuilder();
         s1.append("73167176531330624919225119674426574742355349194934" +
                 "96983520312774506326239578318016984801869478851843" +

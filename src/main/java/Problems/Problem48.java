@@ -10,18 +10,18 @@ import java.math.BigInteger;
 public class Problem48 {
     public static void main(String[] args) {
         long startTime = System.currentTimeMillis();
-        System.out.println("Result is : " + Solution1());
+        System.out.println("Result is : " + solution1());
         System.out.println("Time = " + (System.currentTimeMillis() - startTime) / 1000.0);
     }
 
-    public static String Solution1() {
+    public static String solution1() {
         BigInteger sum = new BigInteger("0");
-        for (int i = 1; i <= 1000 ; i++) {
+        for (int i = 1; i <= 1000; i++) {
             BigInteger num = new BigInteger(String.valueOf(i));
             num = num.pow(i);
             sum = sum.add(num);
         }
         String num = sum.toString();
-        return num.substring(num.length()-10);
+        return num.substring(num.length() - 10);
     }
 }

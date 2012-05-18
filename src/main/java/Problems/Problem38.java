@@ -10,23 +10,23 @@ import Utils.Util;
 public class Problem38 {
     public static void main(String[] args) {
         long startTime = System.currentTimeMillis();
-        System.out.println("Result is : " + Solution1());
+        System.out.println("Result is : " + solution1());
         System.out.println("Time = " + (System.currentTimeMillis() - startTime) / 1000.0);
     }
 
-    public static long Solution1() {
+    public static long solution1() {
         long max = 0;
-        for(int i = 2 ; i < 10000; i++){
+        for (int i = 2; i < 10000; i++) {
             StringBuilder sb = new StringBuilder();
             sb.append(i);
             int j = 2;
-            while(true){
-                if(sb.length() < 9){
-                    sb.append((i*j));
+            while (true) {
+                if (sb.length() < 9) {
+                    sb.append((i * j));
                     j++;
-                } else if(sb.length() == 9){
-                    String num =sb.toString();
-                    if(Util.GetUniqueDigitCount(num) == 9 && max < Long.parseLong(num)){
+                } else if (sb.length() == 9) {
+                    String num = sb.toString();
+                    if (Util.GetUniqueDigitCount(num) == 9 && max < Long.parseLong(num)) {
                         //System.out.println(i+"\t"+num);
                         max = Long.parseLong(num);
                     }

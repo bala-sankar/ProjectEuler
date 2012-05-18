@@ -1,9 +1,6 @@
 import Utils.Util;
 import org.apache.commons.math3.fraction.BigFraction;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
+import org.junit.*;
 import org.junit.rules.TestName;
 
 /**
@@ -13,9 +10,22 @@ import org.junit.rules.TestName;
  */
 public class UtilTest extends Util {
     private long startTime;
+    private static long overallStartTime;
     private static final int TIMEOUT = 60000;
     @Rule
     public TestName name = new TestName();
+
+    @BeforeClass
+    public static void BeforeTestClass() {
+        overallStartTime = System.currentTimeMillis();
+    }
+
+    @AfterClass
+    public static void AfterTestClass() {
+        long stopTime = System.currentTimeMillis();
+        double elapsedTime = (stopTime - overallStartTime) / 1000.0;
+        System.out.println("Time took to run all the tests in UtilTest:\t" + elapsedTime);
+    }
 
     @Before
     public void BeforeTest() {
@@ -32,22 +42,24 @@ public class UtilTest extends Util {
     @Test(timeout = TIMEOUT)
     public void FindXTest() {
         long c = 52, p = 1;
+        long expected = 2;
         long x = findX(c, p);
-        System.out.println("1. X = " + x);
+        Assert.assertEquals(expected, x);
 
         c = 11900;
         p = 141;
+        expected = 4;
         x = findX(c, p);
-        System.out.println("2. X = " + x);
+        Assert.assertEquals(expected, x);
     }
 
     @Test(timeout = TIMEOUT)
     public void sqrtForBigNumTest() {
         String root = sqrtForBigNum("2");
-        System.out.println(root);
+        Assert.assertEquals("1.4142135", root);
 
         root = sqrtForBigNum("4");
-        System.out.println(root);
+        Assert.assertEquals("2.0000000", root);
     }
 
     @Test(timeout = TIMEOUT)
@@ -57,6 +69,6 @@ public class UtilTest extends Util {
         int a = Integer.parseInt(continuedFraction[0]);
         String[] periods = continuedFraction[1].split(",");
         BigFraction temp = GetConvergent(0, periods, a);
-        System.out.println(temp.getNumerator() + "~" + temp.getDenominator());
+        Assert.assertEquals("2~1", temp.getNumerator() + "~" + temp.getDenominator());
     }
 }

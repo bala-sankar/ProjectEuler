@@ -11,11 +11,11 @@ import java.util.ArrayList;
 public class Problem59 {
     public static void main(String[] args) {
         long startTime = System.currentTimeMillis();
-        System.out.println("Result is : " + Solution1());
+        System.out.println("Result is : " + solution1());
         System.out.println("Time = " + (System.currentTimeMillis() - startTime) / 1000.0);
     }
 
-    public static long Solution1() {
+    public static long solution1() {
         FileInputStream fileStream;
         try {
             fileStream = new FileInputStream("src/main/resources/cipher1.txt");
@@ -42,8 +42,8 @@ public class Problem59 {
                     //Possible valid chars
                     if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')
                             || c == ',' || c == '"' || c == '\'' || c == '.'
-                            || c == '?' || c == '&' || c== '(' || c==')' || c=='!'
-                            || c==';' || c==':' || c=='-'  || c== ' '
+                            || c == '?' || c == '&' || c == '(' || c == ')' || c == '!'
+                            || c == ';' || c == ':' || c == '-' || c == ' '
                             || (c >= '0' && c <= '9')) {
                         origChars.add(c);
                     } else {

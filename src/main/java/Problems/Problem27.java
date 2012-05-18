@@ -11,33 +11,29 @@ import java.util.TreeSet;
  */
 public class Problem27 {
     public static void main(String[] args) {
-        System.out.println("Result is : " + Solution1());
+        System.out.println("Result is : " + solution1());
     }
 
-    public static long Solution1() {
+    public static long solution1() {
         //Load list of prime numbers under 1000
-        TreeSet<Long> bList =  Util.GetPrimeNumsByLimit(1000L);
+        TreeSet<Long> bList = Util.GetPrimeNumsByLimit(1000L);
         //Performance - Assumption : prime number generated falls under first 10,000 prime numbers
-        TreeSet<Long> primeNums =  Util.GetPrimeNumsByCount(10000L);
+        TreeSet<Long> primeNums = Util.GetPrimeNumsByCount(10000L);
         long coeff_1 = 0, coeff_2 = 0, maxcount = 0;
         //Form equations
-        for(long b : bList){
+        for (long b : bList) {
             //System.out.println("Computing for b = " + b);
-            for(long a=-999 ; a < 1000 ; a++){
+            for (long a = -999; a < 1000; a++) {
                 //System.out.print(" "+a);
                 boolean isResultPrime = true;
                 int i = 0;
-                while(isResultPrime){
+                while (isResultPrime) {
 
-                    long result = (i*i)+(a*i)+b;
-                    if(primeNums.contains(result))
-                    {
+                    long result = (i * i) + (a * i) + b;
+                    if (primeNums.contains(result)) {
                         i++;
-                    }
-                    else
-                    {
-                        if(i > maxcount)
-                        {
+                    } else {
+                        if (i > maxcount) {
                             coeff_1 = a;
                             coeff_2 = b;
                             maxcount = i;
@@ -48,6 +44,6 @@ public class Problem27 {
             }
         }
         //System.out.println("a="+coeff_1+";b="+coeff_2+";count="+maxcount);
-        return (coeff_1*coeff_2);
+        return (coeff_1 * coeff_2);
     }
 }

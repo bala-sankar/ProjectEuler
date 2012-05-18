@@ -49,7 +49,7 @@ public class Problem66 {
         }
         return resultD;
     }
-    /*public static long Solution1() {
+    /*public static long solution1() {
         long largeX = 0;
         long resultD = 0;
         for (int d = 2; d <= 13; d++) {

@@ -3,7 +3,6 @@ package Problems;
 import Utils.Util;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.TreeSet;
 
 /**
@@ -14,11 +13,11 @@ import java.util.TreeSet;
 public class Problem51 {
     public static void main(String[] args) {
         long startTime = System.currentTimeMillis();
-        System.out.println("Result is : " + Solution1());
+        System.out.println("Result is : " + solution1());
         System.out.println("Time = " + (System.currentTimeMillis() - startTime) / 1000.0);
     }
 
-    public static String Solution1() {
+    public static String solution1() {
         TreeSet<Long> primeNums = Util.GetPrimeNumsByLimit(1000000);
         String startingFamilyValue = "";
         ArrayList<String> nums = new ArrayList<String>();
@@ -33,7 +32,6 @@ public class Problem51 {
         nums.add("8");
         nums.add("9");
         nums.add("~");
-        HashMap<String, Integer> patternCount = new HashMap<String, Integer>();
         int digits = 2;
         int count = 0;
 
@@ -65,12 +63,12 @@ public class Problem51 {
         return startingFamilyValue;
     }
 
-    private static void test(String pattern) {
+    /* private static void test(String pattern) {
         if (!(pattern.matches("^[1-9,~][0-9,~]*[1,3,5,7,~]+$") && pattern.matches(".*[~]+.*"))) {
             System.out.println("False :" + pattern);
         } else {
             System.out.println("True :" + pattern);
         }
 
-    }
+    }*/
 }

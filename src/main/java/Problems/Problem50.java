@@ -12,11 +12,11 @@ import java.util.TreeSet;
 public class Problem50 {
     public static void main(String[] args) {
         long startTime = System.currentTimeMillis();
-        System.out.println("Result is : " + Solution1());
+        System.out.println("Result is : " + solution1());
         System.out.println("Time = " + (System.currentTimeMillis() - startTime) / 1000.0);
     }
 
-    public static long Solution1() {
+    public static long solution1() {
         TreeSet<Long> primeNums = Util.GetPrimeNumsByLimit(1000000);
         long sum;
         int chain;

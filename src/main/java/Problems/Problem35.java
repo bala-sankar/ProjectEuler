@@ -13,33 +13,32 @@ import java.util.TreeSet;
 public class Problem35 {
     public static void main(String[] args) {
         long startTime = System.currentTimeMillis();
-        System.out.println("Result is : " + Solution1());
+        System.out.println("Result is : " + solution1());
         System.out.println("Time = " + (System.currentTimeMillis() - startTime) / 1000.0);
     }
 
-    public static long Solution1() {
+    public static long solution1() {
         TreeSet<Long> primeNums = Util.GetPrimeNumsByLimit(1000000);
         HashSet<Long> circularPrime = new HashSet<Long>();
-        for(long primeNum : primeNums){
+        for (long primeNum : primeNums) {
             boolean isCircularPrime = false;
-            if(circularPrime.contains(new Long(primeNum))) continue;
+            if (circularPrime.contains(new Long(primeNum))) continue;
             String primeStr = String.valueOf(primeNum);
             StringBuilder str = new StringBuilder(primeStr);
             HashSet<Long> temp = new HashSet<Long>();
-            while(true)
-            {
+            while (true) {
                 char rotateChar = str.charAt(0);
                 String tempNum = str.deleteCharAt(0).append(rotateChar).toString();
-                if(!primeNums.contains(new Long(tempNum))) {
+                if (!primeNums.contains(new Long(tempNum))) {
                     break;
                 }
                 temp.add(Long.parseLong(tempNum));
-                if(tempNum.equals(primeStr)){
+                if (tempNum.equals(primeStr)) {
                     isCircularPrime = true;
                     break;
                 }
             }
-            if(isCircularPrime){
+            if (isCircularPrime) {
                 circularPrime.addAll(temp);
             }
         }

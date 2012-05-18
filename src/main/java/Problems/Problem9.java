@@ -7,11 +7,11 @@ package Problems;
  */
 public class Problem9 {
     public static void main(String[] args) {
-        System.out.println("Result is : " + Solution1());
+        System.out.println("Result is : " + solution1());
         //System.out.println("Result is : " + Solution2());
     }
 
-    public static long Solution1() {
+    public static long solution1() {
         long product = 0;
         int c, b, a;
         for (c = 1000 / 3; c < 1000; c++) {

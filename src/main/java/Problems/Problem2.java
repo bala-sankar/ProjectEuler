@@ -7,11 +7,11 @@ package Problems;
  */
 public class Problem2 {
     public static void main(String[] args) {
-        System.out.println("Result is : " + Solution1());
+        System.out.println("Result is : " + solution1());
         System.out.println("Result is : " + Solution2());
     }
 
-    public static long Solution1() {
+    public static long solution1() {
         long i = 1, j = 1, k = 1, sum = 0;
         while (k <= 4000000) {
             if (k % 2 == 0) {

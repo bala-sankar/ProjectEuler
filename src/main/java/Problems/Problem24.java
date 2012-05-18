@@ -13,11 +13,11 @@ public class Problem24 {
 
     public static void main(String[] args) {
         long startTime = System.currentTimeMillis();
-        System.out.println("Result is : " + Solution1());
+        System.out.println("Result is : " + solution1());
         System.out.println("Time = " + (System.currentTimeMillis() - startTime) / 1000.0);
     }
 
-    public static String Solution1() {
+    public static String solution1() {
         ArrayList<String> lexicographicPermutations;
         ArrayList<String> numbers = new ArrayList<String>();
         numbers.add("0");

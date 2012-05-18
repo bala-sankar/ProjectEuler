@@ -11,10 +11,10 @@ import Utils.Util;
  */
 public class Problem18 {
     public static void main(String[] args) {
-        System.out.println("Result is : " + Solution1());
+        System.out.println("Result is : " + solution1());
     }
 
-    public static long Solution1() {
+    public static long solution1() {
         int[] triangle = new int[]{75,
                 95, 64,
                 17, 47, 82,

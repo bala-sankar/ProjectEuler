@@ -9,11 +9,11 @@ import java.util.TreeSet;
  */
 public class Problem3 {
     public static void main(String[] args) {
-        System.out.println("Result is : " + Solution1());
+        System.out.println("Result is : " + solution1());
         System.out.println("Result is : " + Solution2());
     }
 
-    public static long Solution1() {
+    public static long solution1() {
         long num = 600851475143L;
         //long num = 8;
         long limit = num / 2;
@@ -22,7 +22,7 @@ public class Problem3 {
         processPrimeNumber(num, primeNums, primeFactors, 2);
         while (num % 2 == 0) {
             num = num / 2;
-            if (isResult(num, primeNums, primeFactors, 2)) return 2;
+            if (isResult(num, 2)) return 2;
         }
 
         for (long i = 3; i <= limit; i = i + 2) {
@@ -38,7 +38,7 @@ public class Problem3 {
                 processPrimeNumber(num, primeNums, primeFactors, i);
                 while (num % i == 0) {
                     num = num / i;
-                    if (isResult(num, primeNums, primeFactors, i)) return i;
+                    if (isResult(num, i)) return i;
                 }
                 /*if (primeNums.size() % 20 == 0) {
                     System.out.println();
@@ -89,7 +89,7 @@ public class Problem3 {
         }
     }
 
-    private static boolean isResult(long num, TreeSet<Long> primeNums, TreeSet<Long> primeFactors, long i) {
+    private static boolean isResult(long num, long i) {
         return num < i;
     }
 }

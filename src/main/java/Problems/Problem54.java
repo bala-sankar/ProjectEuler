@@ -15,11 +15,11 @@ import java.util.TreeMap;
 public class Problem54 {
     public static void main(String[] args) {
         long startTime = System.currentTimeMillis();
-        System.out.println("Result is : " + Solution1());
+        System.out.println("Result is : " + solution1());
         System.out.println("Time = " + (System.currentTimeMillis() - startTime) / 1000.0);
     }
 
-    public static long Solution1() {
+    public static long solution1() {
         int count = 0;
         FileInputStream fileStream;
         try {
@@ -30,9 +30,9 @@ public class Problem54 {
             String line;
 
             //int lineNum = 0;
-            while((line = bufferedReader.readLine()) != null){
+            while ((line = bufferedReader.readLine()) != null) {
                 //lineNum++;
-                
+
                 ArrayList<CardPack.Card> temp1 = new ArrayList<CardPack.Card>();
                 ArrayList<CardPack.Card> temp2 = new ArrayList<CardPack.Card>();
                 String[] cards = line.split(" ");
@@ -49,7 +49,7 @@ public class Problem54 {
                 temp2.add(map.get(cards[8]));
                 temp2.add(map.get(cards[9]));
                 PokerHand player2 = new PokerHand(temp2);
-                if(player1.isWinner(player2)) {
+                if (player1.isWinner(player2)) {
                     count++;
                     /*System.out.println("**********");
                     System.out.println("line : " + lineNum);

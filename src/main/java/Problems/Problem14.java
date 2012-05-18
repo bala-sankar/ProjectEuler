@@ -9,10 +9,10 @@ import java.util.HashMap;
  */
 public class Problem14 {
     public static void main(String[] args) {
-        System.out.println("Result is : " + Solution1());
+        System.out.println("Result is : " + solution1());
     }
 
-    public static long Solution1() {
+    public static long solution1() {
         HashMap<Long, Long> func = new HashMap<Long, Long>();
         long maxChain = 0;
         long numWithMaxChain = 0;

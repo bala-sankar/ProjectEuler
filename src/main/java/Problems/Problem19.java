@@ -7,10 +7,10 @@ package Problems;
  */
 public class Problem19 {
     public static void main(String[] args) {
-        System.out.println("Result is : " + Solution1());
+        System.out.println("Result is : " + solution1());
     }
 
-    public static long Solution1() {
+    public static long solution1() {
         /*
          * Assumption
          * 0 => "Sunday",

@@ -10,15 +10,13 @@ import java.util.HashSet;
  */
 public class Problem29 {
     public static void main(String[] args) {
-        System.out.println("Result is : " + Solution1());
+        System.out.println("Result is : " + solution1());
     }
 
-    public static long Solution1() {
+    public static long solution1() {
         HashSet<String> distinctNums = new HashSet<String>();
-        for(int a = 2; a <= 100; a++)
-        {
-            for (int b =2; b<=100; b++)
-            {
+        for (int a = 2; a <= 100; a++) {
+            for (int b = 2; b <= 100; b++) {
                 BigInteger i = new BigInteger(String.valueOf(a));
                 distinctNums.add(i.pow(b).toString());
             }

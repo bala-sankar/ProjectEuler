@@ -12,11 +12,11 @@ import java.util.TreeSet;
 public class Problem37 {
     public static void main(String[] args) {
         long startTime = System.currentTimeMillis();
-        System.out.println("Result is : " + Solution1());
+        System.out.println("Result is : " + solution1());
         System.out.println("Time = " + (System.currentTimeMillis() - startTime) / 1000.0);
     }
 
-    public static long Solution1() {
+    public static long solution1() {
         //Initial set - assuming the first 11 truncatable prime is
         //              within first 100000 primes
         TreeSet<Long> primeNums = Util.GetPrimeNumsByCount(100000);
@@ -27,22 +27,22 @@ public class Problem37 {
                 sum = sum + num;
                 count++;
             }
-            if(count == 11) break;
+            if (count == 11) break;
         }
-        if(count != 11) sum = 0;
+        if (count != 11) sum = 0;
         return sum;
     }
 
-    public static boolean isTruncatablePrime(TreeSet<Long> primeNum, long num){
-        int j=10;
+    public static boolean isTruncatablePrime(TreeSet<Long> primeNum, long num) {
+        int j = 10;
         boolean isTrunPrime = true;
-        if(num < 10) return false;
-        while(num/j > 0){
-            if(!(primeNum.contains(num%j) && primeNum.contains(num/j))){
+        if (num < 10) return false;
+        while (num / j > 0) {
+            if (!(primeNum.contains(num % j) && primeNum.contains(num / j))) {
                 isTrunPrime = false;
                 break;
             }
-            j = j*10;
+            j = j * 10;
         }
         return isTrunPrime;
     }

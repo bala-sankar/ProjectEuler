@@ -13,25 +13,25 @@ import java.util.TreeSet;
  * Date: 3/15/12
  */
 public class Problem61 {
-    private HashMap<Long, ArrayList<PolygonalNumber>> startsWithList= new HashMap<Long, ArrayList<PolygonalNumber>>();
+    private HashMap<Long, ArrayList<PolygonalNumber>> startsWithList = new HashMap<Long, ArrayList<PolygonalNumber>>();
     //private HashMap<Long, ArrayList<PolygonalNumber>> endsWithList= new HashMap<Long, ArrayList<PolygonalNumber>>();
     private HashSet<PolygonalNumber> polygonalNumbers = new HashSet<PolygonalNumber>();
     private long firstTwoDigits = 0;
     private static final int LIMIT = 10000;
     private static final int TRIM_VALUE = 1000;
-    
+
     public static void main(String[] args) {
         long startTime = System.currentTimeMillis();
-        System.out.println("Result is : " + new Problem61().Solution1());
+        System.out.println("Result is : " + new Problem61().solution1());
         System.out.println("Time = " + (System.currentTimeMillis() - startTime) / 1000.0);
     }
 
-    public long Solution1() {
+    public long solution1() {
         TreeSet<Long> p8 = Util.GetOctagonalNumbersByLimit(LIMIT);
         trimValuesLessThan(p8, TRIM_VALUE);
         populateStartsWithAndPolygonalList(p8, 8);
-        
-        TreeSet<Long> p7 = Util.GetHeptagonalNumbersByLimit(LIMIT);  
+
+        TreeSet<Long> p7 = Util.GetHeptagonalNumbersByLimit(LIMIT);
         trimValuesLessThan(p7, TRIM_VALUE);
         populateStartsWithAndPolygonalList(p7, 7);
 
@@ -54,38 +54,38 @@ public class Problem61 {
 
         long sum = 0;
         HashSet<Long> types = new HashSet<Long>();
-        for(PolygonalNumber num : polygonalNumbers){
+        for (PolygonalNumber num : polygonalNumbers) {
             types.add(num.getType());
             firstTwoDigits = num.getNum() / 100;
             sum = cyclicPolygonal(num.getNum(), types, num.getNum());
             types.remove(num.getType());
-            if(sum != 0) break;
+            if (sum != 0) break;
         }
-          
+
         return sum;
     }
 
-    private long cyclicPolygonal(long num, HashSet<Long> types, long sum){
-         /*for(int i = 0 ; i < types.size(); i++){
-             System.out.print(" ");    
-         }
-        System.out.println(types.size() + "." + num+"-"+tempType);*/
+    private long cyclicPolygonal(long num, HashSet<Long> types, long sum) {
+        /*for(int i = 0 ; i < types.size(); i++){
+         System.out.print(" ");
+     }
+    System.out.println(types.size() + "." + num+"-"+tempType);*/
 
-        long endsWith =  num % 100;
+        long endsWith = num % 100;
         //long endsWith = num / 100;
         long tempSum;
-        if(types.size() == 6){
-            if(firstTwoDigits == endsWith)
+        if (types.size() == 6) {
+            if (firstTwoDigits == endsWith)
                 return sum;
             return 0;
         }
-        if(startsWithList.containsKey(new Long(endsWith))){
+        if (startsWithList.containsKey(new Long(endsWith))) {
             ArrayList<PolygonalNumber> temp = startsWithList.get(new Long(endsWith));
-            for(PolygonalNumber pNum : temp){
-                if(!types.contains(new Long(pNum.getType()))){
+            for (PolygonalNumber pNum : temp) {
+                if (!types.contains(new Long(pNum.getType()))) {
                     types.add(pNum.getType());
                     tempSum = cyclicPolygonal(pNum.getNum(), types, sum + pNum.getNum());
-                    if(tempSum != 0){
+                    if (tempSum != 0) {
                         return tempSum;
                     }
                     types.remove(pNum.getType());
@@ -96,11 +96,11 @@ public class Problem61 {
     }
 
     private void populateStartsWithAndPolygonalList(TreeSet<Long> p,
-                                                      long numType){
-        for(Long num : p){
+                                                    long numType) {
+        for (Long num : p) {
             polygonalNumbers.add(new PolygonalNumber(num, numType));
-            long startsWithKey = num/100;
-            if(startsWithList.containsKey(new Long(startsWithKey))){
+            long startsWithKey = num / 100;
+            if (startsWithList.containsKey(new Long(startsWithKey))) {
                 ArrayList<PolygonalNumber> temp = startsWithList.get(new Long(startsWithKey));
                 temp.add(new PolygonalNumber(num, numType));
                 startsWithList.put(startsWithKey, temp);
@@ -108,15 +108,15 @@ public class Problem61 {
                 ArrayList<PolygonalNumber> temp = new ArrayList<PolygonalNumber>();
                 temp.add(new PolygonalNumber(num, numType));
                 startsWithList.put(startsWithKey, temp);
-            }            
+            }
         }
     }
-    
-    private static void trimValuesLessThan(TreeSet<Long> p, long value){
+
+    private static void trimValuesLessThan(TreeSet<Long> p, long value) {
         TreeSet<Long> temp = new TreeSet<Long>();
         temp.addAll(p);
-        for(Long num : temp){
-            if(num < value){
+        for (Long num : temp) {
+            if (num < value) {
                 p.remove(num);
             } else {
                 break;
@@ -124,25 +124,25 @@ public class Problem61 {
         }
     }
 
-    class PolygonalNumber{
+    class PolygonalNumber {
         private long num;
         private long type;
 
-        PolygonalNumber(long num, long type){
+        PolygonalNumber(long num, long type) {
             this.num = num;
             this.type = type;
         }
 
-        public long getNum(){
+        public long getNum() {
             return num;
         }
 
-        public long getType(){
+        public long getType() {
             return type;
         }
-        
-        public String toString(){
-            return num+"-"+type;
+
+        public String toString() {
+            return num + "-" + type;
         }
     }
 }

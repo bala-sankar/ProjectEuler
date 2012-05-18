@@ -1,6 +1,6 @@
 package Problems;
 
-import java.util.*;
+import java.util.TreeSet;
 
 /**
  * Created by IntelliJ IDEA.
@@ -8,12 +8,13 @@ import java.util.*;
  * Date: 1/23/12
  */
 public class Problem31 {
-    private static long totalCombinations  = 0;
+    private static long totalCombinations = 0;
+
     public static void main(String[] args) {
-        System.out.println("Result is : " + Solution1());
+        System.out.println("Result is : " + solution1());
     }
 
-    public static long Solution1() {
+    public static long solution1() {
         TreeSet<Integer> currencies = new TreeSet<Integer>();
         currencies.add(1);
         currencies.add(2);
@@ -27,19 +28,15 @@ public class Problem31 {
         return totalCombinations;
     }
 
-    private static void combination(TreeSet<Integer> currencies, int limit, String combination){
+    private static void combination(TreeSet<Integer> currencies, int limit, String combination) {
         TreeSet<Integer> tempCurrencies = new TreeSet<Integer>();
         tempCurrencies.addAll(currencies);
-        for(int currency : currencies)
-        {
+        for (int currency : currencies) {
             int tempLimit = limit - currency;
-            if(tempLimit == 0)
-            {
+            if (tempLimit == 0) {
                 //System.out.println(temp);
                 totalCombinations++;
-            }
-            else if(tempLimit > 0)
-            {
+            } else if (tempLimit > 0) {
                 //System.out.print(currency + " ");
                 String temp = combination + " " + currency;
                 combination(tempCurrencies, tempLimit, temp);

@@ -12,22 +12,21 @@ import java.util.HashSet;
  * Date: 1/27/12
  */
 public class Problem34 {
-    private static final Integer ZERO = 0;
-    private static final Integer ONE = 1;
+
     public static void main(String[] args) {
         long startTime = System.currentTimeMillis();
-        System.out.println("Result is : " + Solution1());
+        System.out.println("Result is : " + solution1());
         System.out.println("Time = " + (System.currentTimeMillis() - startTime) / 1000.0);
     }
 
-    public static long Solution1() {
-        HashMap<Integer,Integer> factorials = new HashMap<Integer, Integer>();
+    public static long solution1() {
+        HashMap<Integer, Integer> factorials = new HashMap<Integer, Integer>();
         HashSet<Integer> allowedDigits = new HashSet<Integer>();
         long total = 0;
         int product = 1;// sum = 0;
-        factorials.put(0,product);
-        for(int i = 1; i < 10 ; i++){
-            product = product*i;
+        factorials.put(0, product);
+        for (int i = 1; i < 10; i++) {
+            product = product * i;
             //sum = sum + product;
             factorials.put(i, product);
             //System.out.println(i +"\t"+ product);
@@ -39,10 +38,9 @@ public class Problem34 {
         allowedDigits.add(2);
         allowedDigits.add(3);
         for (int i = 4; i <= 10; i++) {
-            if(i < 10){
+            if (i < 10) {
                 limit = factorials.get(i);
-            }
-            else{
+            } else {
                 //99999999 = 36288000, hence the the max limit should be 100000000
                 limit = 100000000;
             }
@@ -51,19 +49,16 @@ public class Problem34 {
                 if (i < 10 && !(allowedDigits.containsAll(digits))) continue;
 
                 int sum = 0;
-                for(int digit : digits)
-                {
+                for (int digit : digits) {
                     sum = sum + factorials.get(new Integer(digit));
                 }
-                if(sum == j)
-                {
+                if (sum == j) {
                     total = total + sum;
                     //System.out.println(j);
                 }
             }
-            if(i < 10)
-            {
-                start=limit;
+            if (i < 10) {
+                start = limit;
                 allowedDigits.add(i);
             }
         }

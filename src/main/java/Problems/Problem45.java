@@ -12,17 +12,17 @@ import java.util.TreeSet;
 public class Problem45 {
     public static void main(String[] args) {
         long startTime = System.currentTimeMillis();
-        System.out.println("Result is : " + Solution1());
+        System.out.println("Result is : " + solution1());
         System.out.println("Time = " + (System.currentTimeMillis() - startTime) / 1000.0);
     }
 
-    public static long Solution1() {
+    public static long solution1() {
         TreeSet<Long> hexNums = Util.GetHexagonalNumbersByCount(100000);
-        for(long num : hexNums){
-            if(Util.isHexagonalNumber(num)
+        for (long num : hexNums) {
+            if (Util.isHexagonalNumber(num)
                     && Util.isPentagonalNumber(num)
-                    && Util.isTriangleNumber(num)){
-                if(num > 40755) return num;
+                    && Util.isTriangleNumber(num)) {
+                if (num > 40755) return num;
             }
         }
         return 0;

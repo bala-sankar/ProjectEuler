@@ -12,11 +12,11 @@ import java.util.ArrayList;
 public class Problem43 {
     public static void main(String[] args) {
         long startTime = System.currentTimeMillis();
-        System.out.println("Result is : " + Solution1());
+        System.out.println("Result is : " + solution1());
         System.out.println("Time = " + (System.currentTimeMillis() - startTime) / 1000.0);
     }
 
-    public static long Solution1() {
+    public static long solution1() {
         ArrayList<String> lexicographicPermutations;
         ArrayList<String> numbers = new ArrayList<String>();
         numbers.add("0");
@@ -30,7 +30,7 @@ public class Problem43 {
         numbers.add("8");
         numbers.add("9");
         lexicographicPermutations = Util.GetPermutations(numbers);
-        int[] divisors = {2,3,5,7,11,13,17};
+        int[] divisors = {2, 3, 5, 7, 11, 13, 17};
         long sum = 0;
         for (String lexicographicPermutation : lexicographicPermutations) {
             char[] digits = lexicographicPermutation.toCharArray();
@@ -43,7 +43,7 @@ public class Problem43 {
 
                 }
             }
-            if(isSubStringDivisible){
+            if (isSubStringDivisible) {
                 sum = sum + Long.valueOf(lexicographicPermutation);
             }
         }

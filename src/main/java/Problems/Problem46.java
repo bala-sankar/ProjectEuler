@@ -12,30 +12,29 @@ import java.util.TreeSet;
 public class Problem46 {
     public static void main(String[] args) {
         long startTime = System.currentTimeMillis();
-        System.out.println("Result is : " + Solution1());
+        System.out.println("Result is : " + solution1());
         System.out.println("Time = " + (System.currentTimeMillis() - startTime) / 1000.0);
     }
 
-    public static long Solution1() {
-        long limit =  10000;
-        TreeSet<Long> primeNums =  Util.GetPrimeNumsByLimit(limit);
+    public static long solution1() {
+        long limit = 10000;
+        TreeSet<Long> primeNums = Util.GetPrimeNumsByLimit(limit);
 
-        for(long i=9; i < limit; i=i+2)
-        {
+        for (long i = 9; i < limit; i = i + 2) {
             boolean isComplyRule = false;
-            if(primeNums.contains(i)) continue;
-            for(long primeNum : primeNums){
-                if(primeNum >= i) break;
+            if (primeNums.contains(i)) continue;
+            for (long primeNum : primeNums) {
+                if (primeNum >= i) break;
                 long twiceASquare = i - primeNum;
-                if(twiceASquare % 2 == 0){
-                    long squareNum = twiceASquare/2;
-                    double num = Math.sqrt((double)squareNum);
-                    if(num == (double)(long)num){
-                        isComplyRule=true;
+                if (twiceASquare % 2 == 0) {
+                    long squareNum = twiceASquare / 2;
+                    double num = Math.sqrt((double) squareNum);
+                    if (num == (double) (long) num) {
+                        isComplyRule = true;
                     }
                 }
             }
-            if(!isComplyRule) {
+            if (!isComplyRule) {
                 return i;
             }
 

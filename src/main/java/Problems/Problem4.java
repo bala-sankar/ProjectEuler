@@ -9,11 +9,11 @@ import Utils.Util;
  */
 public class Problem4 {
     public static void main(String[] args) {
-        System.out.println("Result is : " + Solution1());
+        System.out.println("Result is : " + solution1());
         //System.out.println("Result is : " + Solution2());
     }
 
-    public static long Solution1() {
+    public static long solution1() {
         long max = 0;
         for (int num1 = 999; num1 >= 100; num1--) {
             for (int num2 = 999; num2 >= num1; num2--) {

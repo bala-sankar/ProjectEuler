@@ -8,11 +8,11 @@ package Problems;
 public class Problem53 {
     public static void main(String[] args) {
         long startTime = System.currentTimeMillis();
-        System.out.println("Result is : " + Solution1());
+        System.out.println("Result is : " + solution1());
         System.out.println("Time = " + (System.currentTimeMillis() - startTime) / 1000.0);
     }
 
-    public static long Solution1() {
+    public static long solution1() {
         long count = 0;
         /*
          * nC0 = 1
@@ -31,7 +31,7 @@ public class Problem53 {
                     tempR++;
                     tempN--;
                 }
-                if((numerator/denominator) > 1000000){
+                if ((numerator / denominator) > 1000000) {
                     /*
                      * 5C0=1, 5C1=5, 5C2=10, 5C3=10, 5C4=5, 5C5=1
                      * Similarly, 4C0=1, 4C1=4,4C2=6, 4C3=4, 4C4=1
@@ -46,8 +46,8 @@ public class Problem53 {
                      * count = 6 - 2
                      * count = 4
                      */
-                    long tempCount = (n+1)-(2*r);
-                    count = count+ tempCount;
+                    long tempCount = (n + 1) - (2 * r);
+                    count = count + tempCount;
                     break;
                 }
             }

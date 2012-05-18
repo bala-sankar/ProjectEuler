@@ -10,28 +10,28 @@ import java.math.BigInteger;
 public class Problem55 {
     public static void main(String[] args) {
         long startTime = System.currentTimeMillis();
-        System.out.println("Result is : " + Solution1());
+        System.out.println("Result is : " + solution1());
         System.out.println("Time = " + (System.currentTimeMillis() - startTime) / 1000.0);
     }
 
-    public static long Solution1() {
+    public static long solution1() {
         long count = 0;
-        for(long i=10; i<10000; i++){                        
+        for (long i = 10; i < 10000; i++) {
             BigInteger num = new BigInteger(String.valueOf(i));
             boolean isLychrel = false;
             int iteration = 0;
             //System.out.println(i);
-            do{
+            do {
                 iteration++;
                 num = num.add(
                         new BigInteger(
                                 new StringBuilder(num.toString()).reverse().toString()));
-                if(iteration == 50) {
+                if (iteration == 50) {
                     isLychrel = true;
                     break;
                 }
-            }while(!Utils.Util.isPalindrome(num.toString()));
-            if(isLychrel) count++;
+            } while (!Utils.Util.isPalindrome(num.toString()));
+            if (isLychrel) count++;
         }
         return count;
     }

@@ -9,10 +9,10 @@ import java.math.BigInteger;
  */
 public class Problem13 {
     public static void main(String[] args) {
-        System.out.println("Result is : " + Solution1());
+        System.out.println("Result is : " + solution1());
     }
 
-    public static String Solution1() {
+    public static String solution1() {
         String numList = "37107287533902102798797998220837590246510135740250~" +
                 "46376937677490009712648124896970078050417018260538~" +
                 "74324986199524741059474233309513058123726617309629~" +

@@ -39,6 +39,26 @@ public class Util {
         return factors;
     }
 
+    public static TreeSet<Long> GetPrimeFactors(long number, TreeSet<Long> primeNums) {
+        long limit;
+        TreeSet<Long> factors = new TreeSet<Long>();
+        if (number % 2 == 0) {
+            limit = number / 2;
+        } else {
+            limit = number / 3;
+        }
+        for (long primeNum : primeNums) {
+            if (primeNum <= limit) {
+                if (number % primeNum == 0) {
+                    factors.add(primeNum);
+                }
+            } else {
+                break;
+            }
+        }
+        return factors;
+    }
+
     public static HashMap<Long, Long> GetPrimeFactorsWithExponent(long number, TreeSet<Long> primeNums) {
         long limit;
         HashMap<Long, Long> factors = new HashMap<Long, Long>();
@@ -48,13 +68,17 @@ public class Util {
             limit = number / 3;
         }
         for (long primeNum : primeNums) {
-            while (primeNum <= limit && number % primeNum == 0) {
-                if (factors.containsKey(primeNum)) {
-                    factors.put(primeNum, factors.get(new Long(primeNum)) + 1);
-                } else {
-                    factors.put(primeNum, 1L);
+            if (primeNum <= limit) {
+                while (number % primeNum == 0) {
+                    if (factors.containsKey(primeNum)) {
+                        factors.put(primeNum, factors.get(new Long(primeNum)) + 1);
+                    } else {
+                        factors.put(primeNum, 1L);
+                    }
+                    number = number / primeNum;
                 }
-                number = number / primeNum;
+            } else {
+                break;
             }
         }
         return factors;
@@ -484,7 +508,7 @@ public class Util {
 
     public static String sqrtForBigNum(String num) {
         //Validation
-        if (null == num || num.length() == 0 || num.split(".").length > 2) {
+        if (null == num || num.length() == 0 || num.split("\\.").length > 2) {
             throw new IllegalArgumentException("Invalid number");
         }
 
