@@ -36,9 +36,9 @@ public class Problem49 {
                         break;
                     }
                 }*/
-                boolean rule1 = primeNums.contains(new Long(primeNum + 3330));
+                boolean rule1 = primeNums.contains(Long.valueOf(primeNum + 3330));
                 boolean rule2 = permutations.contains(String.valueOf(primeNum + 3330));
-                boolean rule3 = primeNums.contains(new Long(primeNum + 6660));
+                boolean rule3 = primeNums.contains(Long.valueOf(primeNum + 6660));
                 boolean rule4 = permutations.contains(String.valueOf(primeNum + 6660));
                 if (rule1 && rule2 && rule3 && rule4 && primeNum != 1487) {
                     return String.valueOf(primeNum) + String.valueOf(primeNum + 3330) + String.valueOf(primeNum + 6660);

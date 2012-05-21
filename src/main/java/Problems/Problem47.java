@@ -4,6 +4,7 @@ import Utils.Util;
 
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.TreeSet;
 
 /**
@@ -37,8 +38,8 @@ public class Problem47 {
             }
             HashSet<String> tempCombination = new HashSet<String>();
             boolean isUnique = true;
-            for (Long primeFactor : primeFactors.keySet()) {
-                String combination = String.valueOf(primeFactor) + "_" + String.valueOf(primeFactors.get(primeFactor));
+            for (Map.Entry<Long, Long> entry : primeFactors.entrySet()) {
+                String combination = String.valueOf(entry.getKey()) + "_" + String.valueOf(entry.getValue());
                 tempCombination.add(combination);
                 if (uniqueCombination.contains(combination)) {
                     isUnique = false;

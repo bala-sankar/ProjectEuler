@@ -21,14 +21,14 @@ public class Problem30 {
         int i = 1;
         long limit = 0;
         while (String.valueOf(limit).length() >= i) {
-            limit = digitPow.get(new Long(9)) * i;
+            limit = digitPow.get(Long.valueOf(9)) * i;
             i++;
         }
         for (long j = 10; j <= limit; j++) {
             long temp = j;
             long sum = 0;
             while (temp > 0) {
-                sum = sum + digitPow.get(new Long(temp % 10));
+                sum = sum + digitPow.get(Long.valueOf(temp % 10));
                 temp = temp / 10;
             }
             if (sum == j) {

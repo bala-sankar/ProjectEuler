@@ -10,7 +10,7 @@ import java.util.TreeSet;
 public class Problem3 {
     public static void main(String[] args) {
         System.out.println("Result is : " + solution1());
-        System.out.println("Result is : " + Solution2());
+        System.out.println("Result is : " + solution2());
     }
 
     public static long solution1() {
@@ -48,7 +48,7 @@ public class Problem3 {
         return 1;
     }
 
-    public static long Solution2() {
+    public static long solution2() {
         long num = 600851475143L;
         //long num = 8;
         long lastFactor = 0;

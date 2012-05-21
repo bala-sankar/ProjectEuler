@@ -79,10 +79,10 @@ public class Problem61 {
                 return sum;
             return 0;
         }
-        if (startsWithList.containsKey(new Long(endsWith))) {
-            ArrayList<PolygonalNumber> temp = startsWithList.get(new Long(endsWith));
+        if (startsWithList.containsKey(Long.valueOf(endsWith))) {
+            ArrayList<PolygonalNumber> temp = startsWithList.get(Long.valueOf(endsWith));
             for (PolygonalNumber pNum : temp) {
-                if (!types.contains(new Long(pNum.getType()))) {
+                if (!types.contains(Long.valueOf(pNum.getType()))) {
                     types.add(pNum.getType());
                     tempSum = cyclicPolygonal(pNum.getNum(), types, sum + pNum.getNum());
                     if (tempSum != 0) {
@@ -100,8 +100,8 @@ public class Problem61 {
         for (Long num : p) {
             polygonalNumbers.add(new PolygonalNumber(num, numType));
             long startsWithKey = num / 100;
-            if (startsWithList.containsKey(new Long(startsWithKey))) {
-                ArrayList<PolygonalNumber> temp = startsWithList.get(new Long(startsWithKey));
+            if (startsWithList.containsKey(Long.valueOf(startsWithKey))) {
+                ArrayList<PolygonalNumber> temp = startsWithList.get(Long.valueOf(startsWithKey));
                 temp.add(new PolygonalNumber(num, numType));
                 startsWithList.put(startsWithKey, temp);
             } else {

@@ -16,7 +16,7 @@ public class Problem12 {
         //System.out.println("Result is : " + solution1());
         //System.out.println("Time = " + (System.currentTimeMillis() - startTime) / 1000.0);
         //startTime = System.currentTimeMillis();
-        System.out.println("Result is : " + Solution2());
+        System.out.println("Result is : " + solution2());
         System.out.println("Time = " + (System.currentTimeMillis() - startTime) / 1000.0);
     }
 
@@ -35,7 +35,7 @@ public class Problem12 {
     }
 
     //Fast solution for larger numbers
-    public static long Solution2() {
+    public static long solution2() {
         long i = 1000;
         long triangleNum = (i * (i + 1)) / 2;
         TreeSet<Long> primeNums = Util.GetPrimeNumsByCount(100000);
@@ -43,7 +43,7 @@ public class Problem12 {
             long size;
             i++;
             triangleNum = triangleNum + i;
-            size = GetFactorCount(triangleNum, primeNums);
+            size = getFactorCount(triangleNum, primeNums);
 
             //System.out.println(i + "\t" + triangleNum + "\t" + size);
             if (size > 500) {
@@ -54,7 +54,7 @@ public class Problem12 {
     }
 
     //Optimize
-    public static long GetFactorCount(long number, TreeSet<Long> primeNums) {
+    public static long getFactorCount(long number, TreeSet<Long> primeNums) {
         long limit;
         long count;
         long size = 1;

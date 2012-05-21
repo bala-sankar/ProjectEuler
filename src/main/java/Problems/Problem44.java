@@ -24,7 +24,7 @@ public class Problem44 {
         NavigableSet<Long> Num2 = new TreeSet<Long>();
         Num2.addAll(Num1);
         for (long a : Num1) {
-            Num2.remove(new Long(a));
+            Num2.remove(Long.valueOf(a));
             for (long b : Num2) {
                 long sum = a + b;
                 long diff = a - b;

@@ -21,7 +21,7 @@ public class Problem23 {
         for (int i = 1; i <= 28123; i++) {
             long sum;
             HashSet<Long> factors = Util.GetFactors(i);
-            factors.remove(new Long(i));
+            factors.remove(Long.valueOf(i));
             sum = Util.sum(factors);
             if (sum > i) {
                 abundantNumbers.add(i);
@@ -36,7 +36,7 @@ public class Problem23 {
         }
         long sum = 0;
         for (int i = 1; i <= 28123; i++) {
-            if (!sumOfTwoAbundant.contains(new Integer(i))) {
+            if (!sumOfTwoAbundant.contains(Integer.valueOf(i))) {
                 sum = sum + i;
             }
         }

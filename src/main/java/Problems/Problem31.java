@@ -40,7 +40,7 @@ public class Problem31 {
                 //System.out.print(currency + " ");
                 String temp = combination + " " + currency;
                 combination(tempCurrencies, tempLimit, temp);
-                tempCurrencies.remove(new Integer(currency));
+                tempCurrencies.remove(Integer.valueOf(currency));
             }
         }
     }

@@ -22,14 +22,14 @@ public class Problem35 {
         HashSet<Long> circularPrime = new HashSet<Long>();
         for (long primeNum : primeNums) {
             boolean isCircularPrime = false;
-            if (circularPrime.contains(new Long(primeNum))) continue;
+            if (circularPrime.contains(Long.valueOf(primeNum))) continue;
             String primeStr = String.valueOf(primeNum);
             StringBuilder str = new StringBuilder(primeStr);
             HashSet<Long> temp = new HashSet<Long>();
             while (true) {
                 char rotateChar = str.charAt(0);
                 String tempNum = str.deleteCharAt(0).append(rotateChar).toString();
-                if (!primeNums.contains(new Long(tempNum))) {
+                if (!primeNums.contains(Long.valueOf(tempNum))) {
                     break;
                 }
                 temp.add(Long.parseLong(tempNum));

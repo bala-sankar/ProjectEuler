@@ -20,49 +20,57 @@ public class Problem59 {
         try {
             fileStream = new FileInputStream("src/main/resources/cipher1.txt");
             DataInputStream dataStream = new DataInputStream(fileStream);
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(dataStream));
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(dataStream, "UTF-8"));
             String line;
             line = bufferedReader.readLine();
-            String[] letters = line.split(",");
+            if (line != null) {
+                String[] letters = line.split(",");
 
-            ArrayList<String> encryptKeyChars = new ArrayList<String>();
-            for (char i = 'a'; i <= 'z'; i++) {
-                encryptKeyChars.add(String.valueOf(i));
-            }
-            ArrayList<String> possibleEncryptKeys = Utils.Util.GetPermutationsWithRepetition(encryptKeyChars, 3);
-            boolean isDecrypted;
-            for (String encryptKey : possibleEncryptKeys) {
-                //encryptKey = "god";
-                char[] keyChars = encryptKey.toCharArray();
-                ArrayList<Character> origChars = new ArrayList<Character>();
-                int j = 0;
-                isDecrypted = true;
-                for (String singleChar : letters) {
-                    char c = (char) (Integer.valueOf(singleChar) ^ keyChars[j % 3]);
-                    //Possible valid chars
-                    if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')
-                            || c == ',' || c == '"' || c == '\'' || c == '.'
-                            || c == '?' || c == '&' || c == '(' || c == ')' || c == '!'
-                            || c == ';' || c == ':' || c == '-' || c == ' '
-                            || (c >= '0' && c <= '9')) {
-                        origChars.add(c);
-                    } else {
-                        isDecrypted = false;
-                        break;
-                    }
-                    j++;
+                ArrayList<String> encryptKeyChars = new ArrayList<String>();
+                for (char i = 'a'; i <= 'z'; i++) {
+                    encryptKeyChars.add(String.valueOf(i));
                 }
-                if (isDecrypted) {
-                    long sum = 0;
-                    StringBuilder message = new StringBuilder();
-                    for (char x : origChars) {
-                        message.append(x);
-                        sum = sum + x;
+                ArrayList<String> possibleEncryptKeys = Utils.Util.GetPermutationsWithRepetition(encryptKeyChars, 3);
+                boolean isDecrypted;
+                for (String encryptKey : possibleEncryptKeys) {
+                    //encryptKey = "god";
+                    char[] keyChars = encryptKey.toCharArray();
+                    ArrayList<Character> origChars = new ArrayList<Character>();
+                    int j = 0;
+                    isDecrypted = true;
+                    for (String singleChar : letters) {
+                        char c = (char) (Integer.valueOf(singleChar) ^ keyChars[j % 3]);
+                        //Possible valid chars
+                        if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')
+                                || c == ',' || c == '"' || c == '\'' || c == '.'
+                                || c == '?' || c == '&' || c == '(' || c == ')' || c == '!'
+                                || c == ';' || c == ':' || c == '-' || c == ' '
+                                || (c >= '0' && c <= '9')) {
+                            origChars.add(c);
+                        } else {
+                            isDecrypted = false;
+                            break;
+                        }
+                        j++;
                     }
-                    return sum;
-                    //System.out.println(encryptKey +"\t" +sum +"\t"+ message);
+                    if (isDecrypted) {
+                        long sum = 0;
+                        StringBuilder message = new StringBuilder();
+                        for (char x : origChars) {
+                            message.append(x);
+                            sum = sum + x;
+                        }
+                        bufferedReader.close();
+                        dataStream.close();
+                        fileStream.close();
+                        return sum;
+                        //System.out.println(encryptKey +"\t" +sum +"\t"+ message);
+                    }
                 }
             }
+            bufferedReader.close();
+            dataStream.close();
+            fileStream.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {

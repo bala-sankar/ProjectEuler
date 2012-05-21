@@ -50,7 +50,7 @@ public class Problem34 {
 
                 int sum = 0;
                 for (int digit : digits) {
-                    sum = sum + factorials.get(new Integer(digit));
+                    sum = sum + factorials.get(Integer.valueOf(digit));
                 }
                 if (sum == j) {
                     total = total + sum;

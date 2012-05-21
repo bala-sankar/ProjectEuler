@@ -1,6 +1,7 @@
 package Problems;
 
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by IntelliJ IDEA.
@@ -32,11 +33,11 @@ public class Problem39 {
             }
         }
         int maxValue = 0, maxKey = 0;
-        for (Integer key : perimeterSolutions.keySet()) {
-            int value = perimeterSolutions.get(key);
+        for (Map.Entry<Integer, Integer> entry : perimeterSolutions.entrySet()) {
+            int value = entry.getValue();
             if (maxValue < value) {
                 maxValue = value;
-                maxKey = key;
+                maxKey = entry.getKey();
             }
         }
         //System.out.println("Max : "+maxKey+"\t"+maxValue);

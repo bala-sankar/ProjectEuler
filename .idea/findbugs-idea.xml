@@ -4,14 +4,14 @@
     <option name="_basePreferences">
       <map>
         <entry key="property.analysisEffortLevel" value="default" />
-        <entry key="property.analyzeAfterCompile" value="false" />
+        <entry key="property.analyzeAfterCompile" value="true" />
         <entry key="property.exportAsHtml" value="true" />
         <entry key="property.exportAsXml" value="true" />
         <entry key="property.exportBaseDir" value="" />
         <entry key="property.exportCreateArchiveDir" value="false" />
         <entry key="property.exportOpenBrowser" value="true" />
         <entry key="property.minPriorityToReport" value="Medium" />
-        <entry key="property.runAnalysisInBackground" value="false" />
+        <entry key="property.runAnalysisInBackground" value="true" />
         <entry key="property.showHiddenDetectors" value="false" />
         <entry key="property.toolWindowToFront" value="true" />
       </map>
@@ -20,7 +20,7 @@
       <map>
         <entry key="AppendingToAnObjectOutputStream" value="true" />
         <entry key="BCPMethodReturnCheck" value="false" />
-        <entry key="BadAppletConstructor" value="false" />
+        <entry key="BadAppletConstructor" value="true" />
         <entry key="BadResultSetAccess" value="true" />
         <entry key="BadSyntaxForRegularExpression" value="true" />
         <entry key="BadUseOfReturnValue" value="true" />
@@ -28,7 +28,7 @@
         <entry key="BooleanReturnNull" value="true" />
         <entry key="BuildInterproceduralCallGraph" value="false" />
         <entry key="BuildObligationPolicyDatabase" value="true" />
-        <entry key="CallToUnsupportedMethod" value="false" />
+        <entry key="CallToUnsupportedMethod" value="true" />
         <entry key="CalledMethods" value="true" />
         <entry key="CheckCalls" value="false" />
         <entry key="CheckExpectedWarnings" value="false" />
@@ -57,7 +57,7 @@
         <entry key="FindBadEqualsImplementation" value="false" />
         <entry key="FindBadForLoop" value="true" />
         <entry key="FindBugsSummaryStats" value="true" />
-        <entry key="FindCircularDependencies" value="false" />
+        <entry key="FindCircularDependencies" value="true" />
         <entry key="FindDeadLocalStores" value="true" />
         <entry key="FindDoubleCheck" value="true" />
         <entry key="FindEmptySynchronizedBlock" value="true" />
@@ -101,11 +101,11 @@
         <entry key="IDivResultCastToDouble" value="true" />
         <entry key="IncompatMask" value="true" />
         <entry key="InconsistentAnnotations" value="true" />
-        <entry key="InefficientMemberAccess" value="false" />
+        <entry key="InefficientMemberAccess" value="true" />
         <entry key="InefficientToArray" value="true" />
         <entry key="InfiniteLoop" value="true" />
         <entry key="InfiniteRecursiveLoop" value="true" />
-        <entry key="InfiniteRecursiveLoop2" value="false" />
+        <entry key="InfiniteRecursiveLoop2" value="true" />
         <entry key="InheritanceUnsafeGetResource" value="true" />
         <entry key="InitializationChain" value="true" />
         <entry key="InstantiateStaticClass" value="true" />
@@ -135,7 +135,7 @@
         <entry key="NumberConstructor" value="true" />
         <entry key="OverridingEqualsNotSymmetrical" value="true" />
         <entry key="PreferZeroLengthArrays" value="true" />
-        <entry key="PublicSemaphores" value="false" />
+        <entry key="PublicSemaphores" value="true" />
         <entry key="QuestionableBooleanAssignment" value="true" />
         <entry key="ReadOfInstanceFieldInMethodInvokedByConstructorInSuperclass" value="true" />
         <entry key="ReadReturnShouldBeChecked" value="true" />
@@ -165,8 +165,8 @@
         <entry key="UncallableMethodOfAnonymousClass" value="true" />
         <entry key="UnnecessaryMath" value="true" />
         <entry key="UnreadFields" value="true" />
-        <entry key="UseObjectEquals" value="false" />
-        <entry key="UselessSubclassMethod" value="false" />
+        <entry key="UseObjectEquals" value="true" />
+        <entry key="UselessSubclassMethod" value="true" />
         <entry key="VarArgsProblems" value="true" />
         <entry key="VolatileUsage" value="true" />
         <entry key="WaitInLoop" value="true" />

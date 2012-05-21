@@ -23,16 +23,16 @@ public class PokerHand {
             CardValue cardVal = card.GetCardValue();
             suits.add(card.GetCardSuit());
             values.add(cardVal);
-            if(kindCount.containsKey(cardVal)){
+            if (kindCount.containsKey(cardVal)) {
                 kindCount.put(cardVal, kindCount.get(cardVal) + 1);
             } else {
                 kindCount.put(cardVal, 1);
             }
         }
 
-        
+
         TreeSet<Integer> sortedCardValues = new TreeSet<Integer>();
-        for (CardValue cardValue : values){
+        for (CardValue cardValue : values) {
             sortedCardValues.add(cardValue.GetValue());
         }
 
@@ -55,20 +55,21 @@ public class PokerHand {
             }
         }
         //Check for flush
-        if(suits.size() == 1){
+        if (suits.size() == 1) {
             pokerHand.put(PokerHandRank.FLUSH, CardValue.GetCardValueByValue(sortedCardValues.last()));
             sortedCardValues.remove(sortedCardValues.last());
             return;
         }
         //Check for Four_Kind
-        for(CardValue cardValue : kindCount.keySet()){
-            int count  = kindCount.get(cardValue);
+        for (Map.Entry<CardValue, Integer> entry : kindCount.entrySet()) {
+            int count = entry.getValue();
+            CardValue cardValue = entry.getKey();
             //Four Kind
-            if(count == 4){
+            if (count == 4) {
                 pokerHand.put(PokerHandRank.FOUR_KIND, cardValue);
-            } else if(count == 3) {
+            } else if (count == 3) {
                 //Full house
-                if(pokerHand.containsKey(PokerHandRank.ONE_PAIR)){
+                if (pokerHand.containsKey(PokerHandRank.ONE_PAIR)) {
                     pokerHand.put(PokerHandRank.FULL_HOUSE, cardValue);
                     pokerHand.remove(PokerHandRank.ONE_PAIR);
                     return;
@@ -77,75 +78,75 @@ public class PokerHand {
                 else {
                     pokerHand.put(PokerHandRank.THREE_KIND, cardValue);
                 }
-            } else if(count == 2) {
+            } else if (count == 2) {
                 //Two Pair
-                if(pokerHand.containsKey(PokerHandRank.ONE_PAIR)){
+                if (pokerHand.containsKey(PokerHandRank.ONE_PAIR)) {
                     int tempVal = (pokerHand.get(PokerHandRank.ONE_PAIR).GetValue() > cardValue.GetValue()) ?
                             pokerHand.get(PokerHandRank.ONE_PAIR).GetValue() : cardValue.GetValue();
                     pokerHand.put(PokerHandRank.TWO_PAIR, CardValue.GetCardValueByValue(tempVal));
                     pokerHand.remove(PokerHandRank.ONE_PAIR);
-                } 
+                }
                 //Full house
-                else if(pokerHand.containsKey(PokerHandRank.THREE_KIND)){
+                else if (pokerHand.containsKey(PokerHandRank.THREE_KIND)) {
                     pokerHand.put(PokerHandRank.FULL_HOUSE,
                             pokerHand.get(PokerHandRank.THREE_KIND));
                     pokerHand.remove(PokerHandRank.THREE_KIND);
                     return;
-                } else{
+                } else {
                     //Pair
                     pokerHand.put(PokerHandRank.ONE_PAIR, cardValue);
                 }
             }
-            if(count > 1){
-                sortedCardValues.remove(new Integer(cardValue.GetValue()));
+            if (count > 1) {
+                sortedCardValues.remove(Integer.valueOf(cardValue.GetValue()));
             }
         }
 
         int rank = 5;
-        for(int val : sortedCardValues.descendingSet()){
+        for (int val : sortedCardValues.descendingSet()) {
             pokerHand.put(PokerHandRank.GetByRank(rank),
                     CardValue.GetCardValueByValue(val));
             rank--;
         }
     }
 
-    public boolean isWinner(PokerHand player2){
+    public boolean isWinner(PokerHand player2) {
         PokerHand player1 = this;
 
         TreeSet<Integer> player1Ranks = new TreeSet<Integer>();
-        for(PokerHandRank hand : player1.pokerHand.keySet()){
+        for (PokerHandRank hand : player1.pokerHand.keySet()) {
             player1Ranks.add(hand.rank);
         }
 
         TreeSet<Integer> player2Ranks = new TreeSet<Integer>();
-        for(PokerHandRank hand : player2.pokerHand.keySet()){
+        for (PokerHandRank hand : player2.pokerHand.keySet()) {
             player2Ranks.add(hand.rank);
         }
-        for(int p1 : player1Ranks.descendingSet()){
+        for (int p1 : player1Ranks.descendingSet()) {
             int p2 = player2Ranks.size() == 0 ? 0 : player2Ranks.last();
-            if(p1 > p2) return true;
-            else if(p1 < p2) return false;
-            else{
+            if (p1 > p2) return true;
+            else if (p1 < p2) return false;
+            else {
                 int val1 = player1.pokerHand.get(PokerHandRank.GetByRank(p1)).GetValue();
                 int val2 = player2.pokerHand.get(PokerHandRank.GetByRank(p2)).GetValue();
-                if(val1 > val2) return true;
+                if (val1 > val2) return true;
                 else if (val1 < val2) return false;
-                else{
-                    player2Ranks.remove(new Integer(p2));
+                else {
+                    player2Ranks.remove(Integer.valueOf(p2));
                 }
             }
         }
         return false;
     }
-    
-    public String toString(){
+
+    public String toString() {
         TreeSet<Integer> ranks = new TreeSet<Integer>();
-        for(PokerHandRank hand : pokerHand.keySet()){
+        for (PokerHandRank hand : pokerHand.keySet()) {
             ranks.add(hand.rank);
         }
-        
+
         StringBuilder line = new StringBuilder();
-        for(int rank : ranks.descendingSet()){
+        for (int rank : ranks.descendingSet()) {
             line.append(PokerHandRank.GetByRank(rank).name());
             line.append("\t");
             line.append(pokerHand.get(PokerHandRank.GetByRank(rank)).name());
@@ -153,6 +154,7 @@ public class PokerHand {
         }
         return line.toString();
     }
+
     public enum PokerHandRank {
         FIFTH_HIGHEST(1),
         FOURTH_HIGHEST(2),

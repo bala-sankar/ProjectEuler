@@ -71,7 +71,7 @@ public class Util {
             if (primeNum <= limit) {
                 while (number % primeNum == 0) {
                     if (factors.containsKey(primeNum)) {
-                        factors.put(primeNum, factors.get(new Long(primeNum)) + 1);
+                        factors.put(primeNum, factors.get(Long.valueOf(primeNum)) + 1);
                     } else {
                         factors.put(primeNum, 1L);
                     }

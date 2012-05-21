@@ -8,7 +8,7 @@ package Problems;
 public class Problem2 {
     public static void main(String[] args) {
         System.out.println("Result is : " + solution1());
-        System.out.println("Result is : " + Solution2());
+        System.out.println("Result is : " + solution2());
     }
 
     public static long solution1() {
@@ -24,7 +24,7 @@ public class Problem2 {
         return sum;
     }
 
-    public static long Solution2() {
+    public static long solution2() {
         long i = 1, j = 1, k, sum = 0;
         k = i + j;
         while (k <= 4000000) {

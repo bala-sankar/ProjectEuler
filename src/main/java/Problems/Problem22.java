@@ -1,6 +1,7 @@
 package Problems;
 
 import java.io.*;
+import java.util.Map;
 import java.util.TreeMap;
 
 /**
@@ -19,27 +20,32 @@ public class Problem22 {
 
             FileInputStream fileStream = new FileInputStream("src/main/resources/names.txt");
             DataInputStream dataStream = new DataInputStream(fileStream);
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(dataStream));
-            String[] names = bufferedReader.readLine().split(",");
-            dataStream.close();
-            TreeMap<String, Integer> nameScores = new TreeMap<String, Integer>();
-            for (String name : names) {
-                StringBuilder tempName = new StringBuilder(name);
-                tempName.deleteCharAt(0);
-                tempName.deleteCharAt(tempName.length() - 1);
-                int score = 0;
-                for (int i = 0; i < tempName.length(); i++) {
-                    //Assuming the names contains only A-Z
-                    score = score + (tempName.charAt(i) % 'A') + 1;
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(dataStream, "UTF-8"));
+            String line = bufferedReader.readLine();
+            if (line != null) {
+                String[] names = line.split(",");
+                dataStream.close();
+                TreeMap<String, Integer> nameScores = new TreeMap<String, Integer>();
+                for (String name : names) {
+                    StringBuilder tempName = new StringBuilder(name);
+                    tempName.deleteCharAt(0);
+                    tempName.deleteCharAt(tempName.length() - 1);
+                    int score = 0;
+                    for (int i = 0; i < tempName.length(); i++) {
+                        //Assuming the names contains only A-Z
+                        score = score + (tempName.charAt(i) % 'A') + 1;
+                    }
+                    nameScores.put(tempName.toString(), score);
                 }
-                nameScores.put(tempName.toString(), score);
+                int pos = 0;
+                for (Map.Entry<String, Integer> entry : nameScores.entrySet()) {
+                    pos++;
+                    OverallScore = OverallScore + pos * entry.getValue();
+                }
             }
-            int pos = 0;
-            for (String name : nameScores.keySet()) {
-                pos++;
-                OverallScore = OverallScore + pos * nameScores.get(name);
-            }
-
+            bufferedReader.close();
+            dataStream.close();
+            fileStream.close();
         } catch (FileNotFoundException e) {
             System.out.println(e.getMessage());
         } catch (IOException e) {

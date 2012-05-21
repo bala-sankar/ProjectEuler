@@ -22,8 +22,8 @@ public class Problem60 {
         int limit = 10000;
         ArrayList<String> num = new ArrayList<String>();
         TreeSet<Long> primeNums = Utils.Util.GetPrimeNumsByLimit(limit);
-        primeNums.remove(new Long(2));
-        primeNums.remove(new Long(5));
+        primeNums.remove(Long.valueOf(2));
+        primeNums.remove(Long.valueOf(5));
         return RemarkablePrime(primeNums, num);
     }
 

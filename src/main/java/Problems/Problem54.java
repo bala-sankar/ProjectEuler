@@ -26,7 +26,7 @@ public class Problem54 {
             TreeMap<String, CardPack.Card> map = new CardPack().GetMap();
             fileStream = new FileInputStream("src/main/resources/poker.txt");
             DataInputStream dataStream = new DataInputStream(fileStream);
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(dataStream));
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(dataStream, "UTF-8"));
             String line;
 
             //int lineNum = 0;
@@ -63,6 +63,7 @@ public class Problem54 {
             }
             bufferedReader.close();
             dataStream.close();
+            fileStream.close();
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();

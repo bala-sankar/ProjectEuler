@@ -21,7 +21,7 @@ public class Problem21 {
         for (int i = 1; i < 10000; i++) {
             long sum;
             HashSet<Long> factors = Util.GetFactors(i);
-            factors.remove(new Long(i));
+            factors.remove(Long.valueOf(i));
             sum = Util.sum(factors);
             factorSum.put(i, sum);
         }

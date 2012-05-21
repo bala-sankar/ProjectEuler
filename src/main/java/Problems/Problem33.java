@@ -52,7 +52,7 @@ public class Problem33 {
         long numProduct = 1;
         //GCD
         for (int num : unorthodoxFractions.keySet()) {
-            int deNom = unorthodoxFractions.get(new Integer(num));
+            int deNom = unorthodoxFractions.get(Integer.valueOf(num));
             for (int i = num; i > 0; i--) {
                 if (num % i == 0 && deNom % i == 0) {
                     numProduct = numProduct * num / i;
