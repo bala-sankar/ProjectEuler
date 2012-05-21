@@ -27,10 +27,8 @@ public class Problem21 {
         }
         for (int i = 1; i < 10000; i++) {
             long value = factorSum.get(i);
-            if (value > 0 && value < 10000) {
-                if (value != i && factorSum.get((int) value) == i) {
-                    pairSum = pairSum + i;
-                }
+            if (value > 0 && value < 10000 && value != i && factorSum.get((int) value) == i) {
+                pairSum = pairSum + i;
             }
         }
         return pairSum;

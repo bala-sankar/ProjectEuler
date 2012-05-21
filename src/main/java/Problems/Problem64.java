@@ -18,7 +18,9 @@ public class Problem64 {
         long count = 0;
         for (double i = 0; i <= 10000; i++) {
             double sqrt = Math.sqrt(i);
-            if (sqrt == (double) (long) sqrt) continue;
+            if (sqrt == (double) (long) sqrt) {
+                continue;
+            }
 
             int a = (int) sqrt;
             int limitNum = 0;

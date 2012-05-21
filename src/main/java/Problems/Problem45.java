@@ -21,8 +21,8 @@ public class Problem45 {
         for (long num : hexNums) {
             if (Util.isHexagonalNumber(num)
                     && Util.isPentagonalNumber(num)
-                    && Util.isTriangleNumber(num)) {
-                if (num > 40755) return num;
+                    && Util.isTriangleNumber(num) && num > 40755) {
+                return num;
             }
         }
         return 0;

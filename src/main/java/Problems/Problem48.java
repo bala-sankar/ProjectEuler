@@ -15,7 +15,7 @@ public class Problem48 {
     }
 
     public static String solution1() {
-        BigInteger sum = new BigInteger("0");
+        BigInteger sum = BigInteger.ZERO;
         for (int i = 1; i <= 1000; i++) {
             BigInteger num = new BigInteger(String.valueOf(i));
             num = num.pow(i);

@@ -33,7 +33,9 @@ public class Problem68 extends Util {
         ArrayList<String> outerNodesList = GetCircularPermutations(digits, 5);
         TreeSet<Long> result = new TreeSet<Long>();
         for (String outerNodes : outerNodesList) {
-            if (!outerNodes.contains("0")) continue;
+            if (!outerNodes.contains("0")) {
+                continue;
+            }
             if (outerNodes.length() != 5) {
                 System.out.println("Node length should be 5");
                 break;
@@ -89,7 +91,9 @@ public class Problem68 extends Util {
         temp.addAll(numbers);
         for (String number : numbers) {
             temp.remove(number);
-            if (temp.size() < (length - 1)) break;
+            if (temp.size() < (length - 1)) {
+                break;
+            }
             permutation(temp, number, permutations, length, 1);
         }
         return permutations;

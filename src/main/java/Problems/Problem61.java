@@ -59,7 +59,9 @@ public class Problem61 {
             firstTwoDigits = num.getNum() / 100;
             sum = cyclicPolygonal(num.getNum(), types, num.getNum());
             types.remove(num.getType());
-            if (sum != 0) break;
+            if (sum != 0) {
+                break;
+            }
         }
 
         return sum;
@@ -75,8 +77,9 @@ public class Problem61 {
         //long endsWith = num / 100;
         long tempSum;
         if (types.size() == 6) {
-            if (firstTwoDigits == endsWith)
+            if (firstTwoDigits == endsWith) {
                 return sum;
+            }
             return 0;
         }
         if (startsWithList.containsKey(Long.valueOf(endsWith))) {
@@ -124,7 +127,7 @@ public class Problem61 {
         }
     }
 
-    class PolygonalNumber {
+    static class PolygonalNumber {
         private long num;
         private long type;
 

@@ -28,8 +28,9 @@ public class Problem5 {
                         flag = true;
                     }
                 }
-                if (flag)
+                if (flag) {
                     result = result * primeNumbers[i];
+                }
             } while (flag);
         }
         return result;

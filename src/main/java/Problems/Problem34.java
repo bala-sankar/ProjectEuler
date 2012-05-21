@@ -46,7 +46,9 @@ public class Problem34 {
             }
             for (long j = start; j < limit; j++) {
                 ArrayList<Integer> digits = Util.GetDigits(j);
-                if (i < 10 && !(allowedDigits.containsAll(digits))) continue;
+                if (i < 10 && !(allowedDigits.containsAll(digits))) {
+                    continue;
+                }
 
                 int sum = 0;
                 for (int digit : digits) {

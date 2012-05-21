@@ -22,7 +22,9 @@ public class Problem3 {
         processPrimeNumber(num, primeNums, primeFactors, 2);
         while (num % 2 == 0) {
             num = num / 2;
-            if (isResult(num, 2)) return 2;
+            if (isResult(num, 2)) {
+                return 2;
+            }
         }
 
         for (long i = 3; i <= limit; i = i + 2) {
@@ -38,7 +40,9 @@ public class Problem3 {
                 processPrimeNumber(num, primeNums, primeFactors, i);
                 while (num % i == 0) {
                     num = num / i;
-                    if (isResult(num, i)) return i;
+                    if (isResult(num, i)) {
+                        return i;
+                    }
                 }
                 /*if (primeNums.size() % 20 == 0) {
                     System.out.println();

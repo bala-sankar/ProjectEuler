@@ -13,7 +13,7 @@ public class Problem20 {
     }
 
     public static long solution1() {
-        BigInteger factorial = new BigInteger("1");
+        BigInteger factorial = BigInteger.ONE;
         for (int i = 100; i > 0; i--) {
             factorial = factorial.multiply(new BigInteger(Integer.toString(i)));
         }

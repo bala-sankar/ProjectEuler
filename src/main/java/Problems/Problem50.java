@@ -28,14 +28,14 @@ public class Problem50 {
             sum = 0;
             for (long primeNum : tempPrimes) {
                 sum = sum + primeNum;
-                if (sum > 1000000) break;
+                if (sum > 1000000) {
+                    break;
+                }
                 chain++;
-                if (Util.isPrimeNumber(sum)) {
-                    if (chain > maxChain) {
-                        maxChainPrime = sum;
-                        maxChain = chain;
-                        //System.out.println(sum + "\t" + num +"\t"+primeNum + "\t" + chain);
-                    }
+                if (Util.isPrimeNumber(sum) && chain > maxChain) {
+                    maxChainPrime = sum;
+                    maxChain = chain;
+                    //System.out.println(sum + "\t" + num +"\t"+primeNum + "\t" + chain);
                 }
             }
             tempPrimes.remove(num);

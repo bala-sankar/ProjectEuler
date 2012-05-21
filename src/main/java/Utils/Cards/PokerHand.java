@@ -12,7 +12,9 @@ public class PokerHand {
 
     public PokerHand(ArrayList<CardPack.Card> cards) {
         //PokerHand hand should be equal to Five
-        if (cards.size() != 5) return;
+        if (cards.size() != 5) {
+            return;
+        }
         //To get pairs/kind
         HashMap<CardValue, Integer> kindCount = new HashMap<CardValue, Integer>();
         HashSet<CardValue> values = new HashSet<CardValue>();
@@ -124,14 +126,18 @@ public class PokerHand {
         }
         for (int p1 : player1Ranks.descendingSet()) {
             int p2 = player2Ranks.size() == 0 ? 0 : player2Ranks.last();
-            if (p1 > p2) return true;
-            else if (p1 < p2) return false;
-            else {
+            if (p1 > p2) {
+                return true;
+            } else if (p1 < p2) {
+                return false;
+            } else {
                 int val1 = player1.pokerHand.get(PokerHandRank.GetByRank(p1)).GetValue();
                 int val2 = player2.pokerHand.get(PokerHandRank.GetByRank(p2)).GetValue();
-                if (val1 > val2) return true;
-                else if (val1 < val2) return false;
-                else {
+                if (val1 > val2) {
+                    return true;
+                } else if (val1 < val2) {
+                    return false;
+                } else {
                     player2Ranks.remove(Integer.valueOf(p2));
                 }
             }

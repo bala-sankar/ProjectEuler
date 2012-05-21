@@ -53,7 +53,9 @@ public class Problem47 {
             } else {
                 count++;
             }
-            if (count == distinctPrimeFactors) return i - (distinctPrimeFactors - 1);
+            if (count == distinctPrimeFactors) {
+                return i - (distinctPrimeFactors - 1);
+            }
         }
         return 0;
     }

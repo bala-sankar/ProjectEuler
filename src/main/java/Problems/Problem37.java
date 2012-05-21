@@ -27,16 +27,22 @@ public class Problem37 {
                 sum = sum + num;
                 count++;
             }
-            if (count == 11) break;
+            if (count == 11) {
+                break;
+            }
         }
-        if (count != 11) sum = 0;
+        if (count != 11) {
+            sum = 0;
+        }
         return sum;
     }
 
     public static boolean isTruncatablePrime(TreeSet<Long> primeNum, long num) {
         int j = 10;
         boolean isTrunPrime = true;
-        if (num < 10) return false;
+        if (num < 10) {
+            return false;
+        }
         while (num / j > 0) {
             if (!(primeNum.contains(num % j) && primeNum.contains(num / j))) {
                 isTrunPrime = false;

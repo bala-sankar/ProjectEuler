@@ -31,7 +31,9 @@ public class Problem55 {
                     break;
                 }
             } while (!Utils.Util.isPalindrome(num.toString()));
-            if (isLychrel) count++;
+            if (isLychrel) {
+                count++;
+            }
         }
         return count;
     }

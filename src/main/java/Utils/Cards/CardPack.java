@@ -22,11 +22,11 @@ public class CardPack {
         }
     }
 
-    public TreeMap<String, Card> GetMap(){
+    public TreeMap<String, Card> GetMap() {
         return pack;
     }
 
-    public class Card {
+    public static class Card {
         private CardValue value;
         private CardSuit suit;
 

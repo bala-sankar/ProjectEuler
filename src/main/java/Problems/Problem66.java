@@ -22,7 +22,9 @@ public class Problem66 {
         BigInteger largeX = BigInteger.ZERO;
         for (int d = 2; d <= 1000; d++) {
             double sqrtD = Math.sqrt((double) d);
-            if ((double) (long) sqrtD == sqrtD) continue;
+            if ((double) (long) sqrtD == sqrtD) {
+                continue;
+            }
 
             String[] continuedFraction = Util.GetContinuedFractions(d).split(";");
             int a0 = Integer.parseInt(continuedFraction[0]);

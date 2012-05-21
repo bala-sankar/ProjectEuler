@@ -117,7 +117,9 @@ public class Util {
         if (i == 2 && i < limit) {
             primeNums.add(2L);
         }
-        if (i % 2 == 0) i++;
+        if (i % 2 == 0) {
+            i++;
+        }
         while (i < limit) {
             boolean isPrime = isPrimeNumber(i, primeNums);
             if (isPrime) {
@@ -136,7 +138,9 @@ public class Util {
         boolean isPrime = true;
         double loop = Math.sqrt((double) i);
         for (long primeNum : primeNums) {
-            if (primeNum > loop) break;
+            if (primeNum > loop) {
+                break;
+            }
             if (i % primeNum == 0) {
                 isPrime = false;
                 break;
@@ -147,9 +151,13 @@ public class Util {
 
     public static boolean isPrimeNumber(long num) {
         double loop = Math.sqrt((double) num);
-        if (num != 2 && num % 2 == 0) return false;
+        if (num != 2 && num % 2 == 0) {
+            return false;
+        }
         for (int i = 3; i <= loop; i++) {
-            if (num % i == 0) return false;
+            if (num % i == 0) {
+                return false;
+            }
         }
         return true;
     }
@@ -592,7 +600,9 @@ public class Util {
 
     public static String GetContinuedFractions(long i) {
         double sqrt = Math.sqrt(i);
-        if (sqrt == (double) (long) sqrt) return "";
+        if (sqrt == (double) (long) sqrt) {
+            return "";
+        }
         int a = (int) sqrt;
         int limitNum = 0;
         int limitDenom = 0;

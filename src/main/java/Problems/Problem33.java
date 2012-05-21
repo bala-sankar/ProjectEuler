@@ -1,5 +1,7 @@
 package Problems;
 
+import org.apache.commons.math3.fraction.Fraction;
+
 import java.util.HashMap;
 
 /**
@@ -22,29 +24,29 @@ public class Problem33 {
             for (int b = (a + 1); b < 100; b++) {
                 int bOnesDigit = getOnesDigit(b);
                 int bTensDigit = getTensDigit(b);
-                if ((aOnesDigit * bOnesDigit) == 0) continue;
-                double fraction = (double) a / (double) b;
+                if ((aOnesDigit * bOnesDigit) == 0) {
+                    continue;
+                }
+                Fraction fraction = new Fraction(a, b);
 
                 if (bOnesDigit == aOnesDigit) {
-                    if (fraction == ((double) aTensDigit / (double) bTensDigit)) {
+                    if (fraction.equals(new Fraction(aTensDigit, bTensDigit))) {
                         unorthodoxFractions.put(a, b);
                         //System.out.println(a +"\t" + b);
                     }
                 } else if (bOnesDigit == aTensDigit) {
-                    if (fraction == ((double) aOnesDigit / (double) bTensDigit)) {
+                    if (fraction.equals(new Fraction(aOnesDigit, bTensDigit))) {
                         unorthodoxFractions.put(a, b);
                         //System.out.println(a +"\t" + b);
                     }
                 } else if (bTensDigit == aOnesDigit) {
-                    if (fraction == ((double) aTensDigit / (double) bOnesDigit)) {
+                    if (fraction.equals(new Fraction(aTensDigit, bOnesDigit))) {
                         unorthodoxFractions.put(a, b);
                         //System.out.println(a +"\t" + b);
                     }
-                } else if (bTensDigit == aTensDigit) {
-                    if (fraction == ((double) aOnesDigit / (double) bOnesDigit)) {
-                        unorthodoxFractions.put(a, b);
-                        //System.out.println(a +"\t" + b);
-                    }
+                } else if (bTensDigit == aTensDigit && fraction.equals(new Fraction(aOnesDigit, bOnesDigit))) {
+                    unorthodoxFractions.put(a, b);
+                    //System.out.println(a +"\t" + b);
                 }
             }
         }

@@ -18,7 +18,9 @@ public class Problem4 {
         for (int num1 = 999; num1 >= 100; num1--) {
             for (int num2 = 999; num2 >= num1; num2--) {
                 long product = num1 * num2;
-                if (product <= max) break;
+                if (product <= max) {
+                    break;
+                }
                 if (Util.isPalindrome(product)) {
                     max = product;
                 }

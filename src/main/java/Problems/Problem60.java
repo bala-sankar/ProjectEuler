@@ -47,7 +47,9 @@ public class Problem60 {
                     continue;
                 }
                 long sum = RemarkablePrime(temp, tempNum);
-                if (sum != 0) return sum;
+                if (sum != 0) {
+                    return sum;
+                }
                 tempNum.remove(String.valueOf(primeNum));
             }
 

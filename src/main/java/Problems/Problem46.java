@@ -22,9 +22,13 @@ public class Problem46 {
 
         for (long i = 9; i < limit; i = i + 2) {
             boolean isComplyRule = false;
-            if (primeNums.contains(i)) continue;
+            if (primeNums.contains(i)) {
+                continue;
+            }
             for (long primeNum : primeNums) {
-                if (primeNum >= i) break;
+                if (primeNum >= i) {
+                    break;
+                }
                 long twiceASquare = i - primeNum;
                 if (twiceASquare % 2 == 0) {
                     long squareNum = twiceASquare / 2;

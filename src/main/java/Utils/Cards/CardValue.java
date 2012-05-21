@@ -24,18 +24,18 @@ public enum CardValue {
     ACE(14, 'A');
 
     private final int value;
-    private final char symbol ;
+    private final char symbol;
 
     private CardValue(int value, char symbol) {
         this.value = value;
         this.symbol = symbol;
     }
 
-    public char GetSymbol(){
+    public char GetSymbol() {
         return this.symbol;
     }
 
-    public int GetValue(){
+    public int GetValue() {
         return this.value;
     }
 
@@ -71,14 +71,16 @@ public enum CardValue {
         return null;
     }
 
-    public static boolean isSequentialCardValues(HashSet<CardValue> values){
-        if(values.size() < 5) return false;
-        TreeSet<Integer> cardValues  =  new TreeSet<Integer>();
-        for(CardValue value : values){
+    public static boolean isSequentialCardValues(HashSet<CardValue> values) {
+        if (values.size() < 5) {
+            return false;
+        }
+        TreeSet<Integer> cardValues = new TreeSet<Integer>();
+        for (CardValue value : values) {
             cardValues.add(value.GetValue());
         }
         int first = cardValues.first();
         int last = first + 4;
-        return (cardValues.last() == last && cardValues.size()==5);
+        return (cardValues.last() == last && cardValues.size() == 5);
     }
 }

@@ -41,7 +41,9 @@ public class Problem51 {
                 /*
                  * If the number starts with zero or ends with even number, then do nothing.
                  */
-                if (!(pattern.matches("^[1-9,~][0-9,~]*[1,3,5,7,~]+$") && pattern.matches(".*[~]+.*"))) continue;
+                if (!(pattern.matches("^[1-9,~][0-9,~]*[1,3,5,7,~]+$") && pattern.matches(".*[~]+.*"))) {
+                    continue;
+                }
                 count = 0;
                 for (char i = '0'; i <= '9'; i++) {
                     String number = pattern.replace('~', i);

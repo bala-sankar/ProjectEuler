@@ -22,7 +22,9 @@ public class Problem35 {
         HashSet<Long> circularPrime = new HashSet<Long>();
         for (long primeNum : primeNums) {
             boolean isCircularPrime = false;
-            if (circularPrime.contains(Long.valueOf(primeNum))) continue;
+            if (circularPrime.contains(Long.valueOf(primeNum))) {
+                continue;
+            }
             String primeStr = String.valueOf(primeNum);
             StringBuilder str = new StringBuilder(primeStr);
             HashSet<Long> temp = new HashSet<Long>();
