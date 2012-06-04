@@ -26,7 +26,7 @@ public class Problem12 {
         while (true) {
             i++;
             triangleNum = triangleNum + i;
-            HashSet<Long> factors = Util.GetFactors(triangleNum);
+            HashSet<Long> factors = Util.getFactors(triangleNum);
             //System.out.println(i + "\t" + triangleNum + "\t" + factors.size());
             if (factors.size() > 500) {
                 return triangleNum;
@@ -43,7 +43,7 @@ public class Problem12 {
             long size;
             i++;
             triangleNum = triangleNum + i;
-            size = getFactorCount(triangleNum, primeNums);
+            size = Util.getFactorCount(triangleNum, primeNums);
 
             //System.out.println(i + "\t" + triangleNum + "\t" + size);
             if (size > 500) {
@@ -52,32 +52,4 @@ public class Problem12 {
             }
         }
     }
-
-    //Optimize
-    public static long getFactorCount(long number, TreeSet<Long> primeNums) {
-        long limit;
-        long count;
-        long size = 1;
-
-        limit = (long) Math.sqrt((double) number);
-        if (limit > primeNums.last()) {
-            System.out.println("we have an issue");
-        }
-        for (long primeNum : primeNums) {
-            if (primeNum <= limit) {
-                count = 0;
-                while (number % primeNum == 0) {
-                    count++;
-                    number = number / primeNum;
-                }
-                if (count != 0) {
-                    size = size * (count + 1);
-                }
-            } else {
-                break;
-            }
-        }
-        return size;
-    }
-
 }

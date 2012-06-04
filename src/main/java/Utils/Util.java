@@ -16,8 +16,34 @@ import java.util.TreeSet;
 public class Util {
     private static final Integer ZERO = 0;
 
+    public static long getFactorCount(long number, TreeSet<Long> primeNums) {
+        long limit;
+        long count;
+        long size = 1;
+
+        limit = (long) Math.sqrt((double) number);
+        if (limit > primeNums.last()) {
+            System.out.println("we have an issue");
+        }
+        for (long primeNum : primeNums) {
+            if (primeNum <= limit || number > 1) {
+                count = 0;
+                while (number % primeNum == 0) {
+                    count++;
+                    number = number / primeNum;
+                }
+                if (count != 0) {
+                    size = size * (count + 1);
+                }
+            } else {
+                break;
+            }
+        }
+        return size;
+    }
+
     //Optimize the GetFactors algorithm
-    public static HashSet<Long> GetFactors(long number) {
+    public static HashSet<Long> getFactors(long number) {
         int incr;
         long limit;
         HashSet<Long> factors = new HashSet<Long>();
@@ -39,24 +65,104 @@ public class Util {
         return factors;
     }
 
-    public static TreeSet<Long> GetPrimeFactors(long number, TreeSet<Long> primeNums) {
+    /*public static TreeSet<Long> getPrimeFactors(long number, TreeSet<Long> primeNums) {
         long limit;
+        long num = number;
         TreeSet<Long> factors = new TreeSet<Long>();
-        if (number % 2 == 0) {
-            limit = number / 2;
-        } else {
-            limit = number / 3;
+        limit = (long) Math.sqrt((double) number);
+        if (limit > primeNums.last()) {
+            System.out.println("we have an issue");
         }
         for (long primeNum : primeNums) {
             if (primeNum <= limit) {
                 if (number % primeNum == 0) {
                     factors.add(primeNum);
+                    while (number % primeNum == 0) {
+                        number = number / primeNum;
+                    }
+                    if (number == 1) {
+                        break;
+                    }
                 }
             } else {
-                break;
+                if (number > 1) {
+                    //it's a prime number
+                    if (factors.size() == 0) {
+                        factors.add(number);
+                        return factors;
+                    } else {
+                        if (number % primeNum == 0) {
+                            factors.add(primeNum);
+                            while (number % primeNum == 0) {
+                                number = number / primeNum;
+                            }
+                            if (number == 1) {
+                                break;
+                            }
+                        }
+                    }
+                } else {
+                    break;
+                }
             }
         }
+        if (number > 1) {
+            System.out.println("We have an issue " + number);
+        }
         return factors;
+    }*/
+
+    public static double phiFunction(long number, TreeSet<Long> primeNums) {
+        long limit;
+
+        limit = (long) Math.sqrt((double) number);
+        if (limit > primeNums.last()) {
+            System.out.println("we have an issue");
+        }
+        double phi = number;
+        for (long primeNum : primeNums) {
+            if (primeNum <= limit) {
+                if (number % primeNum == 0) {
+                    double temp = 1.0 / (double) primeNum;
+                    temp = 1 - temp;
+                    phi = phi * temp;
+                    while (number % primeNum == 0) {
+                        number = number / primeNum;
+                    }
+                    if (number == 1) {
+                        break;
+                    }
+                }
+            } else {
+                if (number > 1) {
+                    //it's a prime number
+                    if (phi == number) {
+                        double temp = 1.0 / (double) primeNum;
+                        temp = 1 - temp;
+                        phi = phi * temp;
+                        return phi;
+                    } else {
+                        if (number % primeNum == 0) {
+                            double temp = 1.0 / (double) primeNum;
+                            temp = 1 - temp;
+                            phi = phi * temp;
+                            while (number % primeNum == 0) {
+                                number = number / primeNum;
+                            }
+                            if (number == 1) {
+                                break;
+                            }
+                        }
+                    }
+                } else {
+                    break;
+                }
+            }
+        }
+        if (number > 1) {
+            System.out.println("We have an issue " + number);
+        }
+        return phi;
     }
 
     public static HashMap<Long, Long> GetPrimeFactorsWithExponent(long number, TreeSet<Long> primeNums) {

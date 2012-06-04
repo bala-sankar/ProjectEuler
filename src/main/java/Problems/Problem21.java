@@ -20,7 +20,7 @@ public class Problem21 {
         long pairSum = 0;
         for (int i = 1; i < 10000; i++) {
             long sum;
-            HashSet<Long> factors = Util.GetFactors(i);
+            HashSet<Long> factors = Util.getFactors(i);
             factors.remove(Long.valueOf(i));
             sum = Util.sum(factors);
             factorSum.put(i, sum);

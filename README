@@ -1,3 +1,8 @@
-Build and test
+Project Euler
+--------------
+It provides solutions for the Problems in http://projecteuler.net/problems website.
+All solutions are optimized to run under 1 minute.
+
+Build/Test
 ---------------
 mvn clean test

@@ -16,31 +16,31 @@ public class UtilTest extends Util {
     public TestName name = new TestName();
 
     @BeforeClass
-    public static void BeforeTestClass() {
+    public static void beforeTestClass() {
         overallStartTime = System.currentTimeMillis();
     }
 
     @AfterClass
-    public static void AfterTestClass() {
+    public static void afterTestClass() {
         long stopTime = System.currentTimeMillis();
         double elapsedTime = (stopTime - overallStartTime) / 1000.0;
         System.out.println("Time took to run all the tests in UtilTest:\t" + elapsedTime);
     }
 
     @Before
-    public void BeforeTest() {
+    public void beforeTest() {
         startTime = System.currentTimeMillis();
     }
 
     @After
-    public void AfterTest() {
+    public void afterTest() {
         long stopTime = System.currentTimeMillis();
         double elapsedTime = (stopTime - startTime) / 1000.0;
         System.out.println("Time took to run " + name.getMethodName() + ":\t" + elapsedTime);
     }
 
     @Test(timeout = TIMEOUT)
-    public void FindXTest() {
+    public void findXTest() {
         long c = 52, p = 1;
         long expected = 2;
         long x = findX(c, p);
@@ -63,7 +63,7 @@ public class UtilTest extends Util {
     }
 
     @Test(timeout = TIMEOUT)
-    public void GetContinuedFractionsTest() {
+    public void getContinuedFractionsTest() {
         //String f = GetContinuedFractions(13);
         String[] continuedFraction = Util.GetContinuedFractions(7).split(";");
         int a = Integer.parseInt(continuedFraction[0]);
@@ -71,4 +71,12 @@ public class UtilTest extends Util {
         BigFraction temp = GetConvergent(0, periods, a);
         Assert.assertEquals("2~1", temp.getNumerator() + "~" + temp.getDenominator());
     }
+
+/*    @Test(timeout = TIMEOUT)
+    public void getFactorCountTest() {
+        TreeSet<Long> primeNums = Util.GetPrimeNumsByCount(20);
+        for (int i = 2; i <= 12; i++) {
+            //System.out.println(i+"~"+getFactorCount(i, primeNums));
+        }
+    }*/
 }

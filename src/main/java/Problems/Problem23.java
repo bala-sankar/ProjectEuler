@@ -20,7 +20,7 @@ public class Problem23 {
         TreeSet<Integer> abundantNumbers = new TreeSet<Integer>();
         for (int i = 1; i <= 28123; i++) {
             long sum;
-            HashSet<Long> factors = Util.GetFactors(i);
+            HashSet<Long> factors = Util.getFactors(i);
             factors.remove(Long.valueOf(i));
             sum = Util.sum(factors);
             if (sum > i) {
