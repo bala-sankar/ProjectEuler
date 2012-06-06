@@ -2,9 +2,6 @@ package Problems;
 
 import Utils.Util;
 
-import java.util.ArrayList;
-import java.util.Collections;
-
 /**
  * Created by IntelliJ IDEA.
  * User: bsankar
@@ -20,12 +17,12 @@ public class Problem52 {
 
     public static long solution1() {
         for (long num = 11; num < 1000000; num++) {
-            String sortedDigitString = GetSortedDigitsAsString(num);
-            if (sortedDigitString.equals(GetSortedDigitsAsString(2 * num)) &&
-                    sortedDigitString.equals(GetSortedDigitsAsString(3 * num)) &&
-                    sortedDigitString.equals(GetSortedDigitsAsString(4 * num)) &&
-                    sortedDigitString.equals(GetSortedDigitsAsString(5 * num)) &&
-                    sortedDigitString.equals(GetSortedDigitsAsString(6 * num))) {
+            String sortedDigitString = Util.GetSortedDigitsAsString(num);
+            if (sortedDigitString.equals(Util.GetSortedDigitsAsString(2 * num)) &&
+                    sortedDigitString.equals(Util.GetSortedDigitsAsString(3 * num)) &&
+                    sortedDigitString.equals(Util.GetSortedDigitsAsString(4 * num)) &&
+                    sortedDigitString.equals(Util.GetSortedDigitsAsString(5 * num)) &&
+                    sortedDigitString.equals(Util.GetSortedDigitsAsString(6 * num))) {
                 return num;
             }
 
@@ -33,13 +30,5 @@ public class Problem52 {
         return 0;
     }
 
-    private static String GetSortedDigitsAsString(long num) {
-        ArrayList<Integer> digits = Util.GetDigits(num);
-        Collections.sort(digits);
-        StringBuilder sb = new StringBuilder();
-        for (int digit : digits) {
-            sb.append(digit);
-        }
-        return sb.toString();
-    }
+
 }

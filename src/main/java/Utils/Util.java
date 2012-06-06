@@ -3,10 +3,7 @@ package Utils;
 import org.apache.commons.math3.fraction.BigFraction;
 import org.apache.commons.math3.fraction.Fraction;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.TreeSet;
+import java.util.*;
 
 /**
  * Created by IntelliJ IDEA.
@@ -116,9 +113,9 @@ public class Util {
         long limit;
 
         limit = (long) Math.sqrt((double) number);
-        if (limit > primeNums.last()) {
+        /*if (limit > primeNums.last()) {
             System.out.println("we have an issue");
-        }
+        }*/
         double phi = number;
         for (long primeNum : primeNums) {
             if (primeNum <= limit) {
@@ -130,37 +127,17 @@ public class Util {
                         number = number / primeNum;
                     }
                     if (number == 1) {
-                        break;
+                        return phi;
                     }
                 }
             } else {
-                if (number > 1) {
-                    //it's a prime number
-                    if (phi == number) {
-                        double temp = 1.0 / (double) primeNum;
-                        temp = 1 - temp;
-                        phi = phi * temp;
-                        return phi;
-                    } else {
-                        if (number % primeNum == 0) {
-                            double temp = 1.0 / (double) primeNum;
-                            temp = 1 - temp;
-                            phi = phi * temp;
-                            while (number % primeNum == 0) {
-                                number = number / primeNum;
-                            }
-                            if (number == 1) {
-                                break;
-                            }
-                        }
-                    }
-                } else {
-                    break;
-                }
+                break;
             }
         }
         if (number > 1) {
-            System.out.println("We have an issue " + number);
+            double temp = 1.0 / (double) number;
+            temp = 1 - temp;
+            phi = phi * temp;
         }
         return phi;
     }
@@ -755,5 +732,15 @@ public class Util {
         }
         sum = sum.add(a0);
         return sum;
+    }
+
+    public static String GetSortedDigitsAsString(long num) {
+        ArrayList<Integer> digits = Util.GetDigits(num);
+        Collections.sort(digits);
+        StringBuilder sb = new StringBuilder();
+        for (int digit : digits) {
+            sb.append(digit);
+        }
+        return sb.toString();
     }
 }

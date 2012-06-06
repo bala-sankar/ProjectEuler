@@ -21,18 +21,24 @@ public class Problem69 {
         double maxNByPhi = 0;
         long maxN = 0;
         long nLimit = 1000000;
-        TreeSet<Long> primeNums = Util.GetPrimeNumsByLimit(nLimit / 2);
+        TreeSet<Long> primeNums = Util.GetPrimeNumsByLimit((long) Math.sqrt((double) nLimit));
         //TreeSet<Long> primeNums = Util.GetPrimeNumsByCount(35000);
         for (long n = 2; n <= nLimit; n++) {
             double nByPhi;
             double phi = Util.phiFunction(n, primeNums);
             nByPhi = (double) n / phi;
             if (maxNByPhi < nByPhi) {
-                //System.out.println(n+"~"+phi+"~"+nByPhi);
+                System.out.println(n + "~" + phi + "~" + nByPhi);
                 maxNByPhi = nByPhi;
                 maxN = n;
             }
         }
         return maxN;
     }
+
+    //Solution based on 069_overview.pdf
+    /*public static long solution2(){
+
+
+    }*/
 }
