@@ -743,4 +743,14 @@ public class Util {
         }
         return sb.toString();
     }
+
+    public static long gcd(long a, long b) {
+        long r = a % b;
+        while (r != 0) {
+            a = b;
+            b = r;
+            r = a % b;
+        }
+        return b;
+    }
 }
