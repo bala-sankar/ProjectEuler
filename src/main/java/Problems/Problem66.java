@@ -13,11 +13,11 @@ import java.math.BigInteger;
 public class Problem66 {
     public static void main(String[] args) {
         long startTime = System.currentTimeMillis();
-        System.out.println("Result is : " + Solution3());
+        System.out.println("Result is : " + solution3());
         System.out.println("Time = " + (System.currentTimeMillis() - startTime) / 1000.0);
     }
 
-    public static long Solution3() {
+    public static long solution3() {
         long resultD = 0;
         BigInteger largeX = BigInteger.ZERO;
         for (int d = 2; d <= 1000; d++) {

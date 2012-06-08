@@ -23,7 +23,7 @@ public class Problem54 {
         int count = 0;
         FileInputStream fileStream;
         try {
-            TreeMap<String, CardPack.Card> map = new CardPack().GetMap();
+            TreeMap<String, CardPack.Card> map = new CardPack().getMap();
             fileStream = new FileInputStream("src/main/resources/poker.txt");
             DataInputStream dataStream = new DataInputStream(fileStream);
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(dataStream, "UTF-8"));

@@ -22,8 +22,8 @@ public class PokerHand {
 
         //Scan the cards and extract info
         for (CardPack.Card card : cards) {
-            CardValue cardVal = card.GetCardValue();
-            suits.add(card.GetCardSuit());
+            CardValue cardVal = card.getCardValue();
+            suits.add(card.getCardSuit());
             values.add(cardVal);
             if (kindCount.containsKey(cardVal)) {
                 kindCount.put(cardVal, kindCount.get(cardVal) + 1);
@@ -35,30 +35,30 @@ public class PokerHand {
 
         TreeSet<Integer> sortedCardValues = new TreeSet<Integer>();
         for (CardValue cardValue : values) {
-            sortedCardValues.add(cardValue.GetValue());
+            sortedCardValues.add(cardValue.getValue());
         }
 
         // Check for ROYAL_FLUSH, STRAIGHT_FLUSH and STRAIGHT
         boolean isSequentialValues = CardValue.isSequentialCardValues(values);
         if (isSequentialValues) {
             if (suits.size() == 1) {
-                if (CardValue.TEN == CardValue.GetCardValueByValue(sortedCardValues.first())) {
+                if (CardValue.TEN == CardValue.getCardValueByValue(sortedCardValues.first())) {
                     pokerHand.put(PokerHandRank.ROYAL_FLUSH, CardValue.TEN);
                     return;
                 } else {
                     pokerHand.put(PokerHandRank.STRAIGHT_FLUSH,
-                            CardValue.GetCardValueByValue(sortedCardValues.first()));
+                            CardValue.getCardValueByValue(sortedCardValues.first()));
                     return;
                 }
             } else {
                 pokerHand.put(PokerHandRank.STRAIGHT,
-                        CardValue.GetCardValueByValue(sortedCardValues.first()));
+                        CardValue.getCardValueByValue(sortedCardValues.first()));
                 return;
             }
         }
         //Check for flush
         if (suits.size() == 1) {
-            pokerHand.put(PokerHandRank.FLUSH, CardValue.GetCardValueByValue(sortedCardValues.last()));
+            pokerHand.put(PokerHandRank.FLUSH, CardValue.getCardValueByValue(sortedCardValues.last()));
             sortedCardValues.remove(sortedCardValues.last());
             return;
         }
@@ -83,9 +83,9 @@ public class PokerHand {
             } else if (count == 2) {
                 //Two Pair
                 if (pokerHand.containsKey(PokerHandRank.ONE_PAIR)) {
-                    int tempVal = (pokerHand.get(PokerHandRank.ONE_PAIR).GetValue() > cardValue.GetValue()) ?
-                            pokerHand.get(PokerHandRank.ONE_PAIR).GetValue() : cardValue.GetValue();
-                    pokerHand.put(PokerHandRank.TWO_PAIR, CardValue.GetCardValueByValue(tempVal));
+                    int tempVal = (pokerHand.get(PokerHandRank.ONE_PAIR).getValue() > cardValue.getValue()) ?
+                            pokerHand.get(PokerHandRank.ONE_PAIR).getValue() : cardValue.getValue();
+                    pokerHand.put(PokerHandRank.TWO_PAIR, CardValue.getCardValueByValue(tempVal));
                     pokerHand.remove(PokerHandRank.ONE_PAIR);
                 }
                 //Full house
@@ -100,14 +100,14 @@ public class PokerHand {
                 }
             }
             if (count > 1) {
-                sortedCardValues.remove(Integer.valueOf(cardValue.GetValue()));
+                sortedCardValues.remove(Integer.valueOf(cardValue.getValue()));
             }
         }
 
         int rank = 5;
         for (int val : sortedCardValues.descendingSet()) {
-            pokerHand.put(PokerHandRank.GetByRank(rank),
-                    CardValue.GetCardValueByValue(val));
+            pokerHand.put(PokerHandRank.getByRank(rank),
+                    CardValue.getCardValueByValue(val));
             rank--;
         }
     }
@@ -131,8 +131,8 @@ public class PokerHand {
             } else if (p1 < p2) {
                 return false;
             } else {
-                int val1 = player1.pokerHand.get(PokerHandRank.GetByRank(p1)).GetValue();
-                int val2 = player2.pokerHand.get(PokerHandRank.GetByRank(p2)).GetValue();
+                int val1 = player1.pokerHand.get(PokerHandRank.getByRank(p1)).getValue();
+                int val2 = player2.pokerHand.get(PokerHandRank.getByRank(p2)).getValue();
                 if (val1 > val2) {
                     return true;
                 } else if (val1 < val2) {
@@ -153,9 +153,9 @@ public class PokerHand {
 
         StringBuilder line = new StringBuilder();
         for (int rank : ranks.descendingSet()) {
-            line.append(PokerHandRank.GetByRank(rank).name());
+            line.append(PokerHandRank.getByRank(rank).name());
             line.append("\t");
-            line.append(pokerHand.get(PokerHandRank.GetByRank(rank)).name());
+            line.append(pokerHand.get(PokerHandRank.getByRank(rank)).name());
             line.append("\n");
         }
         return line.toString();
@@ -183,7 +183,7 @@ public class PokerHand {
             this.rank = rank;
         }
 
-        public static PokerHandRank GetByRank(int rank) {
+        public static PokerHandRank getByRank(int rank) {
             switch (rank) {
                 case 1:
                     return FIFTH_HIGHEST;

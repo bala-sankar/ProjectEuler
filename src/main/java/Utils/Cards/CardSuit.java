@@ -17,7 +17,7 @@ public enum CardSuit {
         this.symbol = symbol;
     }
 
-    public char GetSymbol(){
+    public char getSymbol() {
         return this.symbol;
     }
 

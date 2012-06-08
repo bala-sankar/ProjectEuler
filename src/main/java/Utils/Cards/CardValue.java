@@ -31,15 +31,15 @@ public enum CardValue {
         this.symbol = symbol;
     }
 
-    public char GetSymbol() {
+    public char getSymbol() {
         return this.symbol;
     }
 
-    public int GetValue() {
+    public int getValue() {
         return this.value;
     }
 
-    public static CardValue GetCardValueByValue(int value) {
+    public static CardValue getCardValueByValue(int value) {
         switch (value) {
             case 2:
                 return TWO;
@@ -77,7 +77,7 @@ public enum CardValue {
         }
         TreeSet<Integer> cardValues = new TreeSet<Integer>();
         for (CardValue value : values) {
-            cardValues.add(value.GetValue());
+            cardValues.add(value.getValue());
         }
         int first = cardValues.first();
         int last = first + 4;

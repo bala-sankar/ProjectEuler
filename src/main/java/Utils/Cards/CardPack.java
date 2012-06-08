@@ -15,14 +15,14 @@ public class CardPack {
             pack = new TreeMap<String, Card>();
             for (CardSuit suit : CardSuit.values()) {
                 for (CardValue value : CardValue.values()) {
-                    pack.put(String.valueOf(value.GetSymbol()) + String.valueOf(suit.GetSymbol()),
+                    pack.put(String.valueOf(value.getSymbol()) + String.valueOf(suit.getSymbol()),
                             new Card(value, suit));
                 }
             }
         }
     }
 
-    public TreeMap<String, Card> GetMap() {
+    public TreeMap<String, Card> getMap() {
         return pack;
     }
 
@@ -35,11 +35,11 @@ public class CardPack {
             this.suit = suit;
         }
 
-        public CardValue GetCardValue() {
+        public CardValue getCardValue() {
             return this.value;
         }
 
-        public CardSuit GetCardSuit() {
+        public CardSuit getCardSuit() {
             return this.suit;
         }
     }

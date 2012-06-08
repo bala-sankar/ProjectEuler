@@ -436,7 +436,7 @@ public class ProblemTest {
     @Test(timeout = TIMEOUT)
     public void Problem66Test() {
         long expected = 661;
-        Assert.assertEquals(expected, Problem66.Solution3());
+        Assert.assertEquals(expected, Problem66.solution3());
     }
 
     @Test(timeout = TIMEOUT)
