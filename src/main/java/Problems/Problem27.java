@@ -16,9 +16,9 @@ public class Problem27 {
 
     public static long solution1() {
         //Load list of prime numbers under 1000
-        TreeSet<Long> bList = Util.GetPrimeNumsByLimit(1000L);
+        TreeSet<Long> bList = Util.getPrimeNumsByLimit(1000L);
         //Performance - Assumption : prime number generated falls under first 10,000 prime numbers
-        TreeSet<Long> primeNums = Util.GetPrimeNumsByCount(10000L);
+        TreeSet<Long> primeNums = Util.getPrimeNumsByCount(10000L);
         long coeff_1 = 0, coeff_2 = 0, maxcount = 0;
         //Form equations
         for (long b : bList) {

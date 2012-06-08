@@ -21,8 +21,8 @@ public class Problem69 {
         double maxNByPhi = 0;
         long maxN = 0;
         long nLimit = 1000000;
-        TreeSet<Long> primeNums = Util.GetPrimeNumsByLimit((long) Math.sqrt((double) nLimit));
-        //TreeSet<Long> primeNums = Util.GetPrimeNumsByCount(35000);
+        TreeSet<Long> primeNums = Util.getPrimeNumsByLimit((long) Math.sqrt((double) nLimit));
+        //TreeSet<Long> primeNums = Util.getPrimeNumsByCount(35000);
         for (long n = 2; n <= nLimit; n++) {
             double nByPhi;
             double phi = Util.phiFunction(n, primeNums);

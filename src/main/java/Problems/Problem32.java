@@ -29,7 +29,7 @@ public class Problem32 {
                 if (multiplier.length() == 5) {
                     int product = a * b;
                     String prod = multiplier + String.valueOf(product);
-                    if (prod.length() == 9 && Util.GetUniqueDigitCount(prod) == 9) {
+                    if (prod.length() == 9 && Util.getUniqueDigitCount(prod) == 9) {
                         //System.out.println(a + " * " + b + " = " + product);
                         panDigitalProducts.add(product);
                     }

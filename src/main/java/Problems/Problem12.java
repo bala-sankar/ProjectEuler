@@ -38,7 +38,7 @@ public class Problem12 {
     public static long solution2() {
         long i = 1000;
         long triangleNum = (i * (i + 1)) / 2;
-        TreeSet<Long> primeNums = Util.GetPrimeNumsByCount(100000);
+        TreeSet<Long> primeNums = Util.getPrimeNumsByCount(100000);
         while (true) {
             long size;
             i++;

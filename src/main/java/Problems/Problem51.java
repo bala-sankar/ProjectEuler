@@ -18,7 +18,7 @@ public class Problem51 {
     }
 
     public static String solution1() {
-        TreeSet<Long> primeNums = Util.GetPrimeNumsByLimit(1000000);
+        TreeSet<Long> primeNums = Util.getPrimeNumsByLimit(1000000);
         String startingFamilyValue = "";
         ArrayList<String> nums = new ArrayList<String>();
         nums.add("0");
@@ -36,7 +36,7 @@ public class Problem51 {
         int count = 0;
 
         while (count < 8 && digits <= 8) {
-            ArrayList<String> patterns = Util.GetPermutationsWithRepetition(nums, digits);
+            ArrayList<String> patterns = Util.getPermutationsWithRepetition(nums, digits);
             for (String pattern : patterns) {
                 /*
                  * If the number starts with zero or ends with even number, then do nothing.

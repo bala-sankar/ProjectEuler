@@ -53,7 +53,7 @@ public class Problem68 extends Util {
                 temp.remove(String.valueOf(a));
                 key++;
             }
-            ArrayList<String> innerNodesList = Util.GetPermutations(temp);
+            ArrayList<String> innerNodesList = Util.getPermutations(temp);
             for (String innerNodes : innerNodesList) {
                 key = 1;
                 for (char a : innerNodes.toCharArray()) {

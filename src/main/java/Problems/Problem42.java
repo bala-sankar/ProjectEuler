@@ -19,7 +19,7 @@ public class Problem42 {
     }
 
     public static long solution1() {
-        TreeSet<Long> triangleNums = Util.GetTriangleNumbersByCount(1000);
+        TreeSet<Long> triangleNums = Util.getTriangleNumbersByCount(1000);
         HashSet<String> triangleWords = new HashSet<String>();
         FileInputStream fileStream;
         try {

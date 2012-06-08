@@ -38,7 +38,7 @@ public class Problem72 {
     public static long solution2() {
         final int limit = 1000000;
         long count = 1;
-        TreeSet<Long> primeNums = Util.GetPrimeNumsByLimit((long) Math.sqrt(limit));
+        TreeSet<Long> primeNums = Util.getPrimeNumsByLimit((long) Math.sqrt(limit));
         for (int m = 1; m <= limit; m++) {
             count = count + (long) Util.phiFunction(m, primeNums);
         }

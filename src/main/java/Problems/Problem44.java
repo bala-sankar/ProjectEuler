@@ -19,7 +19,7 @@ public class Problem44 {
 
     public static long solution1() {
         //Considering first 10,000 Pentagonal numbers
-        TreeSet<Long> pentagonalNums = Util.GetPentagonalNumbersByCount(10000);
+        TreeSet<Long> pentagonalNums = Util.getPentagonalNumbersByCount(10000);
         NavigableSet<Long> Num1 = pentagonalNums.descendingSet();
         NavigableSet<Long> Num2 = new TreeSet<Long>();
         Num2.addAll(Num1);

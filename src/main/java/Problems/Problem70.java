@@ -18,7 +18,7 @@ public class Problem70 {
 
     public static long solution1() {
         long nLimit = 10000000;
-        TreeSet<Long> primeNums = Util.GetPrimeNumsByLimit((long) Math.sqrt((double) nLimit));
+        TreeSet<Long> primeNums = Util.getPrimeNumsByLimit((long) Math.sqrt((double) nLimit));
         long start = 2;
         long end = nLimit / 10;
         long batchSize = 1000000;
@@ -69,8 +69,8 @@ class Problem70Util implements Runnable {
             double phi = Util.phiFunction(n, primeNums);
             nByPhi = (double) n / phi;
             if (nByPhi < minNByPhi) {
-                String num = Util.GetSortedDigitsAsString(n);
-                String phiNum = Util.GetSortedDigitsAsString((long) phi);
+                String num = Util.getSortedDigitsAsString(n);
+                String phiNum = Util.getSortedDigitsAsString((long) phi);
                 if (num.equals(phiNum)) {
                     //System.out.println(n + "~" + (long) phi + "~" + nByPhi);
                     minNByPhi = nByPhi;

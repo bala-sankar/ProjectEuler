@@ -18,7 +18,7 @@ public class Problem35 {
     }
 
     public static long solution1() {
-        TreeSet<Long> primeNums = Util.GetPrimeNumsByLimit(1000000);
+        TreeSet<Long> primeNums = Util.getPrimeNumsByLimit(1000000);
         HashSet<Long> circularPrime = new HashSet<Long>();
         for (long primeNum : primeNums) {
             boolean isCircularPrime = false;

@@ -17,7 +17,7 @@ public class Problem50 {
     }
 
     public static long solution1() {
-        TreeSet<Long> primeNums = Util.GetPrimeNumsByLimit(1000000);
+        TreeSet<Long> primeNums = Util.getPrimeNumsByLimit(1000000);
         long sum;
         int chain;
         TreeSet<Long> tempPrimes = new TreeSet<Long>();

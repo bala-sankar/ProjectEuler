@@ -19,12 +19,12 @@ public class Problem49 {
     }
 
     public static String solution1() {
-        TreeSet<Long> primeNums = Util.GetPrimeNumsByLimit(10000);
+        TreeSet<Long> primeNums = Util.getPrimeNumsByLimit(10000);
         for (long primeNum : primeNums) {
             if (primeNum > 999) {
                 HashSet<String> permutations = new HashSet<String>();
-                ArrayList<String> digits = Util.GetDigitsString(primeNum);
-                ArrayList<String> permutationList = Util.GetPermutations(digits);
+                ArrayList<String> digits = Util.getDigitsString(primeNum);
+                ArrayList<String> permutationList = Util.getPermutations(digits);
                 permutations.addAll(permutationList);
                 /*for(String permutation : permutations){
                     Long num = Long.valueOf(permutation);

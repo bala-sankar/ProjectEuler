@@ -64,17 +64,17 @@ public class UtilTest extends Util {
 
     @Test(timeout = TIMEOUT)
     public void getContinuedFractionsTest() {
-        //String f = GetContinuedFractions(13);
-        String[] continuedFraction = Util.GetContinuedFractions(7).split(";");
+        //String f = getContinuedFractions(13);
+        String[] continuedFraction = Util.getContinuedFractions(7).split(";");
         int a = Integer.parseInt(continuedFraction[0]);
         String[] periods = continuedFraction[1].split(",");
-        BigFraction temp = GetConvergent(0, periods, a);
+        BigFraction temp = getConvergent(0, periods, a);
         Assert.assertEquals("2~1", temp.getNumerator() + "~" + temp.getDenominator());
     }
 
 /*    @Test(timeout = TIMEOUT)
     public void getFactorCountTest() {
-        TreeSet<Long> primeNums = Util.GetPrimeNumsByCount(20);
+        TreeSet<Long> primeNums = Util.getPrimeNumsByCount(20);
         for (int i = 2; i <= 12; i++) {
             //System.out.println(i+"~"+getFactorCount(i, primeNums));
         }

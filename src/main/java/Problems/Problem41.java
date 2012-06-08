@@ -19,7 +19,7 @@ public class Problem41 {
 
     public static long solution1() {
         double limit = Math.sqrt((double) 987654321);
-        TreeSet<Long> primeNums = Util.GetPrimeNumsByLimit((int) limit);
+        TreeSet<Long> primeNums = Util.getPrimeNumsByLimit((int) limit);
         ArrayList<String> lexicographicPermutations;
         ArrayList<String> numbers = new ArrayList<String>();
         numbers.add("1");
@@ -32,7 +32,7 @@ public class Problem41 {
         numbers.add("8");
         numbers.add("9");
         while (numbers.size() > 0) {
-            lexicographicPermutations = Util.GetPermutations(numbers);
+            lexicographicPermutations = Util.getPermutations(numbers);
             for (int i = (lexicographicPermutations.size() - 1); i >= 0; i--) {
                 long num = Long.parseLong(lexicographicPermutations.get(i));
                 if (Util.isPrimeNumber(num, primeNums)) {

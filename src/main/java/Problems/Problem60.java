@@ -21,7 +21,7 @@ public class Problem60 {
     public static long solution1() {
         int limit = 10000;
         ArrayList<String> num = new ArrayList<String>();
-        TreeSet<Long> primeNums = Utils.Util.GetPrimeNumsByLimit(limit);
+        TreeSet<Long> primeNums = Utils.Util.getPrimeNumsByLimit(limit);
         primeNums.remove(Long.valueOf(2));
         primeNums.remove(Long.valueOf(5));
         return RemarkablePrime(primeNums, num);
@@ -59,7 +59,7 @@ public class Problem60 {
 
     private static boolean isRemarkablePrime(ArrayList<String> num) {
         boolean isSetOfRemarkablePrime = true;
-        ArrayList<String> permutations = Utils.Util.GetPermutations(num, 2);
+        ArrayList<String> permutations = Utils.Util.getPermutations(num, 2);
         for (String permutation : permutations) {
             long n = Long.parseLong(permutation);
             if (!Utils.Util.isPrimeNumber(n)) {

@@ -17,7 +17,7 @@ public class Problem45 {
     }
 
     public static long solution1() {
-        TreeSet<Long> hexNums = Util.GetHexagonalNumbersByCount(100000);
+        TreeSet<Long> hexNums = Util.getHexagonalNumbersByCount(100000);
         for (long num : hexNums) {
             if (Util.isHexagonalNumber(num)
                     && Util.isPentagonalNumber(num)

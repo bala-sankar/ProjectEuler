@@ -19,7 +19,7 @@ public class Problem37 {
     public static long solution1() {
         //Initial set - assuming the first 11 truncatable prime is
         //              within first 100000 primes
-        TreeSet<Long> primeNums = Util.GetPrimeNumsByCount(100000);
+        TreeSet<Long> primeNums = Util.getPrimeNumsByCount(100000);
         long count = 0, sum = 0;
         for (long num : primeNums) {
             if (isTruncatablePrime(primeNums, num)) {

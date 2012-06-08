@@ -26,7 +26,7 @@ public class Problem38 {
                     j++;
                 } else if (sb.length() == 9) {
                     String num = sb.toString();
-                    if (Util.GetUniqueDigitCount(num) == 9 && max < Long.parseLong(num)) {
+                    if (Util.getUniqueDigitCount(num) == 9 && max < Long.parseLong(num)) {
                         //System.out.println(i+"\t"+num);
                         max = Long.parseLong(num);
                     }

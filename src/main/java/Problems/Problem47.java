@@ -20,7 +20,7 @@ public class Problem47 {
     }
 
     public static long solution1() {
-        TreeSet<Long> primeNums = Util.GetPrimeNumsByLimit(200000);
+        TreeSet<Long> primeNums = Util.getPrimeNumsByLimit(200000);
         HashSet<String> uniqueCombination = new HashSet<String>();
         int distinctPrimeFactors = 4;
         long count = 0;
@@ -30,7 +30,7 @@ public class Problem47 {
                 uniqueCombination = new HashSet<String>();
                 continue;
             }
-            HashMap<Long, Long> primeFactors = Util.GetPrimeFactorsWithExponent(i, primeNums);
+            HashMap<Long, Long> primeFactors = Util.getPrimeFactorsWithExponent(i, primeNums);
             if (primeFactors.size() != distinctPrimeFactors) {
                 count = 0;
                 uniqueCombination = new HashSet<String>();

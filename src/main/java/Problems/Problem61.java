@@ -27,27 +27,27 @@ public class Problem61 {
     }
 
     public long solution1() {
-        TreeSet<Long> p8 = Util.GetOctagonalNumbersByLimit(LIMIT);
+        TreeSet<Long> p8 = Util.getOctagonalNumbersByLimit(LIMIT);
         trimValuesLessThan(p8, TRIM_VALUE);
         populateStartsWithAndPolygonalList(p8, 8);
 
-        TreeSet<Long> p7 = Util.GetHeptagonalNumbersByLimit(LIMIT);
+        TreeSet<Long> p7 = Util.getHeptagonalNumbersByLimit(LIMIT);
         trimValuesLessThan(p7, TRIM_VALUE);
         populateStartsWithAndPolygonalList(p7, 7);
 
-        TreeSet<Long> p6 = Util.GetHexagonalNumbersByLimit(LIMIT);
+        TreeSet<Long> p6 = Util.getHexagonalNumbersByLimit(LIMIT);
         trimValuesLessThan(p6, TRIM_VALUE);
         populateStartsWithAndPolygonalList(p6, 6);
 
-        TreeSet<Long> p5 = Util.GetPentagonalNumbersByLimit(LIMIT);
+        TreeSet<Long> p5 = Util.getPentagonalNumbersByLimit(LIMIT);
         trimValuesLessThan(p5, TRIM_VALUE);
         populateStartsWithAndPolygonalList(p5, 5);
 
-        TreeSet<Long> p4 = Util.GetSquareNumbersByLimit(LIMIT);
+        TreeSet<Long> p4 = Util.getSquareNumbersByLimit(LIMIT);
         trimValuesLessThan(p4, TRIM_VALUE);
         populateStartsWithAndPolygonalList(p4, 4);
 
-        TreeSet<Long> p3 = Util.GetTriangleNumbersByLimit(LIMIT);
+        TreeSet<Long> p3 = Util.getTriangleNumbersByLimit(LIMIT);
         trimValuesLessThan(p3, TRIM_VALUE);
         populateStartsWithAndPolygonalList(p3, 3);
 

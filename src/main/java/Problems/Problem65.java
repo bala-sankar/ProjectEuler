@@ -43,7 +43,7 @@ public class Problem65 {
         }
         sum = sum.reciprocal();
         long digitSum = 0;
-        for (int digit : Utils.Util.GetDigits(sum.getNumerator().toString())) {
+        for (int digit : Utils.Util.getDigits(sum.getNumerator().toString())) {
             digitSum = digitSum + digit;
         }
         return digitSum;

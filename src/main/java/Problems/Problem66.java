@@ -26,14 +26,14 @@ public class Problem66 {
                 continue;
             }
 
-            String[] continuedFraction = Util.GetContinuedFractions(d).split(";");
+            String[] continuedFraction = Util.getContinuedFractions(d).split(";");
             int a0 = Integer.parseInt(continuedFraction[0]);
             String[] periods = continuedFraction[1].split(",");
             int term = 0;
             BigInteger D = new BigInteger(String.valueOf(d));
 
             while (true) {
-                BigFraction temp = Util.GetConvergent(term, periods, a0);
+                BigFraction temp = Util.getConvergent(term, periods, a0);
                 BigInteger x2 = temp.getNumerator().multiply(temp.getNumerator());
                 BigInteger y2 = temp.getDenominator().multiply(temp.getDenominator());
                 BigInteger result = x2.subtract(y2.multiply(D));

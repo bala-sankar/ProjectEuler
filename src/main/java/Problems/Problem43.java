@@ -29,7 +29,7 @@ public class Problem43 {
         numbers.add("7");
         numbers.add("8");
         numbers.add("9");
-        lexicographicPermutations = Util.GetPermutations(numbers);
+        lexicographicPermutations = Util.getPermutations(numbers);
         int[] divisors = {2, 3, 5, 7, 11, 13, 17};
         long sum = 0;
         for (String lexicographicPermutation : lexicographicPermutations) {

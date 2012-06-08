@@ -142,7 +142,7 @@ public class Util {
         return phi;
     }
 
-    public static HashMap<Long, Long> GetPrimeFactorsWithExponent(long number, TreeSet<Long> primeNums) {
+    public static HashMap<Long, Long> getPrimeFactorsWithExponent(long number, TreeSet<Long> primeNums) {
         long limit;
         HashMap<Long, Long> factors = new HashMap<Long, Long>();
         if (number % 2 == 0) {
@@ -167,7 +167,7 @@ public class Util {
         return factors;
     }
 
-    public static TreeSet<Long> GetPrimeNumsByCount(long count) {
+    public static TreeSet<Long> getPrimeNumsByCount(long count) {
         TreeSet<Long> primeNums = new TreeSet<Long>();
         primeNums.add(2L);
         long i = 3;
@@ -185,16 +185,16 @@ public class Util {
         return primeNums;
     }
 
-    public static TreeSet<Long> GetPrimeNumsByLimit(long limit) {
+    public static TreeSet<Long> getPrimeNumsByLimit(long limit) {
         TreeSet<Long> primeNums = new TreeSet<Long>();
         primeNums.add(2L);
         long i = 3;
-        return Util.GetPrimeNumsByLimit(i, limit, primeNums);
+        return Util.getPrimeNumsByLimit(i, limit, primeNums);
     }
 
 
     //Start should be greater than two
-    public static TreeSet<Long> GetPrimeNumsByLimit(long start, long limit,
+    public static TreeSet<Long> getPrimeNumsByLimit(long start, long limit,
                                                     TreeSet<Long> primeNums) {
         long i = start;
         if (i == 2 && i < limit) {
@@ -253,7 +253,7 @@ public class Util {
         return sum;
     }
 
-    public static ArrayList<Integer> GetDigits(long num) {
+    public static ArrayList<Integer> getDigits(long num) {
         ArrayList<Integer> digits = new ArrayList<Integer>();
         while (num > 0) {
             digits.add((int) (num % 10));
@@ -262,7 +262,7 @@ public class Util {
         return digits;
     }
 
-    public static ArrayList<Integer> GetDigits(String num) {
+    public static ArrayList<Integer> getDigits(String num) {
         ArrayList<Integer> digits = new ArrayList<Integer>();
         for (int i = 0; i < num.length(); i++) {
             digits.add(Integer.valueOf(String.valueOf(num.charAt(i))));
@@ -270,7 +270,7 @@ public class Util {
         return digits;
     }
 
-    public static ArrayList<String> GetDigitsString(long num) {
+    public static ArrayList<String> getDigitsString(long num) {
         ArrayList<String> digits = new ArrayList<String>();
         while (num > 0) {
             digits.add(String.valueOf((int) (num % 10)));
@@ -279,7 +279,7 @@ public class Util {
         return digits;
     }
 
-    public static int GetUniqueDigitCount(String num) {
+    public static int getUniqueDigitCount(String num) {
         long number = Long.parseLong(num);
         HashSet<Integer> uniqueDigits = new HashSet<Integer>();
         while (number > 0) {
@@ -295,7 +295,7 @@ public class Util {
     /*public static boolean isPanDigital(String num)
     {
         String pattern = "[1-"+num.length()+"]{"+ num.length() + "," + num.length()+"}";
-        return num.length() == GetUniqueDigitCount(num) && num.matches(pattern);
+        return num.length() == getUniqueDigitCount(num) && num.matches(pattern);
     }*/
 
     public static boolean isPalindrome(long num) {
@@ -307,17 +307,17 @@ public class Util {
         return s1.toString().equals(s1.reverse().toString());
     }
 
-    public static ArrayList<String> GetPermutations(ArrayList<String> numbers) {
-        return GetPermutations(numbers, numbers.size());
+    public static ArrayList<String> getPermutations(ArrayList<String> numbers) {
+        return getPermutations(numbers, numbers.size());
     }
 
-    public static ArrayList<String> GetPermutations(ArrayList<String> numbers, int length) {
+    public static ArrayList<String> getPermutations(ArrayList<String> numbers, int length) {
         ArrayList<String> permutations = new ArrayList<String>();
         permutation(numbers, "", permutations, length, 0);
         return permutations;
     }
 
-    public static ArrayList<String> GetPermutationsWithRepetition(ArrayList<String> numbers, int length) {
+    public static ArrayList<String> getPermutationsWithRepetition(ArrayList<String> numbers, int length) {
         ArrayList<String> permutations = new ArrayList<String>();
         permutationWithRepetition(numbers, "", permutations, length, 0);
         return permutations;
@@ -389,7 +389,7 @@ public class Util {
             return combinations;
         }
     */
-    public static TreeSet<Long> GetTriangleNumbersByCount(long count) {
+    public static TreeSet<Long> getTriangleNumbersByCount(long count) {
         TreeSet<Long> triangleNums = new TreeSet<Long>();
         for (long i = 1; i <= count; i++) {
             triangleNums.add((i * (i + 1)) / 2);
@@ -397,7 +397,7 @@ public class Util {
         return triangleNums;
     }
 
-    public static TreeSet<Long> GetTriangleNumbersByLimit(long limit) {
+    public static TreeSet<Long> getTriangleNumbersByLimit(long limit) {
         TreeSet<Long> triangleNums = new TreeSet<Long>();
         long num, i = 0;
         while (true) {
@@ -420,7 +420,7 @@ public class Util {
         return nums;
     }*/
 
-    public static TreeSet<Long> GetSquareNumbersByLimit(long limit) {
+    public static TreeSet<Long> getSquareNumbersByLimit(long limit) {
         TreeSet<Long> nums = new TreeSet<Long>();
         long num, i = 0;
         while (true) {
@@ -435,7 +435,7 @@ public class Util {
         return nums;
     }
 
-    public static TreeSet<Long> GetPentagonalNumbersByCount(long count) {
+    public static TreeSet<Long> getPentagonalNumbersByCount(long count) {
         TreeSet<Long> nums = new TreeSet<Long>();
         for (long i = 1; i <= count; i++) {
             nums.add((i * (3 * i - 1)) / 2);
@@ -443,7 +443,7 @@ public class Util {
         return nums;
     }
 
-    public static TreeSet<Long> GetPentagonalNumbersByLimit(long limit) {
+    public static TreeSet<Long> getPentagonalNumbersByLimit(long limit) {
         TreeSet<Long> nums = new TreeSet<Long>();
         long num, i = 0;
         while (true) {
@@ -458,7 +458,7 @@ public class Util {
         return nums;
     }
 
-    public static TreeSet<Long> GetHexagonalNumbersByCount(long count) {
+    public static TreeSet<Long> getHexagonalNumbersByCount(long count) {
         TreeSet<Long> nums = new TreeSet<Long>();
         for (long i = 1; i <= count; i++) {
             nums.add(i * (2 * i - 1));
@@ -466,7 +466,7 @@ public class Util {
         return nums;
     }
 
-    public static TreeSet<Long> GetHexagonalNumbersByLimit(long limit) {
+    public static TreeSet<Long> getHexagonalNumbersByLimit(long limit) {
         TreeSet<Long> nums = new TreeSet<Long>();
         long num, i = 0;
         while (true) {
@@ -489,7 +489,7 @@ public class Util {
         return nums;
     }*/
 
-    public static TreeSet<Long> GetHeptagonalNumbersByLimit(long limit) {
+    public static TreeSet<Long> getHeptagonalNumbersByLimit(long limit) {
         TreeSet<Long> nums = new TreeSet<Long>();
         long num, i = 0;
         while (true) {
@@ -512,7 +512,7 @@ public class Util {
         return nums;
     }*/
 
-    public static TreeSet<Long> GetOctagonalNumbersByLimit(long limit) {
+    public static TreeSet<Long> getOctagonalNumbersByLimit(long limit) {
         TreeSet<Long> nums = new TreeSet<Long>();
         long num, i = 0;
         while (true) {
@@ -681,7 +681,7 @@ public class Util {
         return x;
     }
 
-    public static String GetContinuedFractions(long i) {
+    public static String getContinuedFractions(long i) {
         double sqrt = Math.sqrt(i);
         if (sqrt == (double) (long) sqrt) {
             return "";
@@ -721,7 +721,7 @@ public class Util {
         return sb.toString();
     }
 
-    public static BigFraction GetConvergent(int term, String[] periods, int a0) {
+    public static BigFraction getConvergent(int term, String[] periods, int a0) {
         BigFraction sum = BigFraction.ZERO;
         int length = periods.length;
         for (int k = term; k >= 1; k--) {
@@ -734,8 +734,8 @@ public class Util {
         return sum;
     }
 
-    public static String GetSortedDigitsAsString(long num) {
-        ArrayList<Integer> digits = Util.GetDigits(num);
+    public static String getSortedDigitsAsString(long num) {
+        ArrayList<Integer> digits = Util.getDigits(num);
         Collections.sort(digits);
         StringBuilder sb = new StringBuilder();
         for (int digit : digits) {

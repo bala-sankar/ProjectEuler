@@ -41,11 +41,11 @@ public class Problem34 {
             if (i < 10) {
                 limit = factorials.get(i);
             } else {
-                //99999999 = 36288000, hence the the max limit should be 100000000
+                //99999999! = 36288000, hence the the max limit should be 100000000
                 limit = 100000000;
             }
             for (long j = start; j < limit; j++) {
-                ArrayList<Integer> digits = Util.GetDigits(j);
+                ArrayList<Integer> digits = Util.getDigits(j);
                 if (i < 10 && !(allowedDigits.containsAll(digits))) {
                     continue;
                 }

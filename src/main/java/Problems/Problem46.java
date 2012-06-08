@@ -18,7 +18,7 @@ public class Problem46 {
 
     public static long solution1() {
         long limit = 10000;
-        TreeSet<Long> primeNums = Util.GetPrimeNumsByLimit(limit);
+        TreeSet<Long> primeNums = Util.getPrimeNumsByLimit(limit);
 
         for (long i = 9; i < limit; i = i + 2) {
             boolean isComplyRule = false;

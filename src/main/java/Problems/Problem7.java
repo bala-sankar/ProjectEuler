@@ -16,7 +16,7 @@ public class Problem7 {
     }
 
     public static long solution1() {
-        TreeSet<Long> primeNums = Util.GetPrimeNumsByCount(10001L);
+        TreeSet<Long> primeNums = Util.getPrimeNumsByCount(10001L);
         return primeNums.last();
     }
 }

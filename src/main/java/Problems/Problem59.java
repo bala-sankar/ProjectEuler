@@ -30,7 +30,7 @@ public class Problem59 {
                 for (char i = 'a'; i <= 'z'; i++) {
                     encryptKeyChars.add(String.valueOf(i));
                 }
-                ArrayList<String> possibleEncryptKeys = Utils.Util.GetPermutationsWithRepetition(encryptKeyChars, 3);
+                ArrayList<String> possibleEncryptKeys = Utils.Util.getPermutationsWithRepetition(encryptKeyChars, 3);
                 boolean isDecrypted;
                 for (String encryptKey : possibleEncryptKeys) {
                     //encryptKey = "god";
