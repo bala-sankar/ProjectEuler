@@ -28,7 +28,7 @@ public class Problem69 {
             double phi = Util.phiFunction(n, primeNums);
             nByPhi = (double) n / phi;
             if (maxNByPhi < nByPhi) {
-                System.out.println(n + "~" + phi + "~" + nByPhi);
+                //System.out.println(n + "~" + phi + "~" + nByPhi);
                 maxNByPhi = nByPhi;
                 maxN = n;
             }
