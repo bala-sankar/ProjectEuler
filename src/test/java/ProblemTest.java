@@ -504,4 +504,16 @@ public class ProblemTest {
         long expected = 71;
         Assert.assertEquals(expected, Problem77.solution1());
     }
+
+    @Test(timeout = TIMEOUT)
+    public void Problem78Test() {
+        long expected = 55374;
+        Assert.assertEquals(expected, Problem78.solution1());
+    }
+
+    @Test(timeout = TIMEOUT)
+    public void Problem79Test() {
+        long expected = 73162890;
+        Assert.assertEquals(expected, Problem79.solution1());
+    }
 }
