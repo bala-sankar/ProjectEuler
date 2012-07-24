@@ -22,10 +22,12 @@ public class Problem79 {
     public static long solution1() {
         StringBuilder result = new StringBuilder();
         FileInputStream fileStream;
+        DataInputStream dataStream;
+        BufferedReader bufferedReader;
         try {
             fileStream = new FileInputStream("src/main/resources/keylog.txt");
-            DataInputStream dataStream = new DataInputStream(fileStream);
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(dataStream, "UTF-8"));
+            dataStream = new DataInputStream(fileStream);
+            bufferedReader = new BufferedReader(new InputStreamReader(dataStream, "UTF-8"));
             String line;
 
             //Create a directed graph
@@ -66,6 +68,9 @@ public class Problem79 {
                 result.append(vertexToRemove);
                 passcodeGraph.removeVertex(vertexToRemove);
             }
+            bufferedReader.close();
+            dataStream.close();
+            fileStream.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (UnsupportedEncodingException e) {
