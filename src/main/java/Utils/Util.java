@@ -2,6 +2,8 @@ package Utils;
 
 import org.apache.commons.math3.fraction.BigFraction;
 import org.apache.commons.math3.fraction.Fraction;
+import org.jgrapht.graph.DefaultWeightedEdge;
+import org.jgrapht.graph.SimpleDirectedWeightedGraph;
 
 import java.util.*;
 
@@ -752,5 +754,87 @@ public class Util {
             r = a % b;
         }
         return b;
+    }
+
+    public static HashMap<String, Long> dijkstra(SimpleDirectedWeightedGraph<String, DefaultWeightedEdge> graph,
+                                                 String source, long initialWeight) {
+        HashMap<String, Long> distance = new HashMap<String, Long>();
+        HashMap<String, Long> previous = new HashMap<String, Long>();
+
+        for (String vertex : graph.vertexSet()) {
+            distance.put(vertex, Long.MAX_VALUE);
+            previous.put(vertex, Long.MAX_VALUE);
+        }
+
+        distance.put(source, initialWeight);
+        HashSet<String> Q = new HashSet<String>();
+        Q.addAll(graph.vertexSet());
+        while (Q.size() != 0) {
+            String u = "";
+            long minDistance = Long.MAX_VALUE;
+            for (Map.Entry<String, Long> temp : distance.entrySet()) {
+                if (Q.contains(temp.getKey()) && temp.getValue() < minDistance) {
+                    minDistance = temp.getValue();
+                    u = temp.getKey();
+                }
+            }
+
+            if (distance.get(u) == Long.MAX_VALUE) {
+                break;
+            }
+            Q.remove(u);
+            for (DefaultWeightedEdge edge : graph.outgoingEdgesOf(u)) {
+                String v = graph.getEdgeTarget(edge);
+                long alt = distance.get(u) + (long) graph.getEdgeWeight(edge);
+                if (alt < distance.get(v)) {
+                    distance.put(v, alt);
+                }
+            }
+        }
+        return distance;
+    }
+
+    public static long minDistInGraph(SimpleDirectedWeightedGraph<String, DefaultWeightedEdge> graph,
+                                      HashMap<String, Long> weights, List<String> sources, List<String> targets) {
+        long minDist = Long.MAX_VALUE;
+        for (String source : sources) {
+            HashMap<String, Long> distance = new HashMap<String, Long>();
+            for (String vertex : graph.vertexSet()) {
+                distance.put(vertex, Long.MAX_VALUE);
+            }
+            long initialWeight = weights.get(source);
+            distance.put(source, initialWeight);
+            while (distance.size() != 0) {
+                String u = "";
+                long minDistance = Long.MAX_VALUE;
+                for (Map.Entry<String, Long> temp : distance.entrySet()) {
+                    if (temp.getValue() < minDistance) {
+                        minDistance = temp.getValue();
+                        u = temp.getKey();
+                    }
+                }
+
+                if (distance.get(u) == Long.MAX_VALUE || distance.get(u) > minDist) {
+                    break;
+                }
+
+                for (DefaultWeightedEdge edge : graph.outgoingEdgesOf(u)) {
+                    String v = graph.getEdgeTarget(edge);
+                    if (distance.containsKey(v)) {
+                        long alt = distance.get(u) + (long) graph.getEdgeWeight(edge);
+                        if (alt < distance.get(v)) {
+                            distance.put(v, alt);
+                        }
+                        if (targets.contains(v)) {
+                            if (distance.get(v) < minDist) {
+                                minDist = distance.get(v);
+                            }
+                        }
+                    }
+                }
+                distance.remove(u);
+            }
+        }
+        return minDist;
     }
 }
