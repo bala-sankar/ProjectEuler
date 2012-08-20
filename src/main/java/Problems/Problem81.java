@@ -62,7 +62,10 @@ public class Problem81 {
                 row++;
             }
             String target = (row - 1) + "~" + (column - 1);
-            return Util.dijkstra(matrix, "root", 0).get(target);
+            bufferedReader.close();
+            dataStream.close();
+            fileStream.close();
+            return Util.dijkstra(matrix, "root", target, 0);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (UnsupportedEncodingException e) {

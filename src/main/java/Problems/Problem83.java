@@ -5,15 +5,14 @@ import org.jgrapht.graph.DefaultWeightedEdge;
 import org.jgrapht.graph.SimpleDirectedWeightedGraph;
 
 import java.io.*;
-import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
  * Created by IntelliJ IDEA.
  * User: bsankar
- * Date: 7/27/12
+ * Date: 8/20/12
  */
-public class Problem82 {
+public class Problem83 {
     public static void main(String[] args) {
         long startTime = System.currentTimeMillis();
         System.out.println("Result is : " + solution1());
@@ -34,8 +33,6 @@ public class Problem82 {
             SimpleDirectedWeightedGraph<String, DefaultWeightedEdge> matrix =
                     new SimpleDirectedWeightedGraph<String, DefaultWeightedEdge>(DefaultWeightedEdge.class);
             int row = 0, column = 0;
-            ArrayList<String> targets = new ArrayList<String>();
-            ArrayList<String> sources = new ArrayList<String>();
             HashMap<String, Long> weights = new HashMap<String, Long>();
             while ((line = bufferedReader.readLine()) != null) {
 
@@ -58,20 +55,18 @@ public class Problem82 {
                         String vLeft = row + "~" + (column - 1);
                         if (matrix.containsVertex(vLeft)) {
                             matrix.setEdgeWeight(matrix.addEdge(vLeft, v), Double.parseDouble(elements[column]));
+                            matrix.setEdgeWeight(matrix.addEdge(v, vLeft), weights.get(vLeft));
                         }
                     }
                 }
                 row++;
             }
-
-            for (int i = 0; i < row; i++) {
-                sources.add(i + "~0");
-                targets.add(i + "~" + (column - 1));
-            }
+            String source = "0~0";
+            String target = (row - 1) + "~" + (column - 1);
             bufferedReader.close();
             dataStream.close();
             fileStream.close();
-            return Util.minDistInGraph(matrix, weights, sources, targets);
+            return Util.dijkstra(matrix, source, target, weights.get(source));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (UnsupportedEncodingException e) {

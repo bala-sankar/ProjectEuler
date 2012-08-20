@@ -756,8 +756,8 @@ public class Util {
         return b;
     }
 
-    public static HashMap<String, Long> dijkstra(SimpleDirectedWeightedGraph<String, DefaultWeightedEdge> graph,
-                                                 String source, long initialWeight) {
+    public static long dijkstra(SimpleDirectedWeightedGraph<String, DefaultWeightedEdge> graph,
+                                String source, String target, long initialWeight) {
         HashMap<String, Long> distance = new HashMap<String, Long>();
         HashMap<String, Long> previous = new HashMap<String, Long>();
 
@@ -789,9 +789,13 @@ public class Util {
                 if (alt < distance.get(v)) {
                     distance.put(v, alt);
                 }
+                if (target.equals(v)) {
+                    return distance.get(v);
+                }
             }
         }
-        return distance;
+        //return distance;
+        return 0;
     }
 
     public static long minDistInGraph(SimpleDirectedWeightedGraph<String, DefaultWeightedEdge> graph,
