@@ -1,7 +1,5 @@
 package Utils.Monopoly;
 
-import com.sun.javaws.exceptions.InvalidArgumentException;
-
 /**
  * Created by IntelliJ IDEA.
  * User: bsankar
@@ -150,7 +148,7 @@ public enum MonopolySquares {
             case 39:
                 return H2;
             default:
-                throw new InvalidArgumentException(new String[]{"Invalid square"});
+                throw new IllegalArgumentException("Invalid square");
         }
     }
 }
