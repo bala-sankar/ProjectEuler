@@ -22,7 +22,6 @@ public class MonopolyGame {
 
     public void startGame(MonopolyDice dice, long numberOfRolls) throws Exception {
         init();
-        n = numberOfRolls;
         MonopolySquares currentSquare = MonopolySquares.GO;
         popularSquare.put(currentSquare.getModalValue(), (long) 1);
         for (long sample = 1; sample <= numberOfRolls; sample++) {
