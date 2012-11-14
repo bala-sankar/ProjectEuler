@@ -13,7 +13,6 @@ public class MonopolyGame {
     private HashMap<String, Long> popularSquare = new HashMap<String, Long>();
     private int communityChestPile = new Random().nextInt(16);
     private int chancePile = new Random().nextInt(16);
-    private long n = 0;
 
     private void init() {
         for (MonopolySquares square : MonopolySquares.values()) {
@@ -64,9 +63,9 @@ public class MonopolyGame {
                 sq3 = key;
             }
         }
-        System.out.println((((double) max1 / (double) n) * 100) + " "
+        /*System.out.println((((double) max1 / (double) n) * 100) + " "
                 + (((double) max2 / (double) n) * 100) + " "
-                + (((double) max3 / (double) n) * 100));
+                + (((double) max3 / (double) n) * 100));*/
         return (sq1 + sq2 + sq3);
     }
 

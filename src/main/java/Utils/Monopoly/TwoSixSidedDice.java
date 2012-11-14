@@ -8,7 +8,7 @@ package Utils.Monopoly;
 public class TwoSixSidedDice implements MonopolyDice {
     private Dice dice1;
     private Dice dice2;
-    private static int counter = 0;
+    private int counter = 0;
 
     public TwoSixSidedDice() {
         this.dice1 = new Dice(6);
