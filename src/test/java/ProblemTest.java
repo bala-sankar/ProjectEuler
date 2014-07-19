@@ -9,11 +9,11 @@ import org.junit.rules.TestName;
  * Date: 1/30/12
  */
 public class ProblemTest {
-    private long startTime;
-    private static long overallStartTime;
     private static final int TIMEOUT = 60000;
+    private static long overallStartTime;
     @Rule
     public TestName name = new TestName();
+    private long startTime;
 
     @BeforeClass
     public static void BeforeTestClass() {
@@ -575,6 +575,12 @@ public class ProblemTest {
     public void Problem89Test() {
         long expected = 743;
         Assert.assertEquals(expected, Problem89.solution1());
+    }
+
+    @Test(timeout = TIMEOUT)
+    public void Problem90Test() {
+        long expected = 1217;
+        Assert.assertEquals(expected, Problem90.solution1());
     }
 
     @Test(timeout = TIMEOUT)

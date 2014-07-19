@@ -6,9 +6,9 @@ package Problems;
  * Date: 12/12/11
  */
 public class Problem15 {
-    private static long routes = 0;
     private static final long row = 20;
     private static final long column = 20;
+    private static long routes = 0;
 
     public static void main(String[] args) {
         long startTime = System.currentTimeMillis();
@@ -30,21 +30,13 @@ public class Problem15 {
             routes = routes + ((n * (n + 1)) / 2);
             return;
         }
+
         if (j == column - 2) {
             long n = (row - i + 1);
             routes = routes + ((n * (n + 1)) / 2);
             return;
         }
-        /*if (i == row-1 && j == column - 1){
-            routes = routes + 2;
-            return;
-        }
-        if (i == row || j == column) {
-            routes++;
-            *//*if(routes%1000000==0)
-                System.out.println("route count - "+ routes);*//*
-            return;
-        }*/
+
         if (j < (column - 2)) {
             //Move right
             route(i, j + 1);

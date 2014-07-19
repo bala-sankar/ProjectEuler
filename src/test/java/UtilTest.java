@@ -3,17 +3,19 @@ import org.apache.commons.math3.fraction.BigFraction;
 import org.junit.*;
 import org.junit.rules.TestName;
 
+import java.util.ArrayList;
+
 /**
  * Created by IntelliJ IDEA.
  * User: bsankar
  * Date: 1/30/12
  */
 public class UtilTest extends Util {
-    private long startTime;
-    private static long overallStartTime;
     private static final int TIMEOUT = 60000;
+    private static long overallStartTime;
     @Rule
     public TestName name = new TestName();
+    private long startTime;
 
     @BeforeClass
     public static void beforeTestClass() {
@@ -79,4 +81,26 @@ public class UtilTest extends Util {
             //System.out.println(i+"~"+getFactorCount(i, primeNums));
         }
     }*/
+
+    @Test(timeout = TIMEOUT)
+    public void getCombinationTest() {
+        ArrayList<String> numbers = new ArrayList<String>();
+        numbers.add("0");
+        numbers.add("1");
+        numbers.add("2");
+        numbers.add("3");
+        ArrayList<String> combinations = getCombination(numbers, 3);
+        Assert.assertEquals(4, combinations.size());
+    }
+
+    @Test(timeout = TIMEOUT)
+    public void getPermutationTest() {
+        ArrayList<String> numbers = new ArrayList<String>();
+        numbers.add("0");
+        numbers.add("1");
+        numbers.add("2");
+        numbers.add("3");
+        ArrayList<String> permutations = getPermutations(numbers, 3);
+        Assert.assertEquals(24, permutations.size());
+    }
 }

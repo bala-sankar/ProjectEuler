@@ -350,8 +350,11 @@ public class Util {
         }
     }
 
-    /* public static ArrayList<String> GetCombination(ArrayList<String> numbers, int length){
-            StringBuilder combination;
+    public static ArrayList<String> getCombination(ArrayList<String> numbers, int length) {
+        ArrayList<String> combinations = new ArrayList<String>();
+        combination(numbers, "", combinations, length, 0);
+        return combinations;
+            /*StringBuilder combination;
             ArrayList<String> combinations;
             ArrayList<String> temp = new ArrayList<String>();
             temp.addAll(numbers);
@@ -388,9 +391,27 @@ public class Util {
                     }
                 }
             }
-            return combinations;
+            return combinations;*/
         }
-    */
+
+    protected static void combination(ArrayList<String> numbers, String num,
+                                      ArrayList<String> combinations, int length, int loop) {
+        if (loop == length) {
+            combinations.add(num);
+            return;
+        }
+        /*if(loop + numbers.size() < length){
+            return;
+        }*/
+        ArrayList<String> temp = new ArrayList<String>();
+        temp.addAll(numbers);
+        for (String number : numbers) {
+            temp.remove(number);
+            combination(temp, num + number, combinations, length, loop + 1);
+        }
+    }
+
+
     public static TreeSet<Long> getTriangleNumbersByCount(long count) {
         TreeSet<Long> triangleNums = new TreeSet<Long>();
         for (long i = 1; i <= count; i++) {
