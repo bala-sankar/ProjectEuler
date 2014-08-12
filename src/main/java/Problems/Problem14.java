@@ -9,20 +9,19 @@ import java.util.HashMap;
  */
 public class Problem14 {
     public static void main(String[] args) {
+        long startTime = System.currentTimeMillis();
         System.out.println("Result is : " + solution1());
+        System.out.println("Time = " + (System.currentTimeMillis() - startTime) / 1000.0);
     }
 
     public static long solution1() {
-        HashMap<Long, Long> func = new HashMap<Long, Long>();
+        //HashMap<Long, Long> func = new HashMap<Long, Long>();
         long maxChain = 0;
         long numWithMaxChain = 0;
         for (long i = 1; i < 1000000; i++) {
             long curVal = i, chain = 1;
             while (curVal != 1) {
-                if (!func.containsKey(curVal)) {
-                    putVal(func, curVal);
-                }
-                curVal = func.get(curVal);
+                curVal = getVal(curVal);
                 chain++;
             }
             if (chain > maxChain) {
@@ -34,11 +33,11 @@ public class Problem14 {
         return numWithMaxChain;
     }
 
-    private static void putVal(HashMap<Long, Long> func, long i) {
+    private static long getVal(long i) {
         if (i % 2 == 0) {
-            func.put(i, (i / 2));
+            return (i / 2);
         } else {
-            func.put(i, (3 * i) + 1);
+            return (3 * i) + 1;
         }
     }
 }

@@ -103,4 +103,10 @@ public class UtilTest extends Util {
         ArrayList<String> permutations = getPermutations(numbers, 3);
         Assert.assertEquals(24, permutations.size());
     }
+
+    @Test(timeout = TIMEOUT)
+    public void isPalindromeTest() {
+        Assert.assertTrue(isPalindrome(1001));
+        Assert.assertFalse(isPalindrome(1002));
+    }
 }

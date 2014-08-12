@@ -9,7 +9,9 @@ import java.math.BigInteger;
  */
 public class Problem13 {
     public static void main(String[] args) {
+        long startTime = System.currentTimeMillis();
         System.out.println("Result is : " + solution1());
+        System.out.println("Time = " + (System.currentTimeMillis() - startTime) / 1000.0);
     }
 
     public static String solution1() {
@@ -118,6 +120,7 @@ public class Problem13 {
         for (String num : nums) {
             sum = sum.add(new BigInteger(num));
         }
+
         return sum.toString().substring(0, 10);
     }
 }

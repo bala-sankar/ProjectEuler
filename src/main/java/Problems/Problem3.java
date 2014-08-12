@@ -9,8 +9,12 @@ import java.util.TreeSet;
  */
 public class Problem3 {
     public static void main(String[] args) {
+        long startTime = System.currentTimeMillis();
         System.out.println("Result is : " + solution1());
+        System.out.println("Time = " + (System.currentTimeMillis() - startTime) / 1000.0);
+        startTime = System.currentTimeMillis();
         System.out.println("Result is : " + solution2());
+        System.out.println("Time = " + (System.currentTimeMillis() - startTime) / 1000.0);
     }
 
     public static long solution1() {
@@ -62,10 +66,7 @@ public class Problem3 {
 
         if (num % 2 == 0) {
             lastFactor = 2;
-            num = num / 2;
-            while (num % 2 == 0) {
-                num = num / 2;
-            }
+            return lastFactor;
         }
         factor = 3;
         while (num > 1 && factor < maxFactor) {

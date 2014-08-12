@@ -10,6 +10,9 @@ public class Problem9 {
         long startTime = System.currentTimeMillis();
         System.out.println("Result is : " + solution1());
         System.out.println("Time = " + (System.currentTimeMillis() - startTime) / 1000.0);
+        startTime = System.currentTimeMillis();
+        System.out.println("Result is : " + solution2());
+        System.out.println("Time = " + (System.currentTimeMillis() - startTime) / 1000.0);
     }
 
     public static long solution1() {

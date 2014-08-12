@@ -7,8 +7,9 @@ package Problems;
  */
 public class Problem6 {
     public static void main(String[] args) {
+        long startTime = System.currentTimeMillis();
         System.out.println("Result is : " + solution1());
-        //System.out.println("Result is : " + Solution2());
+        System.out.println("Time = " + (System.currentTimeMillis() - startTime) / 1000.0);
     }
 
     public static long solution1() {
