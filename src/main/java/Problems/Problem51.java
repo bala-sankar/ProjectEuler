@@ -1,9 +1,7 @@
 package Problems;
 
 import Utils.Util;
-
 import java.util.ArrayList;
-import java.util.TreeSet;
 
 /**
  * Created by IntelliJ IDEA.
@@ -17,9 +15,8 @@ public class Problem51 {
         System.out.println("Time = " + (System.currentTimeMillis() - startTime) / 1000.0);
     }
 
-    public static String solution1() {
-        TreeSet<Long> primeNums = Util.getPrimeNumsByLimit(1000000);
-        String startingFamilyValue = "";
+    public static long solution1() {
+        long startingFamilyValue = 0;
         ArrayList<String> nums = new ArrayList<String>();
         nums.add("0");
         nums.add("1");
@@ -34,23 +31,22 @@ public class Problem51 {
         nums.add("~");
         int digits = 2;
         int count = 0;
-
         while (count < 8 && digits <= 8) {
             ArrayList<String> patterns = Util.getPermutationsWithRepetition(nums, digits);
             for (String pattern : patterns) {
-                /*
-                 * If the number starts with zero or ends with even number, then do nothing.
-                 */
-                if (!(pattern.matches("^[1-9,~][0-9,~]*[1,3,5,7,~]+$") && pattern.matches(".*[~]+.*"))) {
+                if (!(pattern.contains("~"))) {
                     continue;
                 }
                 count = 0;
                 for (char i = '0'; i <= '9'; i++) {
-                    String number = pattern.replace('~', i);
-                    if (!number.startsWith("0") && primeNums.contains(new Long(number))) {
+                    long number = Long.parseLong(pattern.replace('~', i));
+                    if (Util.isPrimeNumber(number)) {
                         count++;
                         if (count == 1) {
                             startingFamilyValue = number;
+                        }
+                        if (count - i > 1) {
+                            break;
                         }
                     }
                 }
@@ -61,16 +57,7 @@ public class Problem51 {
             }
             digits++;
         }
-
         return startingFamilyValue;
     }
 
-    /* private static void test(String pattern) {
-        if (!(pattern.matches("^[1-9,~][0-9,~]*[1,3,5,7,~]+$") && pattern.matches(".*[~]+.*"))) {
-            System.out.println("False :" + pattern);
-        } else {
-            System.out.println("True :" + pattern);
-        }
-
-    }*/
 }

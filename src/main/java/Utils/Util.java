@@ -239,6 +239,9 @@ public class Util {
         if (num != 2 && num % 2 == 0) {
             return false;
         }
+        if(num != 5 && num % 5 == 0) {
+            return false;
+        }
         for (int i = 3; i <= loop; i++) {
             if (num % i == 0) {
                 return false;
@@ -664,10 +667,7 @@ public class Util {
                 p.append(x);
             } else {
                 long pTemp = Long.parseLong(p.toString());
-                StringBuilder cTemp = new StringBuilder();
-                cTemp.append(c);
-                cTemp.append(digit);
-                c = Long.parseLong(cTemp.toString());
+                c = Long.parseLong(String.valueOf(c) + digit);
                 x = findX(c, pTemp);
                 y = x * (20 * pTemp + x);
                 p.append(x);
