@@ -344,7 +344,7 @@ public class ProblemTest {
 
     @Test(timeout = TIMEOUT)
     public void Problem51Test() {
-        String expected = "121313";
+        long expected = 121313;
         Assert.assertEquals(expected, Problem51.solution1());
     }
 

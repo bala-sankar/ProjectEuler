@@ -1,6 +1,6 @@
 package Problems;
 
-import java.util.HashSet;
+import Utils.Util;
 
 /**
  * Created by IntelliJ IDEA.
@@ -17,16 +17,16 @@ public class Problem73 {
     public static long solution1() {
         double oneByTwo = (1.0 / 2.0);
         double oneByThree = (1.0 / 3.0);
-        HashSet<Double> fraction = new HashSet<Double>();
+        long count = 0;
         for (int d = 1; d <= 12000; d++) {
             for (int n = (int) (oneByThree * d); n <= (int) (oneByTwo * d); n++) {
                 double temp = (double) n / (double) d;
-                if (temp > oneByThree && temp < oneByTwo) {
+                if (temp > oneByThree && temp < oneByTwo && Util.gcd(n, d) == 1) {
                     //System.out.println(n + "/" + d + "~" + temp);
-                    fraction.add(temp);
+                    count++;
                 }
             }
         }
-        return fraction.size();
+        return count;
     }
 }

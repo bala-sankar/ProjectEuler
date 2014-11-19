@@ -109,4 +109,11 @@ public class UtilTest extends Util {
         Assert.assertTrue(isPalindrome(1001));
         Assert.assertFalse(isPalindrome(1002));
     }
+
+    @Test(timeout = TIMEOUT)
+    public void gcdTest() {
+        Assert.assertEquals(gcd(7, 18), 1);
+        Assert.assertEquals(gcd(8,18), 2);
+
+    }
 }
