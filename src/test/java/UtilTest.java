@@ -91,6 +91,8 @@ public class UtilTest extends Util {
         numbers.add("3");
         ArrayList<String> combinations = getCombination(numbers, 3);
         Assert.assertEquals(4, combinations.size());
+        combinations = getCombination(numbers, 2);
+        Assert.assertEquals(6, combinations.size());
     }
 
     @Test(timeout = TIMEOUT)
