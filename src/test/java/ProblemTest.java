@@ -9,7 +9,7 @@ import org.junit.rules.TestName;
  * Date: 1/30/12
  */
 public class ProblemTest {
-    private static final int TIMEOUT = 60000;
+    private static final int TIMEOUT = 30000;
     private static long overallStartTime;
     @Rule
     public TestName name = new TestName();
