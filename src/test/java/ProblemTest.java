@@ -596,6 +596,12 @@ public class ProblemTest {
     }
 
     @Test(timeout = TIMEOUT)
+    public void Problem93test() {
+        String expected = "1258";
+        Assert.assertEquals(expected, Problem93.solution1());
+    }
+
+    @Test(timeout = TIMEOUT)
     public void Problem97Test() {
         long expected = 8739992577L;
         Assert.assertEquals(expected, Problem97.solution1());
