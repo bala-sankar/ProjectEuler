@@ -45,7 +45,7 @@ public class Util {
     public static HashSet<Long> getFactors(long number) {
         int incr;
         long limit;
-        HashSet<Long> factors = new HashSet<Long>();
+        HashSet<Long> factors = new HashSet<>();
         factors.add(1L);
         factors.add(number);
         if (number % 2 == 0) {
@@ -146,7 +146,7 @@ public class Util {
 
     public static HashMap<Long, Long> getPrimeFactorsWithExponent(long number, TreeSet<Long> primeNums) {
         long limit;
-        HashMap<Long, Long> factors = new HashMap<Long, Long>();
+        HashMap<Long, Long> factors = new HashMap<>();
         if (number % 2 == 0) {
             limit = number / 2;
         } else {
@@ -170,7 +170,7 @@ public class Util {
     }
 
     public static TreeSet<Long> getPrimeNumsByCount(long count) {
-        TreeSet<Long> primeNums = new TreeSet<Long>();
+        TreeSet<Long> primeNums = new TreeSet<>();
         primeNums.add(2L);
         long i = 3;
         while (primeNums.size() < count) {
@@ -188,7 +188,7 @@ public class Util {
     }
 
     public static TreeSet<Long> getPrimeNumsByLimit(long limit) {
-        TreeSet<Long> primeNums = new TreeSet<Long>();
+        TreeSet<Long> primeNums = new TreeSet<>();
         primeNums.add(2L);
         long i = 3;
         return Util.getPrimeNumsByLimit(i, limit, primeNums);
@@ -239,7 +239,7 @@ public class Util {
         if (num != 2 && num % 2 == 0) {
             return false;
         }
-        if(num != 5 && num % 5 == 0) {
+        if (num != 5 && num % 5 == 0) {
             return false;
         }
         for (int i = 3; i <= loop; i++) {
@@ -259,7 +259,7 @@ public class Util {
     }
 
     public static ArrayList<Integer> getDigits(long num) {
-        ArrayList<Integer> digits = new ArrayList<Integer>();
+        ArrayList<Integer> digits = new ArrayList<>();
         while (num > 0) {
             digits.add((int) (num % 10));
             num = num / 10;
@@ -268,7 +268,7 @@ public class Util {
     }
 
     public static ArrayList<Integer> getDigits(String num) {
-        ArrayList<Integer> digits = new ArrayList<Integer>();
+        ArrayList<Integer> digits = new ArrayList<>();
         for (int i = 0; i < num.length(); i++) {
             digits.add(Integer.valueOf(String.valueOf(num.charAt(i))));
         }
@@ -276,7 +276,7 @@ public class Util {
     }
 
     public static ArrayList<String> getDigitsString(long num) {
-        ArrayList<String> digits = new ArrayList<String>();
+        ArrayList<String> digits = new ArrayList<>();
         while (num > 0) {
             digits.add(String.valueOf((int) (num % 10)));
             num = num / 10;
@@ -286,7 +286,7 @@ public class Util {
 
     public static int getUniqueDigitCount(String num) {
         long number = Long.parseLong(num);
-        HashSet<Integer> uniqueDigits = new HashSet<Integer>();
+        HashSet<Integer> uniqueDigits = new HashSet<>();
         while (number > 0) {
             uniqueDigits.add((int) (number % 10));
             number = number / 10;
@@ -317,13 +317,13 @@ public class Util {
     }
 
     public static ArrayList<String> getPermutations(ArrayList<String> numbers, int length) {
-        ArrayList<String> permutations = new ArrayList<String>();
+        ArrayList<String> permutations = new ArrayList<>();
         permutation(numbers, "", permutations, length, 0);
         return permutations;
     }
 
     public static ArrayList<String> getPermutationsWithRepetition(ArrayList<String> numbers, int length) {
-        ArrayList<String> permutations = new ArrayList<String>();
+        ArrayList<String> permutations = new ArrayList<>();
         permutationWithRepetition(numbers, "", permutations, length, 0);
         return permutations;
     }
@@ -335,7 +335,7 @@ public class Util {
             return;
         }
         for (String number : numbers) {
-            ArrayList<String> temp = new ArrayList<String>();
+            ArrayList<String> temp = new ArrayList<>();
             temp.addAll(numbers);
             temp.remove(number);
             permutation(temp, num + number, permutations, length, loop + 1);
@@ -354,7 +354,7 @@ public class Util {
     }
 
     public static ArrayList<String> getCombination(ArrayList<String> numbers, int length) {
-        ArrayList<String> combinations = new ArrayList<String>();
+        ArrayList<String> combinations = new ArrayList<>();
         combination(numbers, "", combinations, length, 0);
         return combinations;
             /*StringBuilder combination;
@@ -395,7 +395,7 @@ public class Util {
                 }
             }
             return combinations;*/
-        }
+    }
 
     protected static void combination(ArrayList<String> numbers, String num,
                                       ArrayList<String> combinations, int length, int loop) {
@@ -406,7 +406,7 @@ public class Util {
         /*if(loop + numbers.size() < length){
             return;
         }*/
-        ArrayList<String> temp = new ArrayList<String>();
+        ArrayList<String> temp = new ArrayList<>();
         temp.addAll(numbers);
         for (String number : numbers) {
             temp.remove(number);
@@ -416,7 +416,7 @@ public class Util {
 
 
     public static TreeSet<Long> getTriangleNumbersByCount(long count) {
-        TreeSet<Long> triangleNums = new TreeSet<Long>();
+        TreeSet<Long> triangleNums = new TreeSet<>();
         for (long i = 1; i <= count; i++) {
             triangleNums.add((i * (i + 1)) / 2);
         }
@@ -424,7 +424,7 @@ public class Util {
     }
 
     public static TreeSet<Long> getTriangleNumbersByLimit(long limit) {
-        TreeSet<Long> triangleNums = new TreeSet<Long>();
+        TreeSet<Long> triangleNums = new TreeSet<>();
         long num, i = 0;
         while (true) {
             num = (i * (i + 1)) / 2;
@@ -447,7 +447,7 @@ public class Util {
     }*/
 
     public static TreeSet<Long> getSquareNumbersByLimit(long limit) {
-        TreeSet<Long> nums = new TreeSet<Long>();
+        TreeSet<Long> nums = new TreeSet<>();
         long num, i = 0;
         while (true) {
             num = i * i;
@@ -462,7 +462,7 @@ public class Util {
     }
 
     public static TreeSet<Long> getPentagonalNumbersByCount(long count) {
-        TreeSet<Long> nums = new TreeSet<Long>();
+        TreeSet<Long> nums = new TreeSet<>();
         for (long i = 1; i <= count; i++) {
             nums.add((i * (3 * i - 1)) / 2);
         }
@@ -470,7 +470,7 @@ public class Util {
     }
 
     public static TreeSet<Long> getPentagonalNumbersByLimit(long limit) {
-        TreeSet<Long> nums = new TreeSet<Long>();
+        TreeSet<Long> nums = new TreeSet<>();
         long num, i = 0;
         while (true) {
             num = (i * (3 * i - 1)) / 2;
@@ -485,7 +485,7 @@ public class Util {
     }
 
     public static TreeSet<Long> getHexagonalNumbersByCount(long count) {
-        TreeSet<Long> nums = new TreeSet<Long>();
+        TreeSet<Long> nums = new TreeSet<>();
         for (long i = 1; i <= count; i++) {
             nums.add(i * (2 * i - 1));
         }
@@ -493,7 +493,7 @@ public class Util {
     }
 
     public static TreeSet<Long> getHexagonalNumbersByLimit(long limit) {
-        TreeSet<Long> nums = new TreeSet<Long>();
+        TreeSet<Long> nums = new TreeSet<>();
         long num, i = 0;
         while (true) {
             num = i * (2 * i - 1);
@@ -516,7 +516,7 @@ public class Util {
     }*/
 
     public static TreeSet<Long> getHeptagonalNumbersByLimit(long limit) {
-        TreeSet<Long> nums = new TreeSet<Long>();
+        TreeSet<Long> nums = new TreeSet<>();
         long num, i = 0;
         while (true) {
             num = (i * (5 * i - 3)) / 2;
@@ -539,7 +539,7 @@ public class Util {
     }*/
 
     public static TreeSet<Long> getOctagonalNumbersByLimit(long limit) {
-        TreeSet<Long> nums = new TreeSet<Long>();
+        TreeSet<Long> nums = new TreeSet<>();
         long num, i = 0;
         while (true) {
             num = i * (3 * i - 2);
@@ -779,8 +779,8 @@ public class Util {
 
     public static long dijkstra(SimpleDirectedWeightedGraph<String, DefaultWeightedEdge> graph,
                                 String source, String target, long initialWeight) {
-        HashMap<String, Long> distance = new HashMap<String, Long>();
-        HashMap<String, Long> previous = new HashMap<String, Long>();
+        HashMap<String, Long> distance = new HashMap<>();
+        HashMap<String, Long> previous = new HashMap<>();
 
         for (String vertex : graph.vertexSet()) {
             distance.put(vertex, Long.MAX_VALUE);
@@ -788,7 +788,7 @@ public class Util {
         }
 
         distance.put(source, initialWeight);
-        HashSet<String> Q = new HashSet<String>();
+        HashSet<String> Q = new HashSet<>();
         Q.addAll(graph.vertexSet());
         while (Q.size() != 0) {
             String u = "";
@@ -823,7 +823,7 @@ public class Util {
                                       HashMap<String, Long> weights, List<String> sources, List<String> targets) {
         long minDist = Long.MAX_VALUE;
         for (String source : sources) {
-            HashMap<String, Long> distance = new HashMap<String, Long>();
+            HashMap<String, Long> distance = new HashMap<>();
             for (String vertex : graph.vertexSet()) {
                 distance.put(vertex, Long.MAX_VALUE);
             }
