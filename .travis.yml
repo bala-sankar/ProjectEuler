@@ -1,6 +1,6 @@
 language: java
 sudo: false
-script: ./gradlew -d clean build
+script: ./gradlew -d -s clean build
 
 jdk:
   - oraclejdk8
