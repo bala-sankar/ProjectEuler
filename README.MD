@@ -2,7 +2,6 @@ Project Euler
 --------------
 It provides solution for the problems in http://projecteuler.net/problems website.
 All solutions are optimized to run under 1 minute.
-[![Profile](https://projecteuler.net/profile/balasankar.png)](https://projecteuler.net/profile/balasankar.png)
 
 Automation/CI builds
 ------------------------
@@ -11,3 +10,7 @@ Automation/CI builds
 To Build/Test
 ---------------
 gradle check
+
+Badge
+---------
+[![Profile](https://projecteuler.net/profile/balasankar.png)](https://projecteuler.net/profile/balasankar.png)
