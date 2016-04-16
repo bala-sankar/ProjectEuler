@@ -5,8 +5,8 @@ All solutions are optimized to run under 1 minute.
 
 To Build/Test
 ---------------
-mvn clean test
+gradle check
 
 Automation/CI builds
 ------------------------
-http://balasankar.cloudapp.net:8080/
+[![Build Status](https://travis-ci.org/bala-sankar/ProjectEuler.svg?branch=master)](https://travis-ci.org/bala-sankar/ProjectEuler)
